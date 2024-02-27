@@ -30,7 +30,11 @@ export default defineConfig({
       },
       {
         text: '前端笔记',
-        link: '/notes/index',
+        link: '/web_notes/index',
+      },
+      {
+        text: 'java笔记',
+        link: '/java_notes/index',
       },
       {
         text: '文章杂类',
@@ -51,8 +55,8 @@ export default defineConfig({
         documentRootPath: 'docs',
         collapseDepth: 1,
         rootGroupText: '前端笔记',
-        resolvePath: '/notes/',
-        scanStartPath: 'notes',
+        resolvePath: '/web_notes/',
+        scanStartPath: 'web_notes',
         manualSortFileNameByPriority: [
           'JavaScript',
           'TypeScript',
@@ -61,6 +65,13 @@ export default defineConfig({
           'Nodejs重学',
           'MySQL',
         ],
+      },
+      {
+        documentRootPath: 'docs',
+        collapseDepth: 1,
+        rootGroupText: 'java笔记',
+        resolvePath: '/java_notes/',
+        scanStartPath: 'java_notes',
       },
       {
         documentRootPath: 'docs',
