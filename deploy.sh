@@ -16,7 +16,7 @@ echo 'blog.xbin.cn' > CNAME
 git init 
 git add -A
 git commit -m "更新文章"
-
+git remote rm origin
 # git remote add origin git@github.com:shihangbin/vitepress-notes.git
 git remote add origin https://github.com/shihangbin/vitepress-notes.git
 git push -f origin main:gh-pages 
