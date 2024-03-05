@@ -1,4 +1,4 @@
-# 模块三 idea_运算符
+# 模块三 idea\_运算符
 
 ```java
 模块二的回顾:
@@ -15,22 +15,22 @@
     b.数据类型:
       基本类型:byte short int long float double boolean char
       引用类型:类 数组 接口 枚举 注解
-          
+
   3.数据类型转换:等号左右两边类型不一致时,或者不同的类型做运算
     a.自动类型转换:小转大
       将取值范围小的类型赋值给取值范围大的类型
       取值范围小的类型和取值范围大的类型之间做运算
     b.强转:大转小
       取值范围小的数据类型 变量名 = (取值范围小的数据类型)取值范围大的数据类型
-        
-        
+
+
 模块三的重点:
   all
 ```
 
-# 第一章.IDEA的使用
+# 第一章.IDEA 的使用
 
-## 1.idea的介绍
+## 1.idea 的介绍
 
 ```java
 1.概述:开发工具
@@ -40,41 +40,35 @@
   c.不用我们打开dos命令窗口执行javac和java命令
   d.idea有强大的快捷键,生成代码,纠错等
   e.idea会自动管理我们写的代码
-      
-3.相关开发工具:eclipse myeclipse   
-    
-4.作用:加速我们的开发    
+
+3.相关开发工具:eclipse myeclipse
+
+4.作用:加速我们的开发
 ```
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-2ebefa.png" alt="1698654549891" style="zoom:80%;" />
 
-## 2.idea的目录结构
+## 2.idea 的目录结构
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-efa31c.png" alt="1698655258798" style="zoom:80%;" />
 
-> 先创建project,在project下创建module,在module下创建package -> 必须记住
+> 先创建 project,在 project 下创建 module,在 module 下创建 package -> 必须记住
 
-## 3.Project的操作
+## 3.Project 的操作
 
-### 3.1.project的创建
+### 3.1.project 的创建
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-bedc3a.png" alt="1698656313192" style="zoom:80%;" />
 
-
-
-### 3.2再次创建一个新的Project
+### 3.2 再次创建一个新的 Project
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-7bf385.png" alt="1698656369654" style="zoom:80%;" />
 
-
-
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-fb6b23.png" alt="1698656431983" style="zoom:80%;" />
-
-
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-184d0c.png" alt="1698656486848" style="zoom:80%;" />
 
-### 3.3.关闭Project
+### 3.3.关闭 Project
 
 ```java
 file-> close project
@@ -82,23 +76,19 @@ file-> close project
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-b139bd.png" alt="1698656529824" style="zoom:80%;" />
 
-
-
-### 3.4.打开project
+### 3.4.打开 project
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-bbdeff.png" alt="1698656643041" style="zoom:80%;" />
 
-## 4.module的操作
+## 4.module 的操作
 
-### 4.1.创建module
+### 4.1.创建 module
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-90bf71.png" alt="1698657956849" style="zoom:80%;" />
 
-
-
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-7e505e.png" alt="1698658056821" style="zoom:80%;" />
 
-### 4.2.关闭module
+### 4.2.关闭 module
 
 ```java
 a.对着要关闭的module右键 -> remove module -> 此时是关闭,不是真正的删除module
@@ -107,27 +97,21 @@ b.再对着关闭的module右键-> delete -> 从本地上真正删除
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-823d3b.png" alt="1698658178382" style="zoom:80%;" />
 
-
-
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-5c446e.png" alt="1698658250143" style="zoom:80%;" />![1698658413831](https://img.xbin.cn/images/2024/02/27-22-43-c82ad9.png)
 
-
-
-### 4.3.导入已有的module
+### 4.3.导入已有的 module
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-2da2fd.png" alt="1698658424190" style="zoom:80%;" />
 
-
-
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-0dbaf2.png" alt="1698658530931" style="zoom:80%;" />
 
-## 5.package的操作
+## 5.package 的操作
 
-### 5.1创建
+### 5.1 创建
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-707b94.png" alt="1698659767078" style="zoom:80%;" />
 
-### 5.2 package的删除
+### 5.2 package 的删除
 
 ```java
 右键-> delete
@@ -135,7 +119,7 @@ b.再对着关闭的module右键-> delete -> 从本地上真正删除
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-9a5085.png" alt="1698659832251" style="zoom:80%;" />
 
-### 5.3 package取名字规范
+### 5.3 package 取名字规范
 
 ```java
 1.公司域名倒着写:
@@ -151,21 +135,19 @@ b.再对着关闭的module右键-> delete -> 从本地上真正删除
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-1a69cf.png" alt="1698660554481" style="zoom:80%;" />
 
-
-
-> 1.生成main方法:输入main -> 回车
+> 1.生成 main 方法:输入 main -> 回车
 >
 > 2.生成输出语句:sout -> 回车
 >
 > 3.将变量名放到输出语句中:
 >
->    a.变量名.sout
+> a.变量名.sout
 >
->    b.变量名.soutv -> 带字符串平拼接格式的输出方式-> 输出格式好看
+> b.变量名.soutv -> 带字符串平拼接格式的输出方式-> 输出格式好看
 
 ## 7.基本设置
 
-### 7.1设置字体
+### 7.1 设置字体
 
 ```java
 file-settings
@@ -173,7 +155,7 @@ file-settings
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-acfca1.png" alt="1698660971384" style="zoom:80%;" />
 
-### 7.2设置提示的快捷键
+### 7.2 设置提示的快捷键
 
 ```java
 file-settings
@@ -214,9 +196,9 @@ file-settings
 2.没有out路径的问题
   out路径是专门存放idea自动编译生成的.class文件的
   所以需要指明out路径
-    
+
 3.src是灰色的,对着src,右键,选项中没有java class或者package
-    
+
 4.刚使用,jdk没有配置
 ```
 
@@ -228,13 +210,13 @@ file-settings
 
 ## 1.算数运算符
 
-| 符号 | 说明                                                         |
-| ---- | ------------------------------------------------------------ |
-| +    | 加法                                                         |
-| -    | 减法                                                         |
-| *    | 乘法                                                         |
+| 符号 | 说明                                                                                     |
+| ---- | ---------------------------------------------------------------------------------------- |
+| +    | 加法                                                                                     |
+| -    | 减法                                                                                     |
+| \*   | 乘法                                                                                     |
 | /    | 除法<br>如果符号前后都是整数,结果取整数部分<br>如果符号前后有一个为小数,结果就是正常小数 |
-| %    | 模,取余数部分                                                |
+| %    | 模,取余数部分                                                                            |
 
 ```java
 public class Demo01Arithmetic {
@@ -263,8 +245,8 @@ public class Demo01Arithmetic {
 ```java
 +:
   1.运算
-  2.字符串拼接:任何类型的数据遇到字符串都会变成字符串,此时+就不再是运算了,而是字符串拼接,将内容直接往后拼接    
- 
+  2.字符串拼接:任何类型的数据遇到字符串都会变成字符串,此时+就不再是运算了,而是字符串拼接,将内容直接往后拼接
+
 ```
 
 ```java
@@ -289,19 +271,19 @@ public class Demo02Arithmetic {
   ++变量 -> 前自加
   变量-- -> 后自减
   --变量 -> 前自减
-      
+
   自增和自减只变化1
-      
+
 2.使用:
   a.单独使用: ++ -- 单独为一句,没有和其他的语句掺和使用
     i++;
 
     符号前在在后都是先运算
-        
+
   b.混合使用: ++ -- 和其他的语句掺和使用了(比如:输出语句,赋值语句)
     符号在前:先运算,在使用运算后的值
     符号在后:先使用原值,使用完毕之后,自身再运算
-      
+
 ```
 
 ```java
@@ -364,19 +346,19 @@ public class Demo03Arithmetic {
 ```java
 1.基本赋值运算符:
   =  -> 先看等号右边的,再将右边的数据赋值给等号左边的变量
-      
+
 2.复合赋值运算符:
   +=:
     int i = 10;
     i+=2 -> i = i+2
-       
-        
+
+
   -=
   *=
   /=  : 取整数部分
-  %=  : 取余数部分  
-      
-3.注意:byte short 遇到复合赋值运算符,jvm会自动转型      
+  %=  : 取余数部分
+
+3.注意:byte short 遇到复合赋值运算符,jvm会自动转型
 ```
 
 ```java
@@ -404,17 +386,17 @@ public class Demo02Assignment {
 
 ```java
 1.结果:boolean型 -> 要么是true,要么是false
-2.作用:做条件判断使用    
+2.作用:做条件判断使用
 ```
 
-| 符号 | 说明                                                       |
-| ---- | ---------------------------------------------------------- |
-| ==   | 如果符号前后相等为true;否则为false                         |
-| >    | 如果符号前的数据大于符号后的数据为true,否则为false         |
-| <    | 如果符号前的数据小于符号后的数据为true,否则为false         |
-| >=   | 如果符号前的数据大于或者等于符号后的数据为true,否则为false |
-| <=   | 如果符号前的数据小于或者等于符号后的数据为true,否则为false |
-| !=   | 如果符号前后不相等为true;否则为false                       |
+| 符号 | 说明                                                         |
+| ---- | ------------------------------------------------------------ |
+| ==   | 如果符号前后相等为 true;否则为 false                         |
+| >    | 如果符号前的数据大于符号后的数据为 true,否则为 false         |
+| <    | 如果符号前的数据小于符号后的数据为 true,否则为 false         |
+| >=   | 如果符号前的数据大于或者等于符号后的数据为 true,否则为 false |
+| <=   | 如果符号前的数据小于或者等于符号后的数据为 true,否则为 false |
+| !=   | 如果符号前后不相等为 true;否则为 false                       |
 
 ```java
 public class Demo01Compare {
@@ -438,15 +420,15 @@ public class Demo01Compare {
 
 ```java
  1.作用:连接多个boolean结果的
- 2.结果:boolean型结果    
+ 2.结果:boolean型结果
 ```
 
-| 符号        | 说明                                                         |
-| ----------- | ------------------------------------------------------------ |
-| &&(与,并且) | 有假则假,符号前后有一个结果为false,整体就是false             |
-| \|\|(或者)  | 有真则真,符号前后有一个结果为true,整体就是true               |
-| !(非,取反)  | 不是true,就是false;不是false,就是true                        |
-| ^(异或)     | 符号前后结果一样为false;不一样为true<br>true^true -> false<br>true^false -> true<br>false^true -> true<br>false^false -> false |
+| 符号        | 说明                                                                                                                             |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| &&(与,并且) | 有假则假,符号前后有一个结果为 false,整体就是 false                                                                               |
+| \|\|(或者)  | 有真则真,符号前后有一个结果为 true,整体就是 true                                                                                 |
+| !(非,取反)  | 不是 true,就是 false;不是 false,就是 true                                                                                        |
+| ^(异或)     | 符号前后结果一样为 false;不一样为 true<br>true^true -> false<br>true^false -> true<br>false^true -> true<br>false^false -> false |
 
 ```java
 public class Demo01Logic {
@@ -471,12 +453,12 @@ public class Demo01Logic {
 
 ```
 
-> | 符号 | 说明                                                         |
-> | ---- | ------------------------------------------------------------ |
-> | &    | 1.单与,如果前后都是布尔型,有假则假,但是如果符号前为false,符号后的判断会继续执行<br>2.如果该符号前后都是数字,看做是位运算符 |
-> | &&   | 1.双与,有假则假,但是有短路效果,如果符号前为false,符号后的判断就不会执行了 |
-> | \|   | 1.单或,如果前后都是布尔型,有真则真,但是如果符号前为true,符号后的判断会继续执行<br>2.如果该符号前后都是数字,看做是位运算符 |
-> | \|\| | 1.双或,有真则真,但是有短路效果,如果符号前为true,符号后的判断就不会执行了 |
+> | 符号 | 说明                                                                                                                        |
+> | ---- | --------------------------------------------------------------------------------------------------------------------------- |
+> | &    | 1.单与,如果前后都是布尔型,有假则假,但是如果符号前为 false,符号后的判断会继续执行<br>2.如果该符号前后都是数字,看做是位运算符 |
+> | &&   | 1.双与,有假则假,但是有短路效果,如果符号前为 false,符号后的判断就不会执行了                                                  |
+> | \|   | 1.单或,如果前后都是布尔型,有真则真,但是如果符号前为 true,符号后的判断会继续执行<br>2.如果该符号前后都是数字,看做是位运算符  |
+> | \|\| | 1.双或,有真则真,但是有短路效果,如果符号前为 true,符号后的判断就不会执行了                                                   |
 >
 > ```java
 > public class Demo02Logic {
@@ -485,7 +467,7 @@ public class Demo01Logic {
 >         int b = 20;
 >         //boolean result01 = (++a>100)&(++b>10);
 >         //boolean result01 = (++a > 100) && (++b > 10);
-> 
+>
 >         //boolean result01 = (++a<100)|(++b>10);
 >         boolean result01 = (++a<100)||(++b>10);
 >         System.out.println("result01 = " + result01);
@@ -495,23 +477,23 @@ public class Demo01Logic {
 > }
 > ```
 >
-> 问题:定义一个变量(a),随意给一个值,判断这个变量接收的值是否在1-100之间
+> 问题:定义一个变量(a),随意给一个值,判断这个变量接收的值是否在 1-100 之间
 >
 > 1<=a<=100 -> 错误,这是数学写法
 >
-> i>=1 && i<=100 -> java写法,用逻辑运算符拼接多个判断
+> i>=1 && i<=100 -> java 写法,用逻辑运算符拼接多个判断
 
 ## 6.三元运算符
 
 ```java
 1.格式:
   boolean表达式?表达式1:表达式2
-      
+
 2.执行流程:
   先判断,如果是true,就走?后面的表达式1,否则就走:后面的表达式2
 ```
 
-### 6.1练习1
+### 6.1 练习 1
 
 ```java
 需求:小明考完试了,判断小明的分数是否及格,返回结果
@@ -528,7 +510,7 @@ public class Demo01Ternary {
 }
 ```
 
-### 6.2练习2
+### 6.2 练习 2
 
 ```java
 有两个老人,年龄分别为70  80  求出两个老人的最高年龄
@@ -539,14 +521,14 @@ public class Demo02Ternary {
     public static void main(String[] args) {
         int old1 = 70;
         int old2 = 80;
-        
+
         int max = old1>old2?old1:old2;
         System.out.println("max = " + max);
     }
 }
 ```
 
-### 6.3 练习3
+### 6.3 练习 3
 
 ```java
 有三个老人,年龄分别为70  80  60  求出三个老人的最高年龄
@@ -566,4 +548,3 @@ public class Demo03Ternary {
     }
 }
 ```
-

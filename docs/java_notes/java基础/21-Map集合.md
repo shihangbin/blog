@@ -1,4 +1,4 @@
-# 模块20.Map集合
+# 模块 20.Map 集合
 
 ```java
 模块19回顾:
@@ -22,35 +22,35 @@
     d.泛型通配符
       <? extends 类型> ?接收的泛型类型是后面类的本类以及子类
       <? super 类型> ?接收的泛型类型是后面类的本类以及父类
-          
+
   3.哈希值:计算机计算出来的十进制数,可以看成是对象的地址值
     a.要是没有重写hashCode方法,默认调用Object中的hashCode方法,计算的是对象的哈希值
     b.要是重写了hashCode方法,计算的是对象内容的哈希值
   4.HashSet集合
     特点:  元素唯一  无序 无索引 线程不安全
     数据结构: 哈希表 = 数组+链表+红黑树
-   
+
   5.LinkedHashSet
-    特点:元素唯一  有序 无索引 线程不安全  
+    特点:元素唯一  有序 无索引 线程不安全
     数据结构: 哈希表+双向链表
   6.set存储自定义对象怎么去重复 -> 重写hashCode和equals方法
-        
+
   7.去重复过程:先比较元素哈希值,再比较内容
     如果哈希值不一样,存
     如果哈希值一样,再比较内容->哈希值一样,内容不一样,存;哈希值一样,内容一样,去重复
-        
+
 模块20重点:
   1.会使用HashMap和LinkedHashMap以及知道他们的特点
   2.会使用Properties属性集
   3.会操作集合嵌套
-  4.知道哈希表结构存储元素过程    
+  4.知道哈希表结构存储元素过程
 ```
 
-# 第一章.Map集合 
+# 第一章.Map 集合
 
-<img src="https://img.xbin.cn/images/2024/03/05-21-26-07531c.png" alt="1706585149924" style="zoom:80%;" />																	
+<img src="https://img.xbin.cn/images/2024/03/05-21-26-07531c.png" alt="1706585149924" style="zoom:80%;" />
 
-## 1.Map的介绍
+## 1.Map 的介绍
 
 ```java
 1.概述:是双列集合的顶级接口
@@ -58,7 +58,7 @@
   元素都是由key(键),value(值)组成 -> 键值对
 ```
 
-## 2.HashMap的介绍和使用
+## 2.HashMap 的介绍和使用
 
 ```java
 1.概述:HashMap是Map的实现类
@@ -76,8 +76,8 @@
   V get(Object key) -> 根据key获取value
   boolean containsKey(Object key)  -> 判断集合中是否包含指定的key
   Collection<V> values() -> 获取集合中所有的value,转存到Collection集合中
-      
-  Set<K> keySet()->将Map中的key获取出来,转存到Set集合中  
+
+  Set<K> keySet()->将Map中的key获取出来,转存到Set集合中
   Set<Map.Entry<K,V>> entrySet()->获取Map集合中的键值对,转存到Set集合中
 ```
 
@@ -125,7 +125,7 @@ public class Demo01HashMap {
   e.可以存null键null值
 3.数据结构:
   哈希表+双向链表
-4.使用:和HashMap一样      
+4.使用:和HashMap一样
 ```
 
 ```java
@@ -142,12 +142,12 @@ public class Demo02LinkedHashMap {
 
 ```
 
-## 3.HashMap的两种遍历方式
+## 3.HashMap 的两种遍历方式
 
-### 3.1.方式1:获取key,根据key再获取value
+### 3.1.方式 1:获取 key,根据 key 再获取 value
 
 ```java
-Set<K> keySet()->将Map中的key获取出来,转存到Set集合中  
+Set<K> keySet()->将Map中的key获取出来,转存到Set集合中
 ```
 
 ```java
@@ -171,7 +171,7 @@ public class Demo03HashMap {
 }
 ```
 
-### 3.2.方式2:同时获取key和value
+### 3.2.方式 2:同时获取 key 和 value
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-26-3e682b.png" alt="1706592915292" style="zoom:80%;" />
 
@@ -204,7 +204,7 @@ public class Demo04HashMap {
 }
 ```
 
-## 1.Map存储自定义对象时如何去重复
+## 1.Map 存储自定义对象时如何去重复
 
 ```java
 public class Person {
@@ -276,7 +276,7 @@ public class Demo05HashMap {
 因为set集合的元素到了底层都是保存到了map的key位置上
 ```
 
-## 2.Map的练习
+## 2.Map 的练习
 
 ```java
 需求:用Map集合统计字符串中每一个字符出现的次数
@@ -323,7 +323,7 @@ public class Demo06HashMap {
 
 ```
 
-## 3.斗地主_Map版本
+## 3.斗地主\_Map 版本
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-26-82dc0b.png" alt="1706597217319" style="zoom:80%;" />
 
@@ -416,7 +416,7 @@ public class Demo07Poker {
   如果哈希值不一样,直接存
   如果哈希值一样,再去比较内容,如果内容不一样,也存
   如果哈希值一样,内容也一样,直接去重复(后面的value将前面的value覆盖)
-  
+
   哈希值一样,内容不一样->哈希冲突(哈希碰撞)
 4.要知道的点:
   a.在不指定长度时,哈希表中的数组默认长度为16,HashMap创建出来,一开始没有创建长度为16的数组
@@ -438,19 +438,19 @@ min_treeify_capacity:链表被树化时最小的数组容量:64
 
 > 1.问题:哈希表中有数组的存在,但是为啥说没有索引呢?
 >
-> ​            哈希表中虽然有数组,但是set和map却没有索引,因为存数据的时候有可能在同一个索引下形成链表,如果2索引上有一条链表,那么我们要是按照索引2获取,咱们获取哪个元素呢?所以就取消了按照索引操作的机制
+> ​ 哈希表中虽然有数组,但是 set 和 map 却没有索引,因为存数据的时候有可能在同一个索引下形成链表,如果 2 索引上有一条链表,那么我们要是按照索引 2 获取,咱们获取哪个元素呢?所以就取消了按照索引操作的机制
 >
-> 2.问题:为啥说HashMap是无序的,LinkedHashMap是有序的呢?
+> 2.问题:为啥说 HashMap 是无序的,LinkedHashMap 是有序的呢?
 >
-> ​    原因:HashMap底层哈希表为单向链表
+> ​ 原因:HashMap 底层哈希表为单向链表
 >
-> ​             <img src="https://img.xbin.cn/images/2024/03/05-21-26-7675b3.png" alt="1706609679824" style="zoom:80%;" />
+> ​ <img src="https://img.xbin.cn/images/2024/03/05-21-26-7675b3.png" alt="1706609679824" style="zoom:80%;" />
 >
-> ​             LinkedHashMap底层在哈希表的基础上加了一条双向链表    
+> ​ LinkedHashMap 底层在哈希表的基础上加了一条双向链表
 >
 > <img src="https://img.xbin.cn/images/2024/03/05-21-26-c2b46d.png" alt="1706609878497" style="zoom:80%;" />
 
-## 1.HashMap无参数构造方法的分析
+## 1.HashMap 无参数构造方法的分析
 
 ```java
 //HashMap中的静态成员变量
@@ -460,13 +460,13 @@ public HashMap() {
 }
 ```
 
-解析：使用无参数构造方法创建HashMap对象，将加载因子设置为默认的加载因子，loadFactor=0.75F。
+解析：使用无参数构造方法创建 HashMap 对象，将加载因子设置为默认的加载因子，loadFactor=0.75F。
 
-## 2.HashMap有参数构造方法分析
+## 2.HashMap 有参数构造方法分析
 
 ```java
 HashMap(int initialCapacity, float loadFactor) ->创建Map集合的时候指定底层数组长度以及加载因子
-    
+
 public HashMap(int initialCapacity, float loadFactor) {
     if (initialCapacity < 0)
     	throw new IllegalArgumentException("Illegal initial capacity: " +
@@ -483,14 +483,14 @@ public HashMap(int initialCapacity, float loadFactor) {
 
 解析：带有参数构造方法，传递哈希表的初始化容量和加载因子
 
-- 如果initialCapacity（初始化容量）小于0，直接抛出异常。
-- 如果initialCapacity大于最大容器，initialCapacity直接等于最大容器
-  - MAXIMUM_CAPACITY = 1 << 30 是最大容量  (1073741824)
-- 如果loadFactor（加载因子）小于等于0，直接抛出异常
+- 如果 initialCapacity（初始化容量）小于 0，直接抛出异常。
+- 如果 initialCapacity 大于最大容器，initialCapacity 直接等于最大容器
+  - MAXIMUM_CAPACITY = 1 << 30 是最大容量 (1073741824)
+- 如果 loadFactor（加载因子）小于等于 0，直接抛出异常
 - tableSizeFor（initialCapacity）方法计算哈希表的初始化容量。
   - 注意：哈希表是进行计算得出的容量，而初始化容量不直接等于我们传递的参数。
 
-## 3.tableSizeFor方法分析
+## 3.tableSizeFor 方法分析
 
 ```java
 static final int tableSizeFor(int cap) {
@@ -508,12 +508,12 @@ static final int tableSizeFor(int cap) {
 
 解析：该方法对我们传递的初始化容量进行位移运算，位移的结果是 8 4 2 1 码
 
-- 例如传递2，结果还是2，传递的是4，结果还是4。
-- 例如传递3，结果是4，传递5，结果是8，传递20，结果是32。
+- 例如传递 2，结果还是 2，传递的是 4，结果还是 4。
+- 例如传递 3，结果是 4，传递 5，结果是 8，传递 20，结果是 32。
 
 ## 4.Node 内部类分析
 
-哈希表是采用数组+链表的实现方法，HashMap中的内部类Node非常重要，证明HashSet是一个单向链表
+哈希表是采用数组+链表的实现方法，HashMap 中的内部类 Node 非常重要，证明 HashSet 是一个单向链表
 
 ```java
  static class Node<K,V> implements Map.Entry<K,V> {
@@ -529,14 +529,14 @@ static final int tableSizeFor(int cap) {
 }
 ```
 
-解析：内部类Node中具有4个成员变量
+解析：内部类 Node 中具有 4 个成员变量
 
 - hash，对象的哈希值
 - key，作为键的对象
-- value，作为值得对象（讲解Set集合，不牵扯值得问题）
+- value，作为值得对象（讲解 Set 集合，不牵扯值得问题）
 - next，下一个节点对象
 
-## 5.存储元素的put方法源码
+## 5.存储元素的 put 方法源码
 
 ```java
 public V put(K key, V value) {
@@ -544,12 +544,12 @@ public V put(K key, V value) {
 }
 ```
 
-解析：put方法中调研putVal方法，putVal方法中调用hash方法。
+解析：put 方法中调研 putVal 方法，putVal 方法中调用 hash 方法。
 
 - hash(key)方法：传递要存储的元素，获取对象的哈希值
-- putVal方法，传递对象哈希值和要存储的对象key
+- putVal 方法，传递对象哈希值和要存储的对象 key
 
-## 6.putVal方法源码
+## 6.putVal 方法源码
 
 ```java
 Node<K,V>[] tab; Node<K,V> p; int n, i;
@@ -557,9 +557,9 @@ Node<K,V>[] tab; Node<K,V> p; int n, i;
 		n = (tab = resize()).length;
 ```
 
-解析：方法中进行Node对象数组的判断，如果数组是null或者长度等于0，那么就会调研resize()方法进行数组的扩容。
+解析：方法中进行 Node 对象数组的判断，如果数组是 null 或者长度等于 0，那么就会调研 resize()方法进行数组的扩容。
 
-## 7.resize方法的扩容计算
+## 7.resize 方法的扩容计算
 
 ```java
 if (oldCap > 0) {
@@ -573,7 +573,7 @@ if (oldCap > 0) {
 }
 ```
 
-解析：计算结果，新的数组容量=原始数组容量<<1，也就是乘以2。
+解析：计算结果，新的数组容量=原始数组容量<<1，也就是乘以 2。
 
 ## 8.确定元素存储的索引
 
@@ -582,7 +582,7 @@ if ((p = tab[i = (n - 1) & hash]) == null)
 	 tab[i] = newNode(hash, key, value, null);
 ```
 
-解析：i = (数组长度 - 1) & 对象的哈希值，会得到一个索引，然后在此索引下tab[i]，创建链表对象。
+解析：i = (数组长度 - 1) & 对象的哈希值，会得到一个索引，然后在此索引下 tab[i]，创建链表对象。
 
 不同哈希值的对象，也是有可能存储在同一个数组索引下。
 
@@ -615,7 +615,7 @@ if ((p = tab[i = (n - 1) & hash]) == null)
 		 e = p;
 ```
 
-解析：如果对象的哈希值相同，对象的equals方法返回true，判断为一个对象，进行覆盖操作。
+解析：如果对象的哈希值相同，对象的 equals 方法返回 true，判断为一个对象，进行覆盖操作。
 
 ```java
 else {
@@ -628,7 +628,7 @@ else {
  }
 ```
 
-解析：如果对象哈希值相同，但是对象的equals方法返回false，将对此链表进行遍历，当链表没有下一个节点的时候，创建下一个节点存储对象.
+解析：如果对象哈希值相同，但是对象的 equals 方法返回 false，将对此链表进行遍历，当链表没有下一个节点的时候，创建下一个节点存储对象.
 
 # 第三章.TreeSet
 
@@ -640,13 +640,13 @@ else {
   c.不能存null
   d.线程不安全
   e.元素唯一
-3.数据结构:红黑树      
+3.数据结构:红黑树
 ```
 
 ```java
 构造:
-  TreeSet() -> 构造一个新的空 set，该 set 根据其元素的自然顺序进行排序 -> ASCII 
-  TreeSet(Comparator<? super E> comparator)构造一个新的空 TreeSet，它根据指定比较器进行排序     
+  TreeSet() -> 构造一个新的空 set，该 set 根据其元素的自然顺序进行排序 -> ASCII
+  TreeSet(Comparator<? super E> comparator)构造一个新的空 TreeSet，它根据指定比较器进行排序
 ```
 
 ```java
@@ -737,12 +737,12 @@ public class Demo01TreeSet {
   c.key唯一
   d.线程不安全
   e.不能存null
-3.数据结构:红黑树      
+3.数据结构:红黑树
 ```
 
 ```java
 构造:
-  TreeMap() -> 使用键的自然顺序构造一个新的、空的树映射 -> ASCII 
+  TreeMap() -> 使用键的自然顺序构造一个新的、空的树映射 -> ASCII
   TreeMap(Comparator<? super E> comparator)构造一个新的、空的树映射，该映射根据给定比较器进行排序
 ```
 
@@ -827,9 +827,9 @@ public class Demo02TreeMap {
 }
 ```
 
-# 第五章.Hashtable和Vector集合(了解)
+# 第五章.Hashtable 和 Vector 集合(了解)
 
-## 1.Hashtable集合
+## 1.Hashtable 集合
 
 ```java
 1.概述:Hashtable是Map的实现类
@@ -837,9 +837,9 @@ public class Demo02TreeMap {
   a.key唯一,value可重复
   b.无序
   c.无索引
-  d.线程安全   
+  d.线程安全
   e.不能存储null键,null值
-3.数据结构:哈希表      
+3.数据结构:哈希表
 ```
 
 ```java
@@ -856,15 +856,15 @@ public class Demo01Hashtable {
 }
 ```
 
-> HashMap和Hashtable区别:
+> HashMap 和 Hashtable 区别:
 >
->   相同点:元素无序,无索引,key唯一
+> 相同点:元素无序,无索引,key 唯一
 >
->   不同点:HashMap线程不安全,Hashtable线程安全
+> 不同点:HashMap 线程不安全,Hashtable 线程安全
 >
-> ​               HashMap可以存储null键null值;Hashtable不能
+> ​ HashMap 可以存储 null 键 null 值;Hashtable 不能
 
-## 2.Vector集合
+## 2.Vector 集合
 
 ```java
 1.概述:Vector是List接口的实现类
@@ -874,7 +874,7 @@ public class Demo01Hashtable {
   c.元素可重复
   d.线程安全
 3.数据结构:数组
-    
+
 4.源码分析:
   a.如果用空参构造创建对象,数组初始容量为10,如果超出范围,自动扩容,2倍
   b.如果用有参构造创建对象,如果超出了范围,自动扩容,扩的是老数组长度+指定的容量增强
@@ -893,11 +893,11 @@ public class Demo02Vector {
 }
 ```
 
-> Vector底层源码分析
+> Vector 底层源码分析
 >
 > ```java
 > Vector() 构造一个空向量，使其内部数据数组的大小为 10，其标准容量增量为零
-> Vector(int initialCapacity, int capacityIncrement)使用指定的初始容量和容量增量构造一个空的向量 
+> Vector(int initialCapacity, int capacityIncrement)使用指定的初始容量和容量增量构造一个空的向量
 > ```
 >
 > ```java
@@ -923,7 +923,7 @@ public class Demo02Vector {
 >     ensureCapacityHelper(elementCount + 1);
 >     elementData[elementCount++] = e;
 >     return true;
-> }  
+> }
 > private void ensureCapacityHelper(int minCapacity->11) {
 >     // overflow-conscious code
 >     if (minCapacity - elementData.length > 0)
@@ -952,7 +952,7 @@ public class Demo02Vector {
 >     this.elementData = new Object[initialCapacity];
 >     this.capacityIncrement = capacityIncrement;//5
 > }
-> 
+>
 > ======================================================
 > vector.add("李四");-> 假设李四是第11个元素
 > public synchronized boolean add(E e) {
@@ -960,14 +960,14 @@ public class Demo02Vector {
 >     ensureCapacityHelper(elementCount + 1);
 >     elementData[elementCount++] = e;
 >     return true;
-> }    
-> 
+> }
+>
 > private void ensureCapacityHelper(int minCapacity->11) {
 >     // overflow-conscious code
 >     if (minCapacity - elementData.length > 0)
 >         grow(minCapacity);
 > }
-> 
+>
 > private void grow(int minCapacity->11) {
 >     // overflow-conscious code
 >     int oldCapacity = elementData.length;//10
@@ -981,7 +981,7 @@ public class Demo02Vector {
 > }
 > ```
 
-# 第六章.Properties集合(属性集)
+# 第六章.Properties 集合(属性集)
 
 ```java
 1.概述:Properties 继承自 Hashtable
@@ -997,7 +997,7 @@ public class Demo02Vector {
   Object setProperty(String key, String value)  -> 存键值对
   String getProperty(String key)  ->根据key获取value的
   Set<String> stringPropertyNames()  -> 获取所有的key,保存到set集合中,相当于keySet方法
-  void load(InputStream inStream) -> 将流中的数据加载到Properties集合中(IO部分讲)    
+  void load(InputStream inStream) -> 将流中的数据加载到Properties集合中(IO部分讲)
 ```
 
 ```java
@@ -1022,7 +1022,7 @@ public class Demo01Properties {
 
 # 第七章.集合嵌套
 
-## 1.List嵌套List
+## 1.List 嵌套 List
 
 ```java
 需求:创建2个List集合,每个集合中分别存储一些字符串,将2个集合存储到第3个List集合中
@@ -1062,7 +1062,7 @@ public class Demo01ListInList {
 }
 ```
 
-## 2.List嵌套Map
+## 2.List 嵌套 Map
 
 ```java
 1班级有第三名同学，学号和姓名分别为：1=张三，2=李四，3=王五，2班有三名同学，学号和姓名分别为：1=黄晓明，2=杨颖，3=刘德华,请将同学的信息以键值对的形式存储到2个Map集合中，在将2个Map集合存储到List集合中。
@@ -1099,7 +1099,7 @@ public class Demo02ListInMap {
 
 ```
 
-## 3.Map嵌套Map
+## 3.Map 嵌套 Map
 
 ```java
 - JavaSE  集合 存储的是 学号 键，值学生姓名
@@ -1138,4 +1138,3 @@ public class Demo03MapInMap {
 }
 
 ```
-

@@ -1,34 +1,34 @@
-# 模块13.异常_Object
+# 模块 13.异常\_Object
 
 ```java
 模块十二回顾:
   1.权限修饰符:
     public -> protected -> 默认 -> private
-    
+
     a.构造一般用public :便于new对象
     b.成员方法一般用public:便于调用
     c.属性一般用private:封装思想
-        
+
   2.final:最终的
     a.修饰类:不能被继承的
     b.修饰方法:不能被重写
     c.修饰局部变量:不能被二次赋值
     d.修饰对象:地址值不能改变,但是对象中的属性值可以改变
     e.修饰成员变量:需要手动赋值,不能二次赋值
-        
+
   3.代码块:
     a.构造代码块:
       {}
       优先于构造方法执行,每new一次,构造代码块就执行一次
     b.静态代码块:
       static{
-          
+
       }
       优先于构造代码块和构造方法执行的,只执行一次
-          
+
    静态代码块>构造代码块>构造方法 -> 从执行顺序上来看
-          
-    
+
+
  4.匿名内部类:
    a.格式1:
      new 接口/抽象类(){
@@ -37,7 +37,7 @@
 
    b.格式2:
      接口/抽象类 对象名 = new 接口/抽象类(){
-         
+
          重写的方法
      }
      对象名.重写的方法();
@@ -51,25 +51,21 @@
   6.知道重写完Object中的toString以及equals方法的作用
 ```
 
-# 第一章.API文档
+# 第一章.API 文档
 
 ```java
 1.什么叫做API:Application Programming Interface,简称API,又称之为应用编程接口
              说白了:定义出来的类以及接口,以及其中的方法等
 2.为了方便我们去查询开发好的接口以及类,以及其中的方法,会对应提供一个文档 -> API文档
-                 
-3.API文档作用:查询我们要使用的对象,以及方法,是我们程序员的"字典"  
+
+3.API文档作用:查询我们要使用的对象,以及方法,是我们程序员的"字典"
 ```
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-58ff16.png" alt="1704185036101" style="zoom:80%;" />
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-38b717.png" alt="1704185224910" style="zoom:80%;" />
 
-
-
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-03ee44.png" alt="1704185319987" style="zoom:80%;" />
-
-
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-dfaa87.png" alt="1704185443350" style="zoom:80%;" />
 
@@ -78,7 +74,7 @@
 ## 1.异常介绍
 
 ```java
-1.概述:代码出现了不正常的现象;在java中,异常都是一个一个的类                
+1.概述:代码出现了不正常的现象;在java中,异常都是一个一个的类
 ```
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-8bd4dd.png" alt="1704188467029" style="zoom:80%;" />
@@ -94,7 +90,7 @@ public class Demo01Exception {
         //运行时期异常 -> ArrayIndexOutOfBoundsException
         int[] arr1 = new int[3];
         //System.out.println(arr1[4]);
-        
+
         /*
           编译时期异常:
            注意看:编译时期异常是我们代码写错了嘛?不是,当我们调用方法的时候
@@ -146,7 +142,7 @@ public class Demo03Exception {
 
 ## 4.异常处理方式(重点)
 
-### 4.1 异常处理方式一_throws
+### 4.1 异常处理方式一\_throws
 
 ```java
 1.格式:在方法参数和方法体之间位置上写
@@ -190,14 +186,14 @@ public class Demo04Exception {
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-22e4de.png" alt="1704192622348" style="zoom:80%;" />
 
-### 4.2 异常处理方式一_throws多个异常
+### 4.2 异常处理方式一\_throws 多个异常
 
 ```java
 1.格式:throws 异常1,异常2
-    
+
 2.注意:
   如果throws的多个异常之间有子父类继承关系,我们可以直接throws父类异常
-  如果不知道多个异常之间是否有子父类继承关系,我们可以直接throws Exception    
+  如果不知道多个异常之间是否有子父类继承关系,我们可以直接throws Exception
 ```
 
 ```java
@@ -238,7 +234,7 @@ public class Demo05Exception {
 }
 ```
 
-### 4.3 异常处理方式二_try...catch
+### 4.3 异常处理方式二\_try...catch
 
 ```java
 1.格式:
@@ -291,7 +287,7 @@ public class Demo06Exception {
 
 ```
 
-### 4.4.异常处理方式二_多个catch
+### 4.4.异常处理方式二\_多个 catch
 
 ```java
 1.格式:
@@ -306,10 +302,10 @@ public class Demo06Exception {
   }catch(异常 对象名){
       处理异常的代码-> 将来开发会将异常信息保存到日志文件中
   }...
-      
+
 2.注意:
   如果catch的多个异常之间有子父类继承关系,我们可以直接catch父类异常
-  如果不知道多个异常之间是否有子父类继承关系,我们也可以直接catch Exception    
+  如果不知道多个异常之间是否有子父类继承关系,我们也可以直接catch Exception
 ```
 
 ```java
@@ -369,7 +365,7 @@ public class Demo07Exception {
 
 ```
 
-## 5.finally关键字
+## 5.finally 关键字
 
 ```java
 1.概述:代表的是不管是否触发了异常,都会执行的代码块
@@ -381,7 +377,7 @@ public class Demo07Exception {
       处理异常的代码-> 将来开发会将异常信息保存到日志文件中
   }finally{
       不管是否有异常,都会执行的代码
-  }  
+  }
 ```
 
 ```java
@@ -431,13 +427,13 @@ public class Demo09Exception {
 }
 ```
 
-> finally的使用场景:
+> finally 的使用场景:
 >
->   1.关闭资源
+> 1.关闭资源
 >
->   2.原因:对象如果没有用了,GC(垃圾回收器)回收,用来回收堆内存中的垃圾,释放内存,但是有一些对象GC回收不了,比如:连接对象(Connection),IO流对象,Socket对象,这些对象GC回收不了,就需要我们自己手动回收,手动关闭
+> 2.原因:对象如果没有用了,GC(垃圾回收器)回收,用来回收堆内存中的垃圾,释放内存,但是有一些对象 GC 回收不了,比如:连接对象(Connection),IO 流对象,Socket 对象,这些对象 GC 回收不了,就需要我们自己手动回收,手动关闭
 >
-> ​      将来不能回收的对象new完之后,后续操作不管是否操作成功,是否有异常,我们都需要手动关闭,此时我们就可以将关闭资源的代码放到finally中
+> ​ 将来不能回收的对象 new 完之后,后续操作不管是否操作成功,是否有异常,我们都需要手动关闭,此时我们就可以将关闭资源的代码放到 finally 中
 >
 > ```java
 > public class Test {
@@ -456,7 +452,7 @@ public class Demo09Exception {
 >                  throw new RuntimeException(e);
 >              }
 >          }
-> 
+>
 >      }
 >  }
 > }
@@ -466,9 +462,9 @@ public class Demo09Exception {
 
 ```java
 1.如果父类中的方法抛了异常,那么子类重写之后要不要抛?
-  可抛可不抛  
-2.如果父类中的方法没有抛异常,那么子类重写之后要不要抛?  
-  不要抛  
+  可抛可不抛
+2.如果父类中的方法没有抛异常,那么子类重写之后要不要抛?
+  不要抛
 ```
 
 ```java
@@ -491,7 +487,7 @@ public class Demo10Exception {
 }
 ```
 
-## 7.try_catch和throws的使用时机
+## 7.try_catch 和 throws 的使用时机
 
 ```java
 1.如果处理异常之后,还想让后续的代码正常执行,我们使用try...catch
@@ -502,9 +498,9 @@ public class Demo10Exception {
 
 > 1.编译时期异常是必须要处理的,不处理爆红,没法往下写
 >
->    a.throws
+> a.throws
 >
->    b.try...catch
+> b.try...catch
 >
 > 2.运行时期异常我们一般不处理,一旦出现运行时期异常,肯定是代码写的有问题,我们直接修改代码细节就行啦
 
@@ -548,17 +544,17 @@ public class Demo11Exception {
 
 > 1.定义一个类
 >
-> 2.如果继承Exception 就是编译时期异常
+> 2.如果继承 Exception 就是编译时期异常
 >
-> 3.如果继承RuntimeException,就是运行时期异常
+> 3.如果继承 RuntimeException,就是运行时期异常
 
 ## 9.打印异常信息的三个方法
 
 ```java
 Throwable类中的方法:
   String toString()  :输出异常类型和设置的异常信息
-  String getMessage(): 输出设置的异常信息  
-  void printStackTrace():打印异常信息是最全的:包括异常类型,信息,以及出现的行数等      
+  String getMessage(): 输出设置的异常信息
+  void printStackTrace():打印异常信息是最全的:包括异常类型,信息,以及出现的行数等
 ```
 
 ```java
@@ -586,13 +582,13 @@ public class Demo11Exception {
 }
 ```
 
-# 第三章.Object类
+# 第三章.Object 类
 
 ```java
 1.概述:所有类的根类(父类),所有的类都会直接或者间接继承Object类
 ```
 
-## 1.Object中的toString
+## 1.Object 中的 toString
 
 ```java
 1.Object中的toString方法:返回该对象的字符串表示形式
@@ -602,8 +598,8 @@ public class Demo11Exception {
 
 2.注意:
   a.如果没有重写Object中的toString方法,直接输出对象名会默认调用Object中的toString方法,直接输出地址值
-  b.如果重写了Object中的toString方法,再输出地址值,重写没有意义,所以重写完toString之后,应该返回对象的内容  
-      
+  b.如果重写了Object中的toString方法,再输出地址值,重写没有意义,所以重写完toString之后,应该返回对象的内容
+
 3.总结:
   如果直接输出对象名不想输出地址值,就重写Object中的toString方法
 ```
@@ -666,11 +662,11 @@ public class Test01 {
 }
 ```
 
-> 快速生成toString
+> 快速生成 toString
 >
-> alt+insert -> 选择toString -> 直接下一步
+> alt+insert -> 选择 toString -> 直接下一步
 
-## 2.Object中的equals
+## 2.Object 中的 equals
 
 ```java
 1.概述:比较两个对象的地址值是否相等
@@ -678,9 +674,9 @@ public class Test01 {
         return (this == obj);
     }
 
-    == 针对于基本数据类型来说,比较的是值 
+    == 针对于基本数据类型来说,比较的是值
     == 针对于引用数据类型来说,比较的是地址值
-        
+
 2.注意:
   a.如果没有重写Object中的equals方法,那么就会调用Object中的equals方法,比较对象的地址值
   b.如果重写了Object中的equals方法,那么就会调用重写后的equals方法,应该比较对象的内容
@@ -759,7 +755,7 @@ public class Person {
         Person person = (Person) o;
         return age == person.age && Objects.equals(name, person.name);
     }
-    
+
 }
 ```
 
@@ -797,13 +793,13 @@ public class Test02 {
 
 > 小结:
 >
->   1.如果直接输出对象名不想输出地址值,重写toString方法
+> 1.如果直接输出对象名不想输出地址值,重写 toString 方法
 >
->   2.如果想比较两个对象的内容,就重写一下equals方法
+> 2.如果想比较两个对象的内容,就重写一下 equals 方法
 >
->   3.怎么重写:alt+insert -> 选toString 或者equals and hashcode -> 啥也不要管 -> 一路下一步即可
+> 3.怎么重写:alt+insert -> 选 toString 或者 equals and hashcode -> 啥也不要管 -> 一路下一步即可
 
-## 3.Object中的clone方法
+## 3.Object 中的 clone 方法
 
 ```java
 1.作用:复制一个属性值一样的新对象
@@ -911,9 +907,9 @@ public class Test03 {
 
 ## 1.java.lang.Comparable
 
-我们知道基本数据类型的数据（除boolean类型外）需要比较大小的话，之间使用比较运算符即可，但是引用数据类型是不能直接使用比较运算符来比较大小的。那么，如何解决这个问题呢？
+我们知道基本数据类型的数据（除 boolean 类型外）需要比较大小的话，之间使用比较运算符即可，但是引用数据类型是不能直接使用比较运算符来比较大小的。那么，如何解决这个问题呢？
 
-Java给所有引用数据类型的大小比较，指定了一个标准接口，就是java.lang.Comparable接口：
+Java 给所有引用数据类型的大小比较，指定了一个标准接口，就是 java.lang.Comparable 接口：
 
 ```java
 package java.lang;
@@ -925,15 +921,15 @@ public interface Comparable{
 
 那么我们想要使得我们某个类的对象可以比较大小，怎么做呢？步骤：
 
-第一步：哪个类的对象要比较大小，哪个类就实现java.lang.Comparable接口，并重写方法
+第一步：哪个类的对象要比较大小，哪个类就实现 java.lang.Comparable 接口，并重写方法
 
-* 方法体就是你要如何比较当前对象和指定的另一个对象的大小
+- 方法体就是你要如何比较当前对象和指定的另一个对象的大小
 
-第二步：对象比较大小时，通过对象调用compareTo方法，根据方法的返回值决定谁大谁小。
+第二步：对象比较大小时，通过对象调用 compareTo 方法，根据方法的返回值决定谁大谁小。
 
-* this对象（调用compareTo方法的对象）减 指定对象（传入compareTo()的参数对象）大于0,返回正整数
-* this对象（调用compareTo方法的对象）减 指定对象（传入compareTo()的参数对象）小于0 返回负整数
-* this对象（调用compareTo方法的对象）减 指定对象（传入compareTo()的参数对象）等于0 返回零
+- this 对象（调用 compareTo 方法的对象）减 指定对象（传入 compareTo()的参数对象）大于 0,返回正整数
+- this 对象（调用 compareTo 方法的对象）减 指定对象（传入 compareTo()的参数对象）小于 0 返回负整数
+- this 对象（调用 compareTo 方法的对象）减 指定对象（传入 compareTo()的参数对象）等于 0 返回零
 
 代码示例：
 
@@ -1028,11 +1024,11 @@ public class Test01 {
 
 思考：
 
-（1）如果一个类，没有实现Comparable接口，而这个类你又不方便修改（例如：一些第三方的类，你只有.class文件，没有源文件），那么这样类的对象也要比较大小怎么办？
+（1）如果一个类，没有实现 Comparable 接口，而这个类你又不方便修改（例如：一些第三方的类，你只有.class 文件，没有源文件），那么这样类的对象也要比较大小怎么办？
 
-（2）如果一个类，实现了Comparable接口，也指定了两个对象的比较大小的规则，但是此时此刻我不想按照它预定义的方法比较大小，但是我又不能随意修改，因为会影响其他地方的使用，怎么办？
+（2）如果一个类，实现了 Comparable 接口，也指定了两个对象的比较大小的规则，但是此时此刻我不想按照它预定义的方法比较大小，但是我又不能随意修改，因为会影响其他地方的使用，怎么办？
 
-JDK在设计类库之初，也考虑到这种情况了，所以又增加了一个java.util.Comparator接口。
+JDK 在设计类库之初，也考虑到这种情况了，所以又增加了一个 java.util.Comparator 接口。
 
 ```java
 package java.util;
@@ -1044,15 +1040,15 @@ public interface Comparator{
 
 那么我们想要比较某个类的两个对象的大小，怎么做呢？步骤：
 
-第一步：编写一个类，我们称之为比较器类型，实现java.util.Comparator接口，并重写方法
+第一步：编写一个类，我们称之为比较器类型，实现 java.util.Comparator 接口，并重写方法
 
-* 方法体就是你要如何指定的两个对象的大小
+- 方法体就是你要如何指定的两个对象的大小
 
-第二步：比较大小时，通过比较器类型的对象调用compare()方法，将要比较大小的两个对象作为compare方法的实参传入，根据方法的返回值决定谁大谁小。
+第二步：比较大小时，通过比较器类型的对象调用 compare()方法，将要比较大小的两个对象作为 compare 方法的实参传入，根据方法的返回值决定谁大谁小。
 
-* o1对象减o2大于0返回正整数
-* o1对象减o2小于0返回负整数
-* o1对象减o2等于0返回零
+- o1 对象减 o2 大于 0 返回正整数
+- o1 对象减 o2 小于 0 返回负整数
+- o1 对象减 o2 等于 0 返回零
 
 ```java
 public class Student implements Comparator {
@@ -1145,4 +1141,3 @@ public class Test01 {
 }
 
 ```
-

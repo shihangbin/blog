@@ -1,4 +1,4 @@
-# 模块14.基础API
+# 模块 14.基础 API
 
 ```java
 模块13回顾:
@@ -13,16 +13,16 @@
  2.异常处理:
    throws
    try...catch
-     
+
  3.finally:不管是否有异常都会执行的代码,要配合try...catch使用
-     
+
    finally的使用场景:关闭资源使用
-       
+
  4.自定义异常:
    a.定义一个类,继承Excption,变成了编译时期异常
               继承RuntimeException,变成了运行时期异常
    b.提供构造方法,便于设置异常信息
-       
+
  5.Object:所有类的根类,任何类都会直接或者间接继承Object类
    a.toString方法:
      没有重写,直接输出对象名,调用的是Object中的toString方法,输出地址值
@@ -30,22 +30,22 @@
    b.equals方法:
      没有重写,比较对象地址值
      重写了,比较对象内容
-         
+
    c.clone方法:需要实现Cloneable接口,重写clone方法
      复制一个地址值不一样,属性值一样的对象
-         
+
  6.经典接口:
    Comparable
    Comparator
-       
- 
+
+
 模块14重点:
   all
 ```
 
 # 第一章.String
 
-## 1.String介绍
+## 1.String 介绍
 
 ```java
 1.概述:String 类代表字符串
@@ -54,11 +54,11 @@
     凡是带双引号的,都是String的对象
     String s = "abc"
     "abc"就是对象;String就是对象的数据类型;s就是对象名
-        
+
   b.字符串是常量,它们的值在创建之后不能更改
     String s = "hello"
     s+="world" -> 会产生新对象
-        
+
   c.String 对象是不可变的，所以可以共享
     String s1 = "abc"
     String s2 = "abc"
@@ -66,27 +66,23 @@
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-25-c72eef.png" alt="1704349458969" style="zoom:80%;" />
 
-
-
 <img src="https://img.xbin.cn/images/2024/03/05-21-25-d86f4c.png" alt="1704349689851" style="zoom:80%;" />
 
-
-
-## 2.String的实现原理
+## 2.String 的实现原理
 
 ```java
 1.jdk8的时候:String底层是一个被final修饰的char数组-> private final char[] value;
 2.jdk9开始到之后:底层是一个被final修饰的byte数组-> private final byte[] value;
 
   一个char类型占2个字节
-  一个byte类型占1个字节 -> 省内存空间  
+  一个byte类型占1个字节 -> 省内存空间
 ```
 
 ```java
 字符串定义完之后,数组就创建好了,被final一修饰,数组的地址值直接定死
 ```
 
-## 3.String的创建
+## 3.String 的创建
 
 ```java
 1.String()  -> 利用String的无参构造创建String对象
@@ -98,10 +94,10 @@
                             GBK:一个中文占2个字节
                             UTF-8:一个中文占3个字节
                             而且,中文对应的字节一般都是负数
-                                
+
                             代码在idea中写的,idea启动的时候,会自动加一个启动参数,此启动参数为UTF-8
-                            -Dfile.encoding=UTF-8    
-    
+                            -Dfile.encoding=UTF-8
+
 5.简化形式:
   String 变量名 = ""
 ```
@@ -144,11 +140,11 @@ public class Demo02String {
 ```
 
 ```java
-1.String(char[] value, int offset, int count)->将char数组的一部分转成String对象 
+1.String(char[] value, int offset, int count)->将char数组的一部分转成String对象
          value:要转String的char数组
          offset:从数组的哪个索引开始转
          count:转多少个
-2.String(byte[] bytes, int offset, int length)->将byte数组的一部分转成String对象 
+2.String(byte[] bytes, int offset, int length)->将byte数组的一部分转成String对象
          bytes:要转String的byte数组
          offset:从数组的哪个索引开始转
          length:转多少个
@@ -196,7 +192,7 @@ public class Demo04String {
 ```java
 问1:String s = new String("abc")共有几个对象? 2个
     一个new本身   一个是"abc"
-    
+
 问2:String s = new String("abc")共创建了几个对象?  1个或者2个
     就看abc有没有提前创建出来了
 ```
@@ -225,17 +221,17 @@ public class Demo05String {
 
 > 1.字符串拼接,如果等号右边是字符串字面值拼接,不会产生新对象
 >
->   2.字符串拼接,如果等号右边有变量参数拼接,会产生新字符串对象
+> 2.字符串拼接,如果等号右边有变量参数拼接,会产生新字符串对象
 >
 >   <img src="https://img.xbin.cn/images/2024/03/05-21-25-5af896.png" alt="1704352874861" style="zoom:80%;" />
 
-# 第二章.String的方法
+# 第二章.String 的方法
 
 ## 1.判断方法
 
 ```java
 boolean equals(String s) -> 比较字符串内容
-boolean equalsIgnoreCase(String s) -> 比较字符串内容,忽略大小写           
+boolean equalsIgnoreCase(String s) -> 比较字符串内容,忽略大小写
 ```
 
 ```java
@@ -262,7 +258,7 @@ public class Demo01String {
 
 ```
 
-## 2.练习1
+## 2.练习 1
 
 ```java
 已知用户名和密码，请用程序实现模拟用户登录。总共给三次机会，登录成功与否，给出相应的提示
@@ -304,27 +300,27 @@ public class Demo02String {
 
 > ```java
 > package com.atguigu.b_stringmethod;
-> 
+>
 > import java.util.Objects;
-> 
+>
 > public class Demo03String {
 >     public static void main(String[] args) {
 >         //String s = "abc";
 >         String s = null;
 >         //method(s);
-> 
+>
 >         String s1 = null;
 >         String s2 = "abc";
 >         method01(s1,s2);
 >     }
-> 
+>
 >     /*
 >       工具类:Objects
 >       方法:判断两个对象是否相等 -> 自带防空指针作用
 >           public static boolean equals(Object a, Object b) {
 >              return (a == b) || (a != null && a.equals(b));
 >           }
-> 
+>
 >      */
 >     private static void method01(String s1, String s2) {
 >       if (Objects.equals(s1,s2)){
@@ -333,7 +329,7 @@ public class Demo02String {
 >           System.out.println("不是abc");
 >       }
 >     }
-> 
+>
 >     /*
 >       如果传递过来的对象是null,再去点其他方法,就会空指针
 >       解决:不要让一个字符串变量去点,用确定的字符串去点,可以防空
@@ -352,7 +348,6 @@ public class Demo02String {
 >     }
 > }
 > ```
->
 
 ## 3.获取功能
 
@@ -388,7 +383,7 @@ public class Demo04String {
 }
 ```
 
-## 4.练习2
+## 4.练习 2
 
 ```java
 遍历字符串
@@ -413,8 +408,8 @@ public class Demo05String {
 2.byte[] getBytes() -> 将字符串转成byte数组
 3.String replace(CharSequence c1,CharSequence c2)-> 替换字符
                  CharSequence->String的接口
-    
-4.byte[] getBytes(String charsetName) -> 按照指定的编码将字符串转成byte数组    
+
+4.byte[] getBytes(String charsetName) -> 按照指定的编码将字符串转成byte数组
 ```
 
 ```java
@@ -448,7 +443,7 @@ public class Demo06String {
 
 ```
 
-## 7.练习4
+## 7.练习 4
 
 ```java
 键盘录入一个字符串，统计该字符串中大写字母字符，小写字母字符，数字字符出现的次数(不考虑其他字符)
@@ -574,9 +569,9 @@ public class Demo09String {
 
 ```
 
-# 第四章.StringBuilder类
+# 第四章.StringBuilder 类
 
-## 1.StringBuilder的介绍
+## 1.StringBuilder 的介绍
 
 ```java
 1.概述:一个可变的字符序列,此类提供了一个与StringBuffer兼容的一套API,但是不保证同步(线程不安全,效率高)
@@ -585,9 +580,9 @@ public class Demo09String {
   a.刚讲完String,String也能做字符串拼接,直接用+即可,但是为啥还要用StringBuilder去拼接呢?
   b.原因:
     String每拼接一次,就会产生新的字符串对象,就会在堆内存中开辟新的空间,如果拼接次数多了,会占用内存,效率比较底
-        
+
     StringBuilder,底层自带一个缓冲区(没有被final修饰的byte数组)拼接字符串之后都会在此缓冲区中保存,在拼接的过程中,不会随意产生新对象,节省内存
-        
+
 4.StringBuilder的特点:
   a.底层自带缓冲区,此缓冲区是没有被final修饰的byte数组,默认长度为16
   b.如果超出了数组长度,数组会自动扩容
@@ -596,12 +591,12 @@ public class Demo09String {
     如果一次性添加的数据超出了默认的扩容数组长度(2倍+2),比如存了36个字符,超出了第一次扩容的34,就按照实际数据个数为准,就是以36扩容
 ```
 
-## 2.StringBuilder的使用
+## 2.StringBuilder 的使用
 
 ```java
 1.构造:
   StringBuilder()
-  StringBuilder(String str)    
+  StringBuilder(String str)
 ```
 
 ```java
@@ -621,7 +616,7 @@ public class Demo01StringBuilder {
 常用方法:
   StringBuilder append(任意类型数据) -> 字符串拼接,返回的是StringBuilder自己
   StringBuilder reverse()-> 字符串翻转,返回的是StringBuilder自己
-  String toString() -> 将StringBuilder转成String-> 用StringBuilder拼接字符串是为了效率,为了不占内存,那么拼完之后我们后续可能会对拼接好的字符串进行处理,就需要调用String中的方法,所以需要将StringBuilder转成String 
+  String toString() -> 将StringBuilder转成String-> 用StringBuilder拼接字符串是为了效率,为了不占内存,那么拼完之后我们后续可能会对拼接好的字符串进行处理,就需要调用String中的方法,所以需要将StringBuilder转成String
 ```
 
 ```java
@@ -649,7 +644,7 @@ public class Demo02StringBuilder {
 ```
 
 ```java
-练习:键盘录入一个字符串,判断此字符串是否为"回文内容"  
+练习:键盘录入一个字符串,判断此字符串是否为"回文内容"
     比如: abcba  上海自来水来自海上
 ```
 
@@ -687,18 +682,18 @@ public class Demo03StringBuilder {
 
 > String:拼接字符串效率低,每拼接一次,都会产生一个新的字符串对象,耗费内存资源
 >
-> StringBuilder和StringBuffer区别:
+> StringBuilder 和 StringBuffer 区别:
 >
 > a.相同点:
 >
->    用法一样,作用一样
+> 用法一样,作用一样
 >
 > b.不同点:
 >
->    StringBuilder:拼接效率比StringBuffer高
+> StringBuilder:拼接效率比 StringBuffer 高
 >
-> ​                            线程不安全
+> ​ 线程不安全
 >
->    StringBuffer:效率比较底,线程安全
+> StringBuffer:效率比较底,线程安全
 >
 > 拼接效率:StringBuilder>StringBuffer>String
