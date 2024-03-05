@@ -34,8 +34,8 @@ Nodejs 让 javascript 代码可以运行在服务端
 
 ```javascript
 <script
-	src='./index.js'
-	type='module'></script>
+  src='./index.js'
+  type='module'></script>
 ```
 
 - 在 JS 中引入 JS：一个模块中加载另一个模块`import '相对路径'`
@@ -50,7 +50,7 @@ import './a.js'
 
 ```javascript
 function foo() {
-	console.log('foo')
+  console.log('foo')
 }
 export default { a: 1, foo: foo }
 ```
@@ -125,11 +125,11 @@ const { a } = require('./a.js')
 ```javascript
 // 异步
 fs.readFile('./test.txt', 'utf-8', (err, data) => {
-	if (err) {
-		console.log('异步读取失败：', err)
-	} else {
-		console.log('异步读取成功', data)
-	}
+  if (err) {
+    console.log('异步读取失败：', err)
+  } else {
+    console.log('异步读取成功', data)
+  }
 })
 ```
 
@@ -138,10 +138,10 @@ fs.readFile('./test.txt', 'utf-8', (err, data) => {
 ```javascript
 // 同步
 try {
-	const result = fs.readFileSync('./test.txt', 'utf-8')
-	console.log('同步读取成功', result)
+  const result = fs.readFileSync('./test.txt', 'utf-8')
+  console.log('同步读取成功', result)
 } catch (error) {
-	console.log('同步读取失败', error)
+  console.log('同步读取失败', error)
 }
 ```
 
@@ -149,11 +149,11 @@ try {
 
 ```javascript
 fs.writeFile('./test.txt', 'hello world', (err) => {
-	if (err) {
-		console.log('写入失败', err)
-	} else {
-		console.log('写入成功')
-	}
+  if (err) {
+    console.log('写入失败', err)
+  } else {
+    console.log('写入成功')
+  }
 })
 ```
 
@@ -171,7 +171,7 @@ fs.copyFile('./test.txt', './test2.txt', (err) => {}
 
 - `fs.unlink`文件删除
 
-```javas
+```javascript
 fs.unlink('./test.txt', (err) => {}
 ```
 
@@ -185,11 +185,11 @@ fs.rename('./test.txt','test1.txt',(err)=>{}
 
 ```js
 fs.mkdir('./public', (err) => {
-	if (err) {
-		console.log('创建文件夹失败', err)
-	} else {
-		console.log('创建文件夹成功')
-	}
+  if (err) {
+    console.log('创建文件夹失败', err)
+  } else {
+    console.log('创建文件夹成功')
+  }
 })
 ```
 
@@ -215,13 +215,13 @@ fs.access('./a/b/c', (err) => {}
 
 ```js
 fs.stat('./a', (err, stats) => {
-	if (err) {
-		console.log('查看失败', err)
-	} else {
-		const isFile = stats.isFile()
-		const idDir = stats.isDirectory()
-		console.log(isFile, idDir)
-	}
+  if (err) {
+    console.log('查看失败', err)
+  } else {
+    const isFile = stats.isFile()
+    const idDir = stats.isDirectory()
+    console.log(isFile, idDir)
+  }
 })
 ```
 
@@ -287,15 +287,15 @@ const http = require('http')
 // request(req)：请求对象，包含了请求相关的数据和方法
 // response(res)：响应对象，包含响应相关的数据和方法
 const server = http.createServer((req, res) => {
-	res.writeHead(200, { 'Content-Type': 'application/json' })
-	res.end(
-		JSON.stringify({
-			data: 'Hello World!',
-		})
-	)
+  res.writeHead(200, { 'Content-Type': 'application/json' })
+  res.end(
+    JSON.stringify({
+      data: 'Hello World!',
+    })
+  )
 })
 
 server.listen(3000, () => {
-	console.log('服务器开启成功端口号为：http://localhost:3000/')
+  console.log('服务器开启成功端口号为：http://localhost:3000/')
 }) // http://localhost:3000/
 ```

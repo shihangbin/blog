@@ -429,7 +429,7 @@ ajax({
 
 ## fetch
 
-```·
+```js
 *XMLHttpRequest 是一个设计粗糙的 API，配置和调用方式非常混乱， 而且基于事件的异步模型写起来不友好。*
 
 **兼容性不好 polyfill: https://github.com/camsong/fetch-ie8**
