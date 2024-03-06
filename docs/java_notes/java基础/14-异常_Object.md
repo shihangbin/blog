@@ -1,7 +1,7 @@
 # 模块十四 异常 Object
 
 ```java
-模块十二回顾:
+模块十三回顾:
   1.权限修饰符:
     public -> protected -> 默认 -> private
 
