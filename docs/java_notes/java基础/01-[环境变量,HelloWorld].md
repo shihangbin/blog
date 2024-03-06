@@ -1,4 +1,6 @@
-# day01.[环境变量,HelloWorld]
+# 模块一 Java 概述
+
+## 环境变量,HelloWorld
 
 ```java
 1.会常用的dos命令
@@ -10,8 +12,6 @@
 7.知道Java入门程序所需要注意的地方
 8.知道println和print的区别
 ```
-
-# 第一章 Java 概述
 
 ## 1.1 JavaSE 课程体系介绍
 

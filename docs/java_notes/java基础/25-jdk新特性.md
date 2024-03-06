@@ -1,4 +1,4 @@
-# 模块 24.jdk 新特性
+# 模块二十五 jdk 新特性
 
 ```java
 模块23回顾:
@@ -521,7 +521,7 @@ void forEach(Consumer<? super T> action);
     }
 ```
 
-### 2.3.Stream 中的 Stream<T> filter(Predicate<? super T> predicate)方法
+### 2.3.Stream 中的 Stream< T> filter(Predicate<? super T> predicate)方法
 
 ```java
 1.方法:Stream<T> filter(Predicate<? super T> predicate)方法,返回一个新的Stream流对象
@@ -551,7 +551,7 @@ void forEach(Consumer<? super T> action);
     }
 ```
 
-### 2.4.Stream<T> limit(long maxSize):获取 Stream 流对象中的前 n 个元素,返回一个新的 Stream 流对象
+### 2.4.Stream< T> limit(long maxSize):获取 Stream 流对象中的前 n 个元素,返回一个新的 Stream 流对象
 
 ```java
 1.Stream<T> limit(long maxSize):获取Stream流对象中的前n个元素,返回一个新的Stream流对象
@@ -567,7 +567,7 @@ void forEach(Consumer<? super T> action);
     }
 ```
 
-### 2.5.Stream<T> skip(long n): 跳过 Stream 流对象中的前 n 个元素,返回一个新的 Stream 流对象
+### 2.5.Stream< T> skip(long n): 跳过 Stream 流对象中的前 n 个元素,返回一个新的 Stream 流对象
 
 ```java
 Stream<T> skip(long n): 跳过Stream流对象中的前n个元素,返回一个新的Stream流对象
@@ -584,7 +584,7 @@ Stream<T> skip(long n): 跳过Stream流对象中的前n个元素,返回一个新
 
 ```
 
-### 2.6.static <T> Stream<T> concat(Stream<? extends T> a, Stream<? extends T> b):两个流合成一个流
+### 2.6.static < T> Stream< T> concat(Stream<? extends T> a, Stream<? extends T> b):两个流合成一个流
 
 ```java
 1.方法:static <T> Stream<T> concat(Stream<? extends T> a, Stream<? extends T> b):两个流合成一个流
