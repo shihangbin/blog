@@ -22,7 +22,7 @@ hero:
   actions:
     - theme: brand
       text: 前端笔记
-      link: /notes/index
+      link: /web_notes/index
     - theme: alt
       text: 个人成长
       link: /about
