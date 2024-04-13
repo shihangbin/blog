@@ -1,6 +1,4 @@
-# java 基础
-
-## java 学习路线
+# java 学习路线
 
 1. javaSE + javaEE
 2. MySQL

@@ -1,6 +1,4 @@
-# 前端笔记
-
-## 前端学习路线
+# 前端学习路线
 
 1. html + CSS + JavaScript 能够实现页面布局.
 2. Ajax + Axios 发送网络请求
