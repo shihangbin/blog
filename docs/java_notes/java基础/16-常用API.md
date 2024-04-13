@@ -1,47 +1,6 @@
-# 模块十六 常用 API
+## 第一章.Math 类
 
-```java
-模块十五回顾:
-  String:
-    1.构造:
-      String()  String(String s) String(char[] chars) String(byte[] bytes)
-      String(char[] chars,int offset,int count) String(byte[] chars,int offset,int count)
-
-    2.判断方法:
-      equals   equalsIgnoreCase
-
-    3.获取方法:
-      length()  concat(String s)  charAt(int index) indexOf(String s) subString(开始索引)
-      subString(开始索引,结束索引) -> 含头不含尾
-
-    4.转换方法:
-      toCharArray()  getBytes()   getBytes(String charsetName) replace(c1,c2)
-
-    5.分割方法:
-      split(String regex)
-
-    6.其他方法:
-      contains(String s) endsWith(String s) statsWith(String s) toLowerCase()
-      toUpperCase() trim()
-
-
-  StringBuilder:
-    1.append(任意类型数据)
-    2.reverse()
-    3.toString()
-
-模块十五重点:
-   1.会BigInteger和BigDecimal操作
-   2.会Date和SimpleDateFormat的操作
-   3.会System中的常用方法 -> 主要是数组复制
-   4.会Arrays中的常用方法
-   5.会利用包装类定义一个标准的javabean
-   6.会包装类和String之间的转换
-```
-
-# 第一章.Math 类
-
-## 1.Math 类介绍
+### 1.Math 类介绍
 
 ```java
 1.概述:数学工具类
@@ -53,7 +12,7 @@
   类名直接调用
 ```
 
-## 2.Math 类方法
+### 2.Math 类方法
 
 ```java
 static int abs(int a) -> 求参数的绝对值
@@ -84,9 +43,9 @@ public class Demo01Math {
 }
 ```
 
-# 第二章.BigInteger
+## 第二章.BigInteger
 
-## 1.BigInteger 介绍
+### 1.BigInteger 介绍
 
 ```java
 1.问题描述:我们操作数据,将来的数据有可能非常大,大到比long还要大,这种数据我们一般称之为"对象"
@@ -101,7 +60,7 @@ public class Demo01Math {
   BigInteger divide(BigInteger val)    返回其值为 (this / val) 的 BigInteger
 ```
 
-## 2.BigInteger 使用
+### 2.BigInteger 使用
 
 ```java
 public class Demo02BigInteger {
@@ -126,9 +85,9 @@ public class Demo02BigInteger {
 >
 > BigInteger 上限:42 亿的 21 亿次方,内存根本扛不住,所以我们可以认为 BigInteger 无上限
 
-# 第三章.BigDecimal 类
+## 第三章.BigDecimal 类
 
-## 1.BigDecimal 介绍
+### 1.BigDecimal 介绍
 
 ```java
 1.问题描述:我们知道直接用float或者double做运算会出现精度损失的问题,所以将来设计到钱,我们就不能用float或者double直接做运算
@@ -156,7 +115,7 @@ public class Demo02BigInteger {
   如果除不尽,会报错,出现运算异常
 ```
 
-## 2.BigDecimal 使用
+### 2.BigDecimal 使用
 
 ```java
 public class Demo03BigDecimal {
@@ -209,7 +168,7 @@ public class Demo03BigDecimal {
 
 > double doubleValue() 将此 BigDecimal 转成 double
 
-## 3.BigDecimal 除法过时方法解决
+### 3.BigDecimal 除法过时方法解决
 
 ```java
 1.注意:如果调用的成员上面有一个横线,证明此成员过时了,底层会有一个注解@Deprecated修饰,但是过时的成员还能使用,只不过被新的成员代替了,不推荐使用了
@@ -233,9 +192,9 @@ public class Demo03BigDecimal {
     }
 ```
 
-# 第四章.Date 日期类
+## 第四章.Date 日期类
 
-## 1.Date 类的介绍
+### 1.Date 类的介绍
 
 ```java
  1.概述:表示特定的瞬间,精确到毫秒
@@ -247,7 +206,7 @@ public class Demo03BigDecimal {
    e.赤道   本初子午线(0度经线)
 ```
 
-## 2.Date 类的使用
+### 2.Date 类的使用
 
 ```java
 1.构造:
@@ -266,7 +225,7 @@ public class Demo03BigDecimal {
     }
 ```
 
-## 3.Date 类的常用方法
+### 3.Date 类的常用方法
 
 ```java
 1.void setTime(long time) -> 设置时间,传递毫秒值-> 从时间原点开始算
@@ -283,9 +242,9 @@ public class Demo03BigDecimal {
         }
 ```
 
-# 第五章.Calendar 日历类
+## 第五章.Calendar 日历类
 
-## 1.Calendar 介绍
+### 1.Calendar 介绍
 
 ```java
 1.概述:日历类,抽象类
@@ -364,9 +323,9 @@ field:代表的是日历字段-> 年 月 日 星期等,都是静态的
 >     }
 > ```
 
-# 第六章.SimpleDateFormat 日期格式化类
+## 第六章.SimpleDateFormat 日期格式化类
 
-## 1.SimpleDateFormat 介绍
+### 1.SimpleDateFormat 介绍
 
 ```java
 1.概述:日期格式化类
@@ -388,7 +347,7 @@ field:代表的是日历字段-> 年 月 日 星期等,都是静态的
 | m            | 分   |
 | s            | 秒   |
 
-## 2.SimpleDateFormat 常用方法
+### 2.SimpleDateFormat 常用方法
 
 ```java
 1.String format(Date date) -> 将Date对象按照指定的格式转成String
@@ -410,11 +369,11 @@ public class Demo03SimpleDateFormat {
 }
 ```
 
-# 第七章.JDK8 新日期类
+## 第七章.JDK8 新日期类
 
-## 1. LocalDate 本地日期
+### 1. LocalDate 本地日期
 
-### 1.1.获取 LocalDate 对象
+#### 1.1.获取 LocalDate 对象
 
 ```java
 1.概述:LocalDate是一个不可变的日期时间对象，表示日期，通常被视为年月日
@@ -436,7 +395,7 @@ public class Demo04LocalDate {
 }
 ```
 
-### 1.2.LocalDateTime 对象
+#### 1.2.LocalDateTime 对象
 
 ```java
 1.LocalDateTime概述:LocalDateTime是一个不可变的日期时间对象，代表日期时间，通常被视为年 - 月 - 日 - 时 - 分 - 秒。
@@ -459,7 +418,7 @@ public class Demo05LocalDateTime {
 }
 ```
 
-### 1.3.获取日期字段的方法 : 名字是 get 开头
+#### 1.3.获取日期字段的方法 : 名字是 get 开头
 
 ```java
 int getYear()->获取年份
@@ -479,7 +438,7 @@ private static void get() {
     }
 ```
 
-### 1.4.设置日期字段的方法 : 名字是 with 开头
+#### 1.4.设置日期字段的方法 : 名字是 with 开头
 
 ```java
 LocalDate withYear(int year):设置年份
@@ -507,7 +466,7 @@ LocalDate withDayOfMonth(int day):设置月中的天数
     }
 ```
 
-### 1.5.日期字段偏移
+#### 1.5.日期字段偏移
 
 ```java
 设置日期字段的偏移量,方法名plus开头,向后偏移
@@ -529,9 +488,9 @@ LocalDate withDayOfMonth(int day):设置月中的天数
     }
 ```
 
-## 2.Period 和 Duration 类
+### 2.Period 和 Duration 类
 
-### 2.1 Period 计算日期之间的偏差
+#### 2.1 Period 计算日期之间的偏差
 
 ```java
 方法:
@@ -555,7 +514,7 @@ LocalDate withDayOfMonth(int day):设置月中的天数
     }
 ```
 
-### 2.2 Duration 计算时间之间的偏差
+#### 2.2 Duration 计算时间之间的偏差
 
 ```java
 1.static Duration between(Temporal startInclusive, Temporal endExclusive)  -> 计算时间差
@@ -590,7 +549,7 @@ LocalDate withDayOfMonth(int day):设置月中的天数
 >
 > 如果计算时分秒,就用 Duration
 
-## 3.DateTimeFormatter 日期格式化类
+### 3.DateTimeFormatter 日期格式化类
 
 ```java
 1.获取:
@@ -616,7 +575,7 @@ LocalDate withDayOfMonth(int day):设置月中的天数
     }
 ```
 
-# 第八章.System 类
+## 第八章.System 类
 
 ```java
 1.概述:系统相关类,是一个工具类
@@ -675,7 +634,7 @@ public class Demo01System {
 }
 ```
 
-# 第九章.Arrays 数组工具类
+## 第九章.Arrays 数组工具类
 
 ```java
 1.概述:数组工具类
@@ -721,9 +680,9 @@ public class Demo02Arrays {
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-25-f7df3a.png" alt="1704703505755" style="zoom:80%;" />
 
-# 第十章.包装类
+## 第十章.包装类
 
-## 1.基本数据类型对应的引用数据类型(包装类)
+### 1.基本数据类型对应的引用数据类型(包装类)
 
 ```java
 1.概述:就是基本类型对应的类(包装类),我们需要将基本类型转成包装类,从而让基本类型拥有类的特性(说白了,将基本类型转成包装类之后,就可以使用包装类中的方法操作数据)
@@ -746,9 +705,9 @@ public class Demo02Arrays {
 | char     | Charactor |
 | boolean  | Boolean   |
 
-## 2.Integer 的介绍以及使用
+### 2.Integer 的介绍以及使用
 
-### 2.1.Integer 基本使用
+#### 2.1.Integer 基本使用
 
 ```java
 1.概述:Integer是int的包装类
@@ -819,7 +778,7 @@ public class Demo03Integer {
 }
 ```
 
-### 2.2.自动拆箱装箱
+#### 2.2.自动拆箱装箱
 
 ```java
 1.拆箱和装箱很多时候都是自动完成的
@@ -855,9 +814,9 @@ public class Demo04Integer {
 >
 > <img src="https://img.xbin.cn/images/2024/03/05-21-25-56226d.png" alt="1704704132581" style="zoom:80%;" />
 
-## 3.基本类型和 String 之间的转换
+### 3.基本类型和 String 之间的转换
 
-### 3.1 基本类型往 String 转
+#### 3.1 基本类型往 String 转
 
 ```java
 1.方式1:
@@ -879,7 +838,7 @@ public class Demo04Integer {
     }
 ```
 
-### 3.2 String 转成基本数据类型
+#### 3.2 String 转成基本数据类型
 
 ```java
 每个包装类中都有一个类似的方法:  parseXXX
@@ -959,3 +918,5 @@ public class Demo04Integer {
 >
 > 4.而且将javabean中的属性变成包装类,还可以使用包装类中的方法去操作此属性值
 > ```
+
+![模块15总结](https://img.xbin.cn/images/2024/04/13-15-50-681192.png)

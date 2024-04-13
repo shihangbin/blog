@@ -1,57 +1,4 @@
-# 模块十四 异常 Object
-
-```java
-模块十三回顾:
-  1.权限修饰符:
-    public -> protected -> 默认 -> private
-
-    a.构造一般用public :便于new对象
-    b.成员方法一般用public:便于调用
-    c.属性一般用private:封装思想
-
-  2.final:最终的
-    a.修饰类:不能被继承的
-    b.修饰方法:不能被重写
-    c.修饰局部变量:不能被二次赋值
-    d.修饰对象:地址值不能改变,但是对象中的属性值可以改变
-    e.修饰成员变量:需要手动赋值,不能二次赋值
-
-  3.代码块:
-    a.构造代码块:
-      {}
-      优先于构造方法执行,每new一次,构造代码块就执行一次
-    b.静态代码块:
-      static{
-
-      }
-      优先于构造代码块和构造方法执行的,只执行一次
-
-   静态代码块>构造代码块>构造方法 -> 从执行顺序上来看
-
-
- 4.匿名内部类:
-   a.格式1:
-     new 接口/抽象类(){
-         重写方法
-     }.重写的方法();
-
-   b.格式2:
-     接口/抽象类 对象名 = new 接口/抽象类(){
-
-         重写的方法
-     }
-     对象名.重写的方法();
-
-模块13重点:
-  1.分清楚什么是编译时期异常,什么是运行时期异常
-  2.知道处理异常的2种方式
-  3.知道finally关键字的使用场景
-  4.知道Object是啥
-  5.知道Object中toString以及equals方法的作用
-  6.知道重写完Object中的toString以及equals方法的作用
-```
-
-# 第一章.API 文档
+## 第一章.API 文档
 
 ```java
 1.什么叫做API:Application Programming Interface,简称API,又称之为应用编程接口
@@ -69,9 +16,9 @@
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-dfaa87.png" alt="1704185443350" style="zoom:80%;" />
 
-# 第二章.异常
+## 第二章.异常
 
-## 1.异常介绍
+### 1.异常介绍
 
 ```java
 1.概述:代码出现了不正常的现象;在java中,异常都是一个一个的类
@@ -111,11 +58,11 @@ public class Demo01Exception {
 
 ```
 
-## 2.异常出现的过程
+### 2.异常出现的过程
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-c084ba.png" alt="1704189581288" style="zoom:80%;" />
 
-## 3.创建异常对象(了解)
+### 3.创建异常对象(了解)
 
 > 创建异常对象,只是为了后面学习如何处理异常,其他的暂时没有啥意义
 
@@ -140,9 +87,9 @@ public class Demo03Exception {
 }
 ```
 
-## 4.异常处理方式(重点)
+### 4.异常处理方式(重点)
 
-### 4.1 异常处理方式一\_throws
+#### 4.1 异常处理方式一\_throws
 
 ```java
 1.格式:在方法参数和方法体之间位置上写
@@ -186,7 +133,7 @@ public class Demo04Exception {
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-24-22e4de.png" alt="1704192622348" style="zoom:80%;" />
 
-### 4.2 异常处理方式一\_throws 多个异常
+#### 4.2 异常处理方式一\_throws 多个异常
 
 ```java
 1.格式:throws 异常1,异常2
@@ -234,7 +181,7 @@ public class Demo05Exception {
 }
 ```
 
-### 4.3 异常处理方式二\_try...catch
+#### 4.3 异常处理方式二\_try...catch
 
 ```java
 1.格式:
@@ -287,7 +234,7 @@ public class Demo06Exception {
 
 ```
 
-### 4.4.异常处理方式二\_多个 catch
+#### 4.4.异常处理方式二\_多个 catch
 
 ```java
 1.格式:
@@ -365,7 +312,7 @@ public class Demo07Exception {
 
 ```
 
-## 5.finally 关键字
+### 5.finally 关键字
 
 ```java
 1.概述:代表的是不管是否触发了异常,都会执行的代码块
@@ -433,7 +380,7 @@ public class Demo09Exception {
 >
 > 2.原因:对象如果没有用了,GC(垃圾回收器)回收,用来回收堆内存中的垃圾,释放内存,但是有一些对象 GC 回收不了,比如:连接对象(Connection),IO 流对象,Socket 对象,这些对象 GC 回收不了,就需要我们自己手动回收,手动关闭
 >
-> ​ 将来不能回收的对象 new 完之后,后续操作不管是否操作成功,是否有异常,我们都需要手动关闭,此时我们就可以将关闭资源的代码放到 finally 中
+> 将来不能回收的对象 new 完之后,后续操作不管是否操作成功,是否有异常,我们都需要手动关闭,此时我们就可以将关闭资源的代码放到 finally 中
 >
 > ```java
 > public class Test {
@@ -458,7 +405,7 @@ public class Demo09Exception {
 > }
 > ```
 
-## 6.抛异常时注意的事项
+### 6.抛异常时注意的事项
 
 ```java
 1.如果父类中的方法抛了异常,那么子类重写之后要不要抛?
@@ -487,7 +434,7 @@ public class Demo10Exception {
 }
 ```
 
-## 7.try_catch 和 throws 的使用时机
+### 7.try_catch 和 throws 的使用时机
 
 ```java
 1.如果处理异常之后,还想让后续的代码正常执行,我们使用try...catch
@@ -504,7 +451,7 @@ public class Demo10Exception {
 >
 > 2.运行时期异常我们一般不处理,一旦出现运行时期异常,肯定是代码写的有问题,我们直接修改代码细节就行啦
 
-## 8.自定义异常
+### 8.自定义异常
 
 ```java
 1.需求:键盘录入一个用户名,实现登录功能,如果登录失败,抛出LoginUserException
@@ -548,7 +495,7 @@ public class Demo11Exception {
 >
 > 3.如果继承 RuntimeException,就是运行时期异常
 
-## 9.打印异常信息的三个方法
+### 9.打印异常信息的三个方法
 
 ```java
 Throwable类中的方法:
@@ -582,13 +529,13 @@ public class Demo11Exception {
 }
 ```
 
-# 第三章.Object 类
+## 第三章.Object 类
 
 ```java
 1.概述:所有类的根类(父类),所有的类都会直接或者间接继承Object类
 ```
 
-## 1.Object 中的 toString
+### 1.Object 中的 toString
 
 ```java
 1.Object中的toString方法:返回该对象的字符串表示形式
@@ -666,7 +613,7 @@ public class Test01 {
 >
 > alt+insert -> 选择 toString -> 直接下一步
 
-## 2.Object 中的 equals
+### 2.Object 中的 equals
 
 ```java
 1.概述:比较两个对象的地址值是否相等
@@ -799,7 +746,7 @@ public class Test02 {
 >
 > 3.怎么重写:alt+insert -> 选 toString 或者 equals and hashcode -> 啥也不要管 -> 一路下一步即可
 
-## 3.Object 中的 clone 方法
+### 3.Object 中的 clone 方法
 
 ```java
 1.作用:复制一个属性值一样的新对象
@@ -903,9 +850,9 @@ public class Test03 {
 
 ```
 
-# 第四章.经典接口
+## 第四章.经典接口
 
-## 1.java.lang.Comparable
+### 1.java.lang.Comparable
 
 我们知道基本数据类型的数据（除 boolean 类型外）需要比较大小的话，之间使用比较运算符即可，但是引用数据类型是不能直接使用比较运算符来比较大小的。那么，如何解决这个问题呢？
 
@@ -1020,7 +967,7 @@ public class Test01 {
 
 ```
 
-## 2.java.util.Comparator
+### 2.java.util.Comparator
 
 思考：
 
@@ -1141,3 +1088,5 @@ public class Test01 {
 }
 
 ```
+
+![模块13总结](https://img.xbin.cn/images/2024/04/13-15-49-27b0cd.png)

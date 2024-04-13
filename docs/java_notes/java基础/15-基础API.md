@@ -1,51 +1,6 @@
-# 模块十五 基础 API
+## 第一章.String
 
-```java
-模块十四回顾:
-  1.异常:
-    a.分类:Throwable
-      Error:错误
-      Exception:异常
-          编译时期异常:一编译,就爆红(主要还是调用了某个方法,某个方法底层抛了一个编译时期异常)
-                      Exception以及子类(除了RuntimeException之外)
-          运行时期异常:一运行就报错
-                     RuntimeException以及子类
- 2.异常处理:
-   throws
-   try...catch
-
- 3.finally:不管是否有异常都会执行的代码,要配合try...catch使用
-
-   finally的使用场景:关闭资源使用
-
- 4.自定义异常:
-   a.定义一个类,继承Excption,变成了编译时期异常
-              继承RuntimeException,变成了运行时期异常
-   b.提供构造方法,便于设置异常信息
-
- 5.Object:所有类的根类,任何类都会直接或者间接继承Object类
-   a.toString方法:
-     没有重写,直接输出对象名,调用的是Object中的toString方法,输出地址值
-     重写了,直接输出对象名,默认调用重写的toString方法,输出对象内容
-   b.equals方法:
-     没有重写,比较对象地址值
-     重写了,比较对象内容
-
-   c.clone方法:需要实现Cloneable接口,重写clone方法
-     复制一个地址值不一样,属性值一样的对象
-
- 6.经典接口:
-   Comparable
-   Comparator
-
-
-模块14重点:
-  all
-```
-
-# 第一章.String
-
-## 1.String 介绍
+### 1.String 介绍
 
 ```java
 1.概述:String 类代表字符串
@@ -68,7 +23,7 @@
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-25-d86f4c.png" alt="1704349689851" style="zoom:80%;" />
 
-## 2.String 的实现原理
+### 2.String 的实现原理
 
 ```java
 1.jdk8的时候:String底层是一个被final修饰的char数组-> private final char[] value;
@@ -82,7 +37,7 @@
 字符串定义完之后,数组就创建好了,被final一修饰,数组的地址值直接定死
 ```
 
-## 3.String 的创建
+### 3.String 的创建
 
 ```java
 1.String()  -> 利用String的无参构造创建String对象
@@ -172,7 +127,7 @@ public class Demo03String {
 
 ```
 
-## 4.String 面试题
+### 4.String 面试题
 
 ```java
 public class Demo04String {
@@ -199,7 +154,7 @@ public class Demo04String {
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-25-f022d4.png" alt="1704352535904" style="zoom:80%;" />![1704352863873](https://img.xbin.cn/images/2024/03/05-21-25-c376f3.png)
 
-## 5.字符串常见问题
+### 5.字符串常见问题
 
 ```Java
 public class Demo05String {
@@ -225,9 +180,9 @@ public class Demo05String {
 >
 >   <img src="https://img.xbin.cn/images/2024/03/05-21-25-5af896.png" alt="1704352874861" style="zoom:80%;" />
 
-# 第二章.String 的方法
+## 第二章.String 的方法
 
-## 1.判断方法
+### 1.判断方法
 
 ```java
 boolean equals(String s) -> 比较字符串内容
@@ -258,7 +213,7 @@ public class Demo01String {
 
 ```
 
-## 2.练习 1
+### 2.练习 1
 
 ```java
 已知用户名和密码，请用程序实现模拟用户登录。总共给三次机会，登录成功与否，给出相应的提示
@@ -349,7 +304,7 @@ public class Demo02String {
 > }
 > ```
 
-## 3.获取功能
+### 3.获取功能
 
 ```java
 int length() -> 获取字符串长度
@@ -383,7 +338,7 @@ public class Demo04String {
 }
 ```
 
-## 4.练习 2
+### 4.练习 2
 
 ```java
 遍历字符串
@@ -401,7 +356,7 @@ public class Demo05String {
 
 ```
 
-## 5.转换功能
+### 5.转换功能
 
 ```java
 1.char[] toCharArray() -> 将字符串转成char数组
@@ -443,7 +398,7 @@ public class Demo06String {
 
 ```
 
-## 7.练习 4
+### 7.练习 4
 
 ```java
 键盘录入一个字符串，统计该字符串中大写字母字符，小写字母字符，数字字符出现的次数(不考虑其他字符)
@@ -507,7 +462,7 @@ public class Demo07String {
 
 ```
 
-## 8.分割功能
+### 8.分割功能
 
 ```java
 1.String[] split(String regex)->按照指定的规则分割字符串
@@ -534,7 +489,7 @@ public class Demo08String {
 
 ```
 
-# 第三章.其他方法
+## 第三章.其他方法
 
 ```java
 1.boolean contains(String s) -> 判断老串儿中是否包含指定的串儿
@@ -569,9 +524,9 @@ public class Demo09String {
 
 ```
 
-# 第四章.StringBuilder 类
+## 第四章.StringBuilder 类
 
-## 1.StringBuilder 的介绍
+### 1.StringBuilder 的介绍
 
 ```java
 1.概述:一个可变的字符序列,此类提供了一个与StringBuffer兼容的一套API,但是不保证同步(线程不安全,效率高)
@@ -591,7 +546,7 @@ public class Demo09String {
     如果一次性添加的数据超出了默认的扩容数组长度(2倍+2),比如存了36个字符,超出了第一次扩容的34,就按照实际数据个数为准,就是以36扩容
 ```
 
-## 2.StringBuilder 的使用
+### 2.StringBuilder 的使用
 
 ```java
 1.构造:
@@ -670,7 +625,7 @@ public class Demo03StringBuilder {
 }
 ```
 
-## 3.练习
+### 3.练习
 
 ```java
 定义一个数组,以[元素1, 元素2, 元素3..]的形式输出,用StringBuilder拼接
@@ -692,8 +647,10 @@ public class Demo03StringBuilder {
 >
 > StringBuilder:拼接效率比 StringBuffer 高
 >
-> ​ 线程不安全
+> 线程不安全
 >
 > StringBuffer:效率比较底,线程安全
 >
 > 拼接效率:StringBuilder>StringBuffer>String
+
+![模块14总结](https://img.xbin.cn/images/2024/04/13-15-50-a5e921.png)

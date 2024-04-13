@@ -1,36 +1,6 @@
-# 模块三 idea 运算符
+## 第一章.IDEA 的使用
 
-```java
-模块二的回顾:
-  1.常量:在代码的运行过程中,值不会发生改变的数据
-    a.整数常量:所有的整数
-    b.小数常量:所有带小数点的  2.0
-    c.字符常量:带单引号的,单引号中必须有,且只能有一个内容
-    d.字符串常量:带双引号的
-    e.布尔常量:true false -> 可以当条件判断使用
-    f.空常量:null 代表数据不存在,所以不能直接使用
-  2.变量:在代码的运行过程中,会根据不同的情况而随时可以改变的数据
-    a.定义:
-      数据类型 变量名 = 值 -> 将等号右边的值赋值给等号左边的变量
-    b.数据类型:
-      基本类型:byte short int long float double boolean char
-      引用类型:类 数组 接口 枚举 注解
-
-  3.数据类型转换:等号左右两边类型不一致时,或者不同的类型做运算
-    a.自动类型转换:小转大
-      将取值范围小的类型赋值给取值范围大的类型
-      取值范围小的类型和取值范围大的类型之间做运算
-    b.强转:大转小
-      取值范围小的数据类型 变量名 = (取值范围小的数据类型)取值范围大的数据类型
-
-
-模块三的重点:
-  all
-```
-
-# 第一章.IDEA 的使用
-
-## 1.idea 的介绍
+### 1.idea 的介绍
 
 ```java
 1.概述:开发工具
@@ -48,19 +18,19 @@
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-2ebefa.png" alt="1698654549891" style="zoom:80%;" />
 
-## 2.idea 的目录结构
+### 2.idea 的目录结构
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-efa31c.png" alt="1698655258798" style="zoom:80%;" />
 
 > 先创建 project,在 project 下创建 module,在 module 下创建 package -> 必须记住
 
-## 3.Project 的操作
+### 3.Project 的操作
 
-### 3.1.project 的创建
+#### 3.1.project 的创建
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-bedc3a.png" alt="1698656313192" style="zoom:80%;" />
 
-### 3.2 再次创建一个新的 Project
+#### 3.2 再次创建一个新的 Project
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-7bf385.png" alt="1698656369654" style="zoom:80%;" />
 
@@ -68,7 +38,7 @@
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-184d0c.png" alt="1698656486848" style="zoom:80%;" />
 
-### 3.3.关闭 Project
+#### 3.3.关闭 Project
 
 ```java
 file-> close project
@@ -76,19 +46,19 @@ file-> close project
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-b139bd.png" alt="1698656529824" style="zoom:80%;" />
 
-### 3.4.打开 project
+#### 3.4.打开 project
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-bbdeff.png" alt="1698656643041" style="zoom:80%;" />
 
-## 4.module 的操作
+### 4.module 的操作
 
-### 4.1.创建 module
+#### 4.1.创建 module
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-90bf71.png" alt="1698657956849" style="zoom:80%;" />
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-7e505e.png" alt="1698658056821" style="zoom:80%;" />
 
-### 4.2.关闭 module
+#### 4.2.关闭 module
 
 ```java
 a.对着要关闭的module右键 -> remove module -> 此时是关闭,不是真正的删除module
@@ -99,19 +69,19 @@ b.再对着关闭的module右键-> delete -> 从本地上真正删除
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-5c446e.png" alt="1698658250143" style="zoom:80%;" />![1698658413831](https://img.xbin.cn/images/2024/02/27-22-43-c82ad9.png)
 
-### 4.3.导入已有的 module
+#### 4.3.导入已有的 module
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-2da2fd.png" alt="1698658424190" style="zoom:80%;" />
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-0dbaf2.png" alt="1698658530931" style="zoom:80%;" />
 
-## 5.package 的操作
+### 5.package 的操作
 
-### 5.1 创建
+#### 5.1 创建
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-707b94.png" alt="1698659767078" style="zoom:80%;" />
 
-### 5.2 package 的删除
+#### 5.2 package 的删除
 
 ```java
 右键-> delete
@@ -119,7 +89,7 @@ b.再对着关闭的module右键-> delete -> 从本地上真正删除
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-9a5085.png" alt="1698659832251" style="zoom:80%;" />
 
-### 5.3 package 取名字规范
+#### 5.3 package 取名字规范
 
 ```java
 1.公司域名倒着写:
@@ -129,7 +99,7 @@ b.再对着关闭的module右键-> delete -> 从本地上真正删除
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-c39b62.png" alt="1698660235926" style="zoom:80%;" />
 
-## 6.创建类以及基本语句生成快捷键
+### 6.创建类以及基本语句生成快捷键
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-96a885.png" alt="1698660395965" style="zoom:80%;" />
 
@@ -145,9 +115,9 @@ b.再对着关闭的module右键-> delete -> 从本地上真正删除
 >
 > b.变量名.soutv -> 带字符串平拼接格式的输出方式-> 输出格式好看
 
-## 7.基本设置
+### 7.基本设置
 
-### 7.1 设置字体
+#### 7.1 设置字体
 
 ```java
 file-settings
@@ -155,7 +125,7 @@ file-settings
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-acfca1.png" alt="1698660971384" style="zoom:80%;" />
 
-### 7.2 设置提示的快捷键
+#### 7.2 设置提示的快捷键
 
 ```java
 file-settings
@@ -163,11 +133,11 @@ file-settings
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-5ece75.png" alt="1698661137410" style="zoom:80%;" />![1698661320028](https://img.xbin.cn/images/2024/02/27-22-43-7c9c5f.png)
 
-### 7.3 设置注释字体
+#### 7.3 设置注释字体
 
 ![1698661320028](https://img.xbin.cn/images/2024/02/27-22-43-7c9c5f.png)
 
-## 8.快捷键
+### 8.快捷键
 
 | 快捷键               | 功能                                   |
 | -------------------- | -------------------------------------- |
@@ -187,7 +157,7 @@ file-settings
 
 > <img src="https://img.xbin.cn/images/2024/02/27-22-43-62cc0b.png" alt="1698662152111" style="zoom:80%;" />
 
-## 9.出现的问题
+### 9.出现的问题
 
 ```java
 1.在运行代码时会出现"找不到对应的发行源"或者"不支持发行版本"或者"无效的发行源版本",证明本地jdk版本和idea中的language level不匹配
@@ -206,9 +176,9 @@ file-settings
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-fda497.png" alt="1698663426985" style="zoom:80%;" />
 
-# 第二章.运算符
+## 第二章.运算符
 
-## 1.算数运算符
+### 1.算数运算符
 
 | 符号 | 说明                                                                                     |
 | ---- | ---------------------------------------------------------------------------------------- |
@@ -263,7 +233,7 @@ public class Demo02Arithmetic {
 }
 ```
 
-### 1.2.自增自减运算符(也算算数运算符的一种)
+#### 1.2.自增自减运算符(也算算数运算符的一种)
 
 ```java
 1.格式:
@@ -341,7 +311,7 @@ public class Demo03Arithmetic {
 
 <img src="https://img.xbin.cn/images/2024/02/27-22-43-6e1e67.png" alt="1698743122044" style="zoom:80%;" />
 
-## 3.赋值运算符
+### 3.赋值运算符
 
 ```java
 1.基本赋值运算符:
@@ -382,7 +352,7 @@ public class Demo02Assignment {
 }
 ```
 
-## 4.关系运算符(比较运算符)
+### 4.关系运算符(比较运算符)
 
 ```java
 1.结果:boolean型 -> 要么是true,要么是false
@@ -416,7 +386,7 @@ public class Demo01Compare {
 }
 ```
 
-## 5.逻辑运算符
+### 5.逻辑运算符
 
 ```java
  1.作用:连接多个boolean结果的
@@ -483,7 +453,7 @@ public class Demo01Logic {
 >
 > i>=1 && i<=100 -> java 写法,用逻辑运算符拼接多个判断
 
-## 6.三元运算符
+### 6.三元运算符
 
 ```java
 1.格式:
@@ -493,7 +463,7 @@ public class Demo01Logic {
   先判断,如果是true,就走?后面的表达式1,否则就走:后面的表达式2
 ```
 
-### 6.1 练习 1
+#### 6.1 练习 1
 
 ```java
 需求:小明考完试了,判断小明的分数是否及格,返回结果
@@ -510,7 +480,7 @@ public class Demo01Ternary {
 }
 ```
 
-### 6.2 练习 2
+#### 6.2 练习 2
 
 ```java
 有两个老人,年龄分别为70  80  求出两个老人的最高年龄
@@ -528,7 +498,7 @@ public class Demo02Ternary {
 }
 ```
 
-### 6.3 练习 3
+#### 6.3 练习 3
 
 ```java
 有三个老人,年龄分别为70  80  60  求出三个老人的最高年龄
@@ -548,3 +518,5 @@ public class Demo03Ternary {
     }
 }
 ```
+
+![模块三总结](https://img.xbin.cn/images/2024/04/13-15-31-5fd03e.png)

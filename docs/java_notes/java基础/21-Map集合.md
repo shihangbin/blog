@@ -1,56 +1,8 @@
-# 模块二十一 Map 集合
-
-```java
-模块二十回顾:
-  1.Collections集合工具类
-    方法:
-        addAll-> 批量添加元素
-        shuffle-> 元素打乱
-        sort->排序-> ascii
-        sort(集合,比较器)-> 按照指定的顺序排序
-  2.泛型:
-    a.含有泛型的类:
-      public class 类名<E>{}
-      new对象的时候确定类型
-    b.含有泛型的方法:
-      修饰符 <E> 返回值类型 方法名(E e){}
-      调用的时候确定类型
-    c.含有泛型的接口
-      public interface 接口名<E>{}
-      在实现类的时候确定类型
-      在实现类的时候还没有确定类型,只能new对象的时候确定
-    d.泛型通配符
-      <? extends 类型> ?接收的泛型类型是后面类的本类以及子类
-      <? super 类型> ?接收的泛型类型是后面类的本类以及父类
-
-  3.哈希值:计算机计算出来的十进制数,可以看成是对象的地址值
-    a.要是没有重写hashCode方法,默认调用Object中的hashCode方法,计算的是对象的哈希值
-    b.要是重写了hashCode方法,计算的是对象内容的哈希值
-  4.HashSet集合
-    特点:  元素唯一  无序 无索引 线程不安全
-    数据结构: 哈希表 = 数组+链表+红黑树
-
-  5.LinkedHashSet
-    特点:元素唯一  有序 无索引 线程不安全
-    数据结构: 哈希表+双向链表
-  6.set存储自定义对象怎么去重复 -> 重写hashCode和equals方法
-
-  7.去重复过程:先比较元素哈希值,再比较内容
-    如果哈希值不一样,存
-    如果哈希值一样,再比较内容->哈希值一样,内容不一样,存;哈希值一样,内容一样,去重复
-
-模块20重点:
-  1.会使用HashMap和LinkedHashMap以及知道他们的特点
-  2.会使用Properties属性集
-  3.会操作集合嵌套
-  4.知道哈希表结构存储元素过程
-```
-
-# 第一章.Map 集合
+## 第一章.Map 集合
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-26-07531c.png" alt="1706585149924" style="zoom:80%;" />
 
-## 1.Map 的介绍
+### 1.Map 的介绍
 
 ```java
 1.概述:是双列集合的顶级接口
@@ -58,7 +10,7 @@
   元素都是由key(键),value(值)组成 -> 键值对
 ```
 
-## 2.HashMap 的介绍和使用
+### 2.HashMap 的介绍和使用
 
 ```java
 1.概述:HashMap是Map的实现类
@@ -142,9 +94,9 @@ public class Demo02LinkedHashMap {
 
 ```
 
-## 3.HashMap 的两种遍历方式
+### 3.HashMap 的两种遍历方式
 
-### 3.1.方式 1:获取 key,根据 key 再获取 value
+#### 3.1.方式 1:获取 key,根据 key 再获取 value
 
 ```java
 Set<K> keySet()->将Map中的key获取出来,转存到Set集合中
@@ -171,7 +123,7 @@ public class Demo03HashMap {
 }
 ```
 
-### 3.2.方式 2:同时获取 key 和 value
+#### 3.2.方式 2:同时获取 key 和 value
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-26-3e682b.png" alt="1706592915292" style="zoom:80%;" />
 
@@ -204,7 +156,7 @@ public class Demo04HashMap {
 }
 ```
 
-## 1.Map 存储自定义对象时如何去重复
+### 1.Map 存储自定义对象时如何去重复
 
 ```java
 public class Person {
@@ -276,7 +228,7 @@ public class Demo05HashMap {
 因为set集合的元素到了底层都是保存到了map的key位置上
 ```
 
-## 2.Map 的练习
+### 2.Map 的练习
 
 ```java
 需求:用Map集合统计字符串中每一个字符出现的次数
@@ -323,7 +275,7 @@ public class Demo06HashMap {
 
 ```
 
-## 3.斗地主\_Map 版本
+### 3.斗地主\_Map 版本
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-26-82dc0b.png" alt="1706597217319" style="zoom:80%;" />
 
@@ -403,7 +355,7 @@ public class Demo07Poker {
 
 ```
 
-# 第二章.哈希表结构存储过程
+## 第二章.哈希表结构存储过程
 
 <img src="https://img.xbin.cn/images/2024/03/05-21-26-2e87b0.png" alt="1706607216391" style="zoom:80%;" />
 
@@ -438,19 +390,19 @@ min_treeify_capacity:链表被树化时最小的数组容量:64
 
 > 1.问题:哈希表中有数组的存在,但是为啥说没有索引呢?
 >
-> ​ 哈希表中虽然有数组,但是 set 和 map 却没有索引,因为存数据的时候有可能在同一个索引下形成链表,如果 2 索引上有一条链表,那么我们要是按照索引 2 获取,咱们获取哪个元素呢?所以就取消了按照索引操作的机制
+> 哈希表中虽然有数组,但是 set 和 map 却没有索引,因为存数据的时候有可能在同一个索引下形成链表,如果 2 索引上有一条链表,那么我们要是按照索引 2 获取,咱们获取哪个元素呢?所以就取消了按照索引操作的机制
 >
 > 2.问题:为啥说 HashMap 是无序的,LinkedHashMap 是有序的呢?
 >
-> ​ 原因:HashMap 底层哈希表为单向链表
+> 原因:HashMap 底层哈希表为单向链表
 >
-> ​ <img src="https://img.xbin.cn/images/2024/03/05-21-26-7675b3.png" alt="1706609679824" style="zoom:80%;" />
+>  <img src="https://img.xbin.cn/images/2024/03/05-21-26-7675b3.png" alt="1706609679824" style="zoom:80%;" />
 >
-> ​ LinkedHashMap 底层在哈希表的基础上加了一条双向链表
+> LinkedHashMap 底层在哈希表的基础上加了一条双向链表
 >
 > <img src="https://img.xbin.cn/images/2024/03/05-21-26-c2b46d.png" alt="1706609878497" style="zoom:80%;" />
 
-## 1.HashMap 无参数构造方法的分析
+### 1.HashMap 无参数构造方法的分析
 
 ```java
 //HashMap中的静态成员变量
@@ -462,7 +414,7 @@ public HashMap() {
 
 解析：使用无参数构造方法创建 HashMap 对象，将加载因子设置为默认的加载因子，loadFactor=0.75F。
 
-## 2.HashMap 有参数构造方法分析
+### 2.HashMap 有参数构造方法分析
 
 ```java
 HashMap(int initialCapacity, float loadFactor) ->创建Map集合的时候指定底层数组长度以及加载因子
@@ -490,7 +442,7 @@ public HashMap(int initialCapacity, float loadFactor) {
 - tableSizeFor（initialCapacity）方法计算哈希表的初始化容量。
   - 注意：哈希表是进行计算得出的容量，而初始化容量不直接等于我们传递的参数。
 
-## 3.tableSizeFor 方法分析
+### 3.tableSizeFor 方法分析
 
 ```java
 static final int tableSizeFor(int cap) {
@@ -511,7 +463,7 @@ static final int tableSizeFor(int cap) {
 - 例如传递 2，结果还是 2，传递的是 4，结果还是 4。
 - 例如传递 3，结果是 4，传递 5，结果是 8，传递 20，结果是 32。
 
-## 4.Node 内部类分析
+### 4.Node 内部类分析
 
 哈希表是采用数组+链表的实现方法，HashMap 中的内部类 Node 非常重要，证明 HashSet 是一个单向链表
 
@@ -536,7 +488,7 @@ static final int tableSizeFor(int cap) {
 - value，作为值得对象（讲解 Set 集合，不牵扯值得问题）
 - next，下一个节点对象
 
-## 5.存储元素的 put 方法源码
+### 5.存储元素的 put 方法源码
 
 ```java
 public V put(K key, V value) {
@@ -549,7 +501,7 @@ public V put(K key, V value) {
 - hash(key)方法：传递要存储的元素，获取对象的哈希值
 - putVal 方法，传递对象哈希值和要存储的对象 key
 
-## 6.putVal 方法源码
+### 6.putVal 方法源码
 
 ```java
 Node<K,V>[] tab; Node<K,V> p; int n, i;
@@ -559,7 +511,7 @@ Node<K,V>[] tab; Node<K,V> p; int n, i;
 
 解析：方法中进行 Node 对象数组的判断，如果数组是 null 或者长度等于 0，那么就会调研 resize()方法进行数组的扩容。
 
-## 7.resize 方法的扩容计算
+### 7.resize 方法的扩容计算
 
 ```java
 if (oldCap > 0) {
@@ -575,7 +527,7 @@ if (oldCap > 0) {
 
 解析：计算结果，新的数组容量=原始数组容量<<1，也就是乘以 2。
 
-## 8.确定元素存储的索引
+### 8.确定元素存储的索引
 
 ```java
 if ((p = tab[i = (n - 1) & hash]) == null)
@@ -606,7 +558,7 @@ if ((p = tab[i = (n - 1) & hash]) == null)
      0000 0000 0000 0000 0000 0000 0000 0010->2
 ```
 
-## 9.遇到重复哈希值的对象
+### 9.遇到重复哈希值的对象
 
 ```java
  Node<K,V> e; K k;
@@ -630,7 +582,7 @@ else {
 
 解析：如果对象哈希值相同，但是对象的 equals 方法返回 false，将对此链表进行遍历，当链表没有下一个节点的时候，创建下一个节点存储对象.
 
-# 第三章.TreeSet
+## 第三章.TreeSet
 
 ```java
 1.概述:TreeSet是Set的实现类
@@ -727,7 +679,7 @@ public class Demo01TreeSet {
 
 ```
 
-# 第四章.TreeMap
+## 第四章.TreeMap
 
 ```java
 1.概述:TreeMap是Map的实现类
@@ -827,9 +779,9 @@ public class Demo02TreeMap {
 }
 ```
 
-# 第五章.Hashtable 和 Vector 集合(了解)
+## 第五章.Hashtable 和 Vector 集合(了解)
 
-## 1.Hashtable 集合
+### 1.Hashtable 集合
 
 ```java
 1.概述:Hashtable是Map的实现类
@@ -862,9 +814,9 @@ public class Demo01Hashtable {
 >
 > 不同点:HashMap 线程不安全,Hashtable 线程安全
 >
-> ​ HashMap 可以存储 null 键 null 值;Hashtable 不能
+> HashMap 可以存储 null 键 null 值;Hashtable 不能
 
-## 2.Vector 集合
+### 2.Vector 集合
 
 ```java
 1.概述:Vector是List接口的实现类
@@ -981,7 +933,7 @@ public class Demo02Vector {
 > }
 > ```
 
-# 第六章.Properties 集合(属性集)
+## 第六章.Properties 集合(属性集)
 
 ```java
 1.概述:Properties 继承自 Hashtable
@@ -1020,9 +972,9 @@ public class Demo01Properties {
 
 ```
 
-# 第七章.集合嵌套
+## 第七章.集合嵌套
 
-## 1.List 嵌套 List
+### 1.List 嵌套 List
 
 ```java
 需求:创建2个List集合,每个集合中分别存储一些字符串,将2个集合存储到第3个List集合中
@@ -1062,7 +1014,7 @@ public class Demo01ListInList {
 }
 ```
 
-## 2.List 嵌套 Map
+### 2.List 嵌套 Map
 
 ```java
 1班级有第三名同学，学号和姓名分别为：1=张三，2=李四，3=王五，2班有三名同学，学号和姓名分别为：1=黄晓明，2=杨颖，3=刘德华,请将同学的信息以键值对的形式存储到2个Map集合中，在将2个Map集合存储到List集合中。
@@ -1099,7 +1051,7 @@ public class Demo02ListInMap {
 
 ```
 
-## 3.Map 嵌套 Map
+### 3.Map 嵌套 Map
 
 ```java
 - JavaSE  集合 存储的是 学号 键，值学生姓名
@@ -1138,3 +1090,5 @@ public class Demo03MapInMap {
 }
 
 ```
+
+![模块20总结](https://img.xbin.cn/images/2024/04/13-15-47-89f1e0.png)
