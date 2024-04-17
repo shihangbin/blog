@@ -3,6 +3,7 @@ import { generateSidebar } from 'vitepress-sidebar'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/',
   lang: 'zh-CN',
   title: '三九 Study Notes',
   lastUpdated: true,
