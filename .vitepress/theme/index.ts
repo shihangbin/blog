@@ -2,7 +2,8 @@ import { h, watch } from 'vue'
 import { useData, EnhanceAppContext } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 
-import { createMediumZoomProvider } from './composables/useMediumZoom'
+// 已切换到 vitepress-plugin-image-preview，保留旧实现仅作备用。
+// import { createMediumZoomProvider } from './composables/useMediumZoom'
 
 import MLayout from './components/MLayout.vue'
 import MNavLinks from './components/MNavLinks.vue'
@@ -26,7 +27,8 @@ export default {
     return h(MLayout, props)
   },
   enhanceApp({ app, router }: EnhanceAppContext) {
-    createMediumZoomProvider(app, router)
+    // 已切换到 vitepress-plugin-image-preview，停用 medium-zoom 旧方案。
+    // createMediumZoomProvider(app, router)
 
     app.provide('DEV', process.env.NODE_ENV === 'development')
 

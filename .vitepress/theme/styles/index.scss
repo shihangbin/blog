@@ -1,5 +1,6 @@
 @import './rainbow.scss';
 @import './vars.scss';
 @import './vitepress.scss';
-@import './medium-zoom.scss';
+/* 已切换到 vitepress-plugin-image-preview，停用 medium-zoom 样式。 */
+/* @import './medium-zoom.scss'; */
 @import './tailwind.scss';
