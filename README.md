@@ -1,4 +1,4 @@
-# vitepress-nav-template
+# vitepress-notes
 
 基于 VitePress 的学习笔记与导航站模板，适合用于沉淀前端、后端、全栈等分类文档。
 
