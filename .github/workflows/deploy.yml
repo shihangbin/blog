@@ -12,6 +12,13 @@ on:
 # 设置权限
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+# 仅允许一个部署任务并发执行
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 # 设置上海时区
 env:
