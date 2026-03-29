@@ -198,3 +198,48 @@ command = "npm run build"
 ## License
 
 MIT
+
+## 提交
+
+### 1) 配置远程（首次）
+
+```bash
+git remote add github https://github.com/shihangbin/blog.git
+git remote add gitee https://gitee.com/shihangbin/blog.git
+```
+
+```bash
+# 如果 github 已存在，更新地址
+git remote set-url github https://github.com/shihangbin/blog.git
+
+# 如果 gitee 已存在，更新地址
+git remote set-url gitee https://gitee.com/shihangbin/blog.git
+```
+
+```bash
+git remote -v
+```
+
+### 2) 提交代码（本地）
+
+```bash
+git add .
+git commit -m "更新内容"
+```
+
+### 3) 推送方式 A：单独推送到一个远程
+
+```bash
+git push -u github main
+```
+
+```bash
+git push -u gitee main
+```
+
+### 4) 推送方式 B：同一次提交推送到两个远程
+
+```bash
+git push -u github main && git push -u gitee main
+```
+
