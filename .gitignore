@@ -77,13 +77,13 @@ Desktop.ini
 *.gz
 *.tgz
 *.7z
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.bmp
-*.ico
-*.webp
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+# *.bmp
+# *.ico
+# *.webp
 
 # user-specific files
 *.suo

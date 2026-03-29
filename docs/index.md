@@ -7,7 +7,7 @@ hero:
   text: Study Web Notes.
   tagline: 不忘初心,方得始终!
   image:
-    src: https://img.xbin.cn/blog/20260328192021445.png
+    src: https://img.xbin.cn/blog/it.svg
     alt: WEB XBIN
   actions:
     - text: 前端导航

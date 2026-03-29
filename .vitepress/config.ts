@@ -1,5 +1,7 @@
 import { existsSync } from 'node:fs'
 import { basename, extname, resolve } from 'node:path'
+import Vue from '@vitejs/plugin-vue'
+import Markdown from 'unplugin-vue-markdown/vite'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
 import { defineConfig } from 'vitepress'
 import { withSidebar } from 'vitepress-sidebar'
@@ -72,6 +74,7 @@ const markdownIdResolver = {
 const vitePressConfigs = {
   // outDir: '../dist',
   base: APP_BASE_PATH ? `/${APP_BASE_PATH}/` : '/',
+  appearance: 'dark' as const,
   lang: 'zh-CN',
   title: 'XBIN',
   srcDir: 'docs',
@@ -85,7 +88,7 @@ const vitePressConfigs = {
 
   themeConfig: {
     i18nRouting: false,
-    favicon: '/public/favicon.ico',
+    favicon: 'https://img.xbin.cn/blog/favicon.ico',
     logo: 'https://img.xbin.cn/blog/20260328192021445.png',
     outlineTitle: '目录',
     sidebarMenuLabel: '菜单',
@@ -142,7 +145,16 @@ const vitePressConfigs = {
     categoryId: '',
   },
   vite: {
-    plugins: [markdownIdResolver, MarkdownPreview()],
+    plugins: [
+      markdownIdResolver,
+      MarkdownPreview(),
+      Vue({
+        include: [/\.vue$/, /\.md$/], // <-- allows Vue to compile Markdown files
+      }),
+      Markdown({
+        /* options */
+      }),
+    ],
   },
 }
 

@@ -19,12 +19,6 @@ export const sidebar = [
   },
   {
     documentRootPath: 'docs',
-    scanStartPath: 'other',
-    resolvePath: '/other/',
-    collapsed: true,
-  },
-  {
-    documentRootPath: 'docs',
     scanStartPath: 'project',
     resolvePath: '/project/',
     collapsed: true,
