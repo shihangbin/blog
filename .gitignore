@@ -1,0 +1,93 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# editor directories and files
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# dependencies
+node_modules
+.pnpm-store
+.pnpm
+
+# package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# compiled output
+dist
+dist-ssr
+dist-dev
+build
+output
+.cache
+.turbo
+.temp
+.tmp
+temp
+tmp
+coverage
+*.local
+
+# VitePress 专用
+docs/.vitepress/cache
+docs/.vitepress/dist
+.vitepress/cache
+.vitepress/dist
+
+# lock files（一般不忽略，但如果你不想提交也可以打开注释）
+# yarn.lock
+# package-lock.json
+# pnpm-lock.yaml
+
+# log files
+logs
+*.log
+
+# local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# system
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# misc
+*.local
+*.pid
+*.seed
+*.pid.lock
+
+# archives & media
+*.zip
+*.rar
+*.gz
+*.tgz
+*.7z
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico
+*.webp
+
+# user-specific files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
