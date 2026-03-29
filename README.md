@@ -71,7 +71,7 @@ npm run format
 
 ### 1) 新增文档
 
-在 `docs/` 下按分类创建 `.md` 文件，例如：
+在 docs 下按分类创建 md 文件，例如：
 
 ```text
 docs/frontend/JavaScript/11-事件循环.md
@@ -79,27 +79,87 @@ docs/frontend/JavaScript/11-事件循环.md
 
 ### 2) 更新顶部导航
 
-在 `.vitepress/configs/nav.ts` 中添加或修改入口链接。
+编辑 [.vitepress/configs/nav.ts](.vitepress/configs/nav.ts) 中的入口链接。
 
 ### 3) 侧边栏自动扫描
 
-在 `.vitepress/configs/sidebar.ts` 中为分类配置：
+编辑 [.vitepress/configs/sidebar.ts](.vitepress/configs/sidebar.ts)：
 
-- `documentRootPath`: 文档根目录（通常为 `docs`）
-- `scanStartPath`: 开始扫描的子目录
-- `resolvePath`: 对应访问前缀
+- documentRootPath: 文档根目录（通常为 docs）
+- scanStartPath: 开始扫描的子目录
+- resolvePath: 对应访问前缀
 
-## 关键配置说明
+## 站点定制指引
 
-### `.vitepress/config.ts`
+面向对 VitePress 不熟悉、希望快速改出自己的站点样式与内容。
 
-- `srcDir` 指向 `docs`
-- `base` 会根据 `GITHUB_REPOSITORY` 自动推导（用于 GitHub Pages 子路径）
-- `markdownIdResolver` 负责修复 Windows 下 root-relative Markdown 资源解析
+### 1) 首页内容
 
-### `vite-plugin-markdown-preview`
+修改 [docs/index.md](docs/index.md)，重点是 `hero` 与 `features`。
 
-用于处理 Markdown 中的示例预览块。若你升级该插件，建议验证 `patches/` 中补丁是否仍然适配。
+示例：
+
+```yaml
+hero:
+	name: WEB XBIN
+	text: Study Web Notes.
+	tagline: 不忘初心,方得始终!
+	image:
+		src: /logo.png
+		alt: WEB XBIN
+	actions:
+		- text: 前端导航
+			link: /nav/
+			theme: alt
+features:
+	- icon: 📖
+		title: 前端物语
+		details: 整理前端常用知识点<br />如有异议按你的理解为主，不接受反驳
+```
+
+### 2) 顶部导航
+
+修改 [.vitepress/configs/nav.ts](.vitepress/configs/nav.ts)。
+
+### 3) 导航页数据
+
+修改 [docs/nav/data.ts](docs/nav/data.ts)，每个站点项包含 `icon`、`title`、`desc`、`link`。
+
+### 4) 站点图标与标题
+
+- Head 图标配置： [.vitepress/configs/head.ts](.vitepress/configs/head.ts)
+- 站点标题与描述： [.vitepress/configs/site-config.ts](.vitepress/configs/site-config.ts)
+- 主题 Logo： [.vitepress/configs/theme-config.ts](.vitepress/configs/theme-config.ts)
+
+## 配置模块说明
+
+当前配置已模块化，主文件 [.vitepress/config.ts](.vitepress/config.ts) 仅负责组装。
+
+### 文件职责
+
+- [.vitepress/configs/index.ts](.vitepress/configs/index.ts)：统一导出入口
+- [.vitepress/configs/site-config.ts](.vitepress/configs/site-config.ts)：站点基础配置
+- [.vitepress/configs/theme-config.ts](.vitepress/configs/theme-config.ts)：主题配置
+- [.vitepress/configs/feature-config.ts](.vitepress/configs/feature-config.ts)：访客统计与评论配置
+- [.vitepress/configs/vite-plugins.ts](.vitepress/configs/vite-plugins.ts)：插件集合
+- [.vitepress/configs/markdown-id-resolver.ts](.vitepress/configs/markdown-id-resolver.ts)：Windows 路径解析修复
+- [.vitepress/configs/head.ts](.vitepress/configs/head.ts)：head 标签
+- [.vitepress/configs/nav.ts](.vitepress/configs/nav.ts)：顶部导航
+- [.vitepress/configs/sidebar.ts](.vitepress/configs/sidebar.ts)：侧边栏
+
+### 主配置组装关系
+
+1. 根据 `GITHUB_REPOSITORY` 计算 `base`
+2. 合并 `createSiteConfig(head)`
+3. 设置 `themeConfig = createThemeConfig(nav)`
+4. 合并 `featureConfig`
+5. 注入 `vite.plugins = vitePlugins`
+
+### 维护建议
+
+- 主配置仅保留组装逻辑，避免业务细节堆叠
+- 每个模块只维护单一职责
+- 调整插件后执行一次 `npm run build` 回归
 
 ## 部署说明
 
@@ -123,10 +183,10 @@ command = "npm run build"
 
 ### ENOENT: no such file or directory, open 'D:\\fullstack...\\index.md'
 
-这通常是 Windows 下 root-relative Markdown 路径被错误解析导致。项目已在 `.vitepress/config.ts` 中通过 `markdownIdResolver` 增加多级回退策略：
+这通常是 Windows 下 root-relative Markdown 路径被错误解析导致。项目已在 [.vitepress/configs/markdown-id-resolver.ts](.vitepress/configs/markdown-id-resolver.ts) 中增加多级回退策略：
 
-- 路由无扩展名时回退到 `docs/**.md` 或 `docs/**/index.md`
-- 请求 `.../index.md` 时回退到同级 `... .md`
+- 路由无扩展名时回退到 docs/**.md 或 docs/**/index.md
+- 请求 .../index.md 时回退到同级 ... .md
 - 自动处理 URL 编码与 query/hash
 
 如仍有个别页面报错，先检查：
