@@ -2,7 +2,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -10,5 +11,15 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-   "prettier.enable": true
+  "prettier.enable": true,
+  "prettier.printWidth": 120,
+  "prettier.tabWidth": 2,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "markdown.extension.sectionNumbers.enabled": true,
+  "markdown.extension.sectionNumbers.startLevel": 1,
+  "markdown.extension.sectionNumbers.endLevel": 4,
+  "markdown.extension.sectionNumbers.delimiter": ".",
+  "markdown.extension.sectionNumbers.space": true,
+  "markdown.extension.sectionNumbers.updateOnSave": true
 }
