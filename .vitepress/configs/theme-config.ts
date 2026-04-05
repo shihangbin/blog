@@ -35,7 +35,7 @@ export const createThemeConfig = (nav: DefaultTheme.Config['nav']) => ({
   socialLinks: [{ icon: 'github', link: 'https://github.com/shihangbin' }],
 
   editLink: {
-    pattern: 'https://github.com/shihangbin/vitepress-notes/edit/maindocs/:path',
+    pattern: 'https://github.com/shihangbin/blog/edit/maindocs/:path',
     text: '在Github上编辑页面',
   },
 })
