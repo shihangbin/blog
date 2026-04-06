@@ -1,10 +1,10 @@
 # 功能测试页
 
-## medium-zoom
+## `medium-zoom`
 
 ![medium-zoom](https://img.xbin.cn/blog/20260328192021445.png)
 
-## vite-plugin-markdown-preview
+## `vite-plugin-markdown-preview`
 
 ```vue preview
 <template>

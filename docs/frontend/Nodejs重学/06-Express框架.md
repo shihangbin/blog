@@ -1,30 +1,30 @@
-# Express
+# `Express`
 
 官网: https://www.expressjs.com.cn/
 
-前面我们已经学习了使用 http 内置模块来搭建 Web 服务器，为什么还要使用框架？
+前面我们已经学习了使用 `http` 内置模块来搭建 `Web` 服务器，为什么还要使用框架？
 
-- 原生 http 在进行很多处理时，会较为复杂；
-- 有 URL 判断、Method 判断、参数处理、逻辑代码处理等，都需要我们自己来处理和封装；
+- 原生 `http` 在进行很多处理时，会较为复杂；
+- 有 `URL` 判断、`Method` 判断、参数处理、逻辑代码处理等，都需要我们自己来处理和封装；
 - 并且所有的内容都放在一起，会非常的混乱；
 
-目前在 Node 中比较流行的 Web 服务器框架是 express、koa；
+目前在 `Node` 中比较流行的 `Web` 服务器框架是 `express`、`koa`；
 
-- 我们先来学习 express，后面再学习 koa，并且对他们进行对比；
+- 我们先来学习 `express`，后面再学习 `koa`，并且对他们进行对比；
 
-express 早于 koa 出现，并且在 Node 社区中迅速流行起来：
+`express` 早于 `koa` 出现，并且在 `Node` 社区中迅速流行起来：
 
-- 我们可以基于 express 快速、方便的开发自己的 Web 服务器；
+- 我们可以基于 `express` 快速、方便的开发自己的 `Web` 服务器；
 - 并且可以通过一些实用工具和中间件来扩展自己功能；
 
-## Express 安装
+## `Express` 安装
 
-express 的使用过程有两种方式：
+`express` 的使用过程有两种方式：
 
-- 方式一：通过 express 提供的脚手架，直接创建一个应用的骨架；
-- 方式二：从零搭建自己的 express 应用结构；
+- 方式一：通过 `express` 提供的脚手架，直接创建一个应用的骨架；
+- 方式二：从零搭建自己的 `express` 应用结构；
 
-方式一：安装 express-generator
+方式一：安装 `express-generator`
 
 ```sh
 # 安装脚手架
@@ -37,7 +37,7 @@ npm install
 node bin/www
 ```
 
-方式二：从零搭建自己的 express 应用结构；
+方式二：从零搭建自己的 `express` 应用结构；
 
 ```sh
 npm init -y
@@ -69,9 +69,9 @@ app.listen(9000, () => {
 
 ## 认识中间件
 
-- 请求对象（request 对象）；
-- 响应对象（response 对象）；
-- next 函数（在 express 中定义的用于执行下一个中间件的函数）
+- 请求对象（`request` 对象）；
+- 响应对象（`response` 对象）；
+- `next` 函数（在 `express` 中定义的用于执行下一个中间件的函数）
 
 ```js
 const express = require('express')
@@ -351,7 +351,7 @@ app.listen(9000, () => {
 })
 ```
 
-## 中间件应用-urlencoded
+## 中间件应用-`urlencoded`
 
 ```js
 const express = require('express')
@@ -453,7 +453,7 @@ app.listen(9000, () => {
 })
 ```
 
-## formdata 解析
+## `formdata` 解析
 
 ```js
 const express = require('express')
@@ -482,13 +482,13 @@ app.listen(9000, () => {
 
 ## 客户端参数解析
 
-客户端传递到服务器参数的方法常见的是 5 种：
+客户端传递到服务器参数的方法常见的是 `5` 种：
 
-- 方式一：通过 get 请求中的 URL 的 params；
-- 方式二：通过 get 请求中的 URL 的 query；
-- 方式三：通过 post 请求中的 body 的 json 格式（中间件中已经使用过）；
-- 方式四：通过 post 请求中的 body 的 x-www-form-urlencoded 格式（中间件使用过）；
-- 方式五：通过 post 请求中的 form-data 格式（中间件中使用过）；
+- 方式一：通过 `get` 请求中的 `URL` 的 `params`；
+- 方式二：通过 `get` 请求中的 `URL` 的 `query`；
+- 方式三：通过 `post` 请求中的 `body` 的 `json` 格式（中间件中已经使用过）；
+- 方式四：通过 `post` 请求中的 `body` 的 `x-www-form-urlencoded` 格式（中间件使用过）；
+- 方式五：通过 `post` 请求中的 `form-data` 格式（中间件中使用过）；
 
 ```js
 const express = require('express')
@@ -521,15 +521,15 @@ app.listen(9000, () => {
 
 ## 服务器返回数据方式
 
-end 方法
+`end` 方法
 
-- 类似于 http 中的 response.end 方法，用法是一致的
+- 类似于 `http` 中的 `response.end` 方法，用法是一致的
 
-json 方法
+`json` 方法
 
-- json 方法中可以传入很多的类型：object、array、string、`boolean`、number、`null` 等，它们会被转换成 json 格式返回；
+- `json` 方法中可以传入很多的类型：`object`、`array`、`string`、`boolean`、`number`、`null` 等，它们会被转换成 `json` 格式返回；
 
-status 方法
+`status` 方法
 
 - 用于设置状态码；
 - 注意：这里是一个函数，而不是属性赋值；更多响应的方式：https://www.expressjs.com.cn/4x/api.html#res
@@ -568,7 +568,7 @@ app.listen(9000, () => {
 })
 ```
 
-## Express 中路由的使用方式
+## `Express` 中路由的使用方式
 
 ```js
 // 路由文件
@@ -623,7 +623,7 @@ app.listen(9000, () => {
 })
 ```
 
-## Express 静态资源服务器
+## `Express` 静态资源服务器
 
 ```js
 const express = require('express')
@@ -644,7 +644,7 @@ app.listen(9000, () => {
 })
 ```
 
-## Express 错误处理方案
+## `Express` 错误处理方案
 
 ```js
 const express = require('express')

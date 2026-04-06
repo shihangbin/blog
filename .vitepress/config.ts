@@ -26,6 +26,16 @@ const vitePressConfigs = {
   themeConfig,
   ...featureConfig,
   vite: {
+    css: {
+      preprocessorOptions: {
+        sass: {
+          api: 'modern-compiler',
+        },
+        scss: {
+          api: 'modern-compiler',
+        },
+      },
+    },
     plugins: vitePlugins,
   },
 }

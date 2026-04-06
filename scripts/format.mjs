@@ -16,52 +16,6 @@ const EXTS = getArg('ext', '.md,.mdx')
 const DRY_RUN = args.includes('--dry-run')
 const VERIFY = args.includes('--verify')
 
-const keywords = [
-  'class',
-  'public',
-  'private',
-  'protected',
-  'static',
-  'final',
-  'void',
-  'int',
-  'long',
-  'float',
-  'double',
-  'boolean',
-  'byte',
-  'short',
-  'char',
-  'if',
-  'else',
-  'for',
-  'while',
-  'switch',
-  'case',
-  'break',
-  'continue',
-  'return',
-  'new',
-  'null',
-  'true',
-  'false',
-  'import',
-  'package',
-  'try',
-  'catch',
-  'throw',
-  'throws',
-  'extends',
-  'implements',
-  'interface',
-]
-
-const kw = Array.from(new Set(keywords)).sort((a, b) => b.length - a.length)
-const kwRe = new RegExp(
-  `\\b(${kw.map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`,
-  'g'
-)
-
 function walk(dir) {
   const out = []
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -96,13 +50,21 @@ function splitByFences(content) {
     buf = []
   }
 
-  for (const line of lines) {
+  for (let line of lines) {
     if (!inFence) {
       const mk = parseFenceMarker(line)
       if (mk) {
         flush('normal')
         inFence = true
         st = mk
+
+        // === 新增：如果代码块没有指定语言，默认补上 shell ===
+        const fenceStr = mk.ch.repeat(mk.len)
+        const afterFence = line.substring(line.indexOf(fenceStr) + mk.len).trim()
+        if (!afterFence) {
+          line = line.replace(fenceStr, fenceStr + 'shell')
+        }
+
         buf.push(line)
       } else {
         buf.push(line)
@@ -124,35 +86,61 @@ function transformNormalPart(text) {
   const bag = []
   const prot = m => {
     bag.push(m)
-    return `@@PROT_${bag.length - 1}@@`
+    return `『『${bag.length - 1}』』`
   }
 
   let t = text
 
-  // 1. 保护 Script 和 Style 块（VitePress 特有）
+  // === 0. 预处理 ===
+  t = t.replace(/\\<([^>]+)>/g, '`<$1>`')
+  t = t.replace(/\\\[([^\]]+)\]/g, '`[$1]`')
+
+  // === 保护各种语法块 ===
+  t = t.replace(/^---\n[\s\S]*?\n---/g, prot)
   t = t.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, prot)
-
-  // 2. 保护 HTML/Vue 标签（支持跨多行的标签，彻底解决 Element is missing end tag）
   t = t.replace(/<[^>]+>/g, prot)
-
-  // 3. 保护行内代码
   t = t.replace(/`[^`]*`/g, prot)
-
-  // 4. 保护 Markdown 链接和图片
   t = t.replace(/!?\[[^\]]*\]\([^)]+\)/g, prot)
-
-  // 5. 保护缩进代码块（以 4 个空格或 Tab 开头的行）
+  t = t.replace(/^:::.*$/gm, prot)
+  t = t.replace(/^\|?[\s\-:]+\|[\s\-:|]*$/gm, prot)
+  t = t.replace(/https?:\/\/[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=%]+/g, prot)
+  t = t.replace(/[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/g, prot)
+  t = t.replace(/&[a-zA-Z0-9#]+;/g, prot)
+  t = t.replace(/:[a-zA-Z0-9_+-]+:/g, prot)
+  t = t.replace(/\$\$[\s\S]*?\$\$/g, prot)
+  t = t.replace(/\$[^$\n]+\$/g, prot)
   t = t.replace(/^( {4,}|\t).*$/gm, prot)
 
-  // === 只有真正干净的正文文本，才会执行关键字替换 ===
-  t = t.replace(kwRe, m => `\`${m}\``)
+  // === 核心执行：全量英文与数字 ===
+  const engRe = /\b[a-zA-Z0-9_][a-zA-Z0-9_.-]*\b/g
 
-  // 还原所有被保护的内容
+  // 物理切割，绝不误伤占位符
+  const parts = t.split(/(『『\d+』』)/)
+  for (let i = 0; i < parts.length; i++) {
+    if (!parts[i].startsWith('『『')) {
+      parts[i] = parts[i].replace(engRe, m => `\`${m}\``)
+    }
+  }
+  t = parts.join('')
+
+  // 还原内容
   let prev = ''
   while (t !== prev) {
     prev = t
-    t = t.replace(/@@PROT_(\d+)@@/g, (_, i) => bag[Number(i)])
+    t = t.replace(/『『(\d+)』』/g, (_, i) => bag[Number(i)])
   }
+
+  // === 智能排版合并 ===
+  let prevMerge = ''
+  while (t !== prevMerge) {
+    prevMerge = t
+    t = t.replace(/`([^`\n]+)`[ \t]*`([^`\n]+)`/g, '`$1 $2`')
+  }
+
+  t = t.replace(/`([^`\n]+)`([ \t]*([.]{2,}|…+))(?=[ \t]|\||$|，|。|、)/g, '`$1$2`')
+
+  t = t.replace(/([\u4e00-\u9fa5])`/g, '$1 `')
+  t = t.replace(/`([\u4e00-\u9fa5])/g, '` $1')
 
   return t
 }
@@ -173,7 +161,6 @@ function main() {
     const raw = fs.readFileSync(file, 'utf8')
     const parts = splitByFences(raw)
 
-    // 多行全局处理，不拆分 \n，防止跨行组件断裂
     const next = parts
       .map(p => (p.type === 'fence' ? p.text : transformNormalPart(p.text)))
       .join('\n')
@@ -201,8 +188,10 @@ function main() {
       console.log(`[CHANGED] ${path.relative(process.cwd(), file)}`)
     }
   }
-
   console.log(`\nDone. 保护了 ${totalFencesFound} 个代码块。 changed: ${changed}/${files.length}`)
 }
 
 main()
+// 格式化所有 Markdown 文件
+// 使用方法:
+//  node scripts/format.mjs --verify

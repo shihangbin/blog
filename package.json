@@ -1,5 +1,5 @@
 {
-  "name": "vitepress-notes",
+  "name": "blog",
   "type": "module",
   "version": "1.0.0",
   "description": "基于 VitePress 打造个人前端导航网站",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shihangbin/vitepress-notes.git"
+    "url": "git+https://github.com/shihangbin/blog.git"
   },
   "author": "Xbin <18213331550@163.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shihangbin/vitepress-notes/issues"
+    "url": "https://github.com/shihangbin/blog/issues"
   },
-  "homepage": "https://github.com/shihangbin/vitepress-notes#readme",
+  "homepage": "https://github.com/shihangbin/blog#readme",
   "devDependencies": {
     "@femm/prettier": "^1.1.0",
     "@femm/tailwind-config": "^1.0.0",
@@ -28,27 +28,27 @@
     "@giscus/vue": "^3.1.1",
     "@mdit-vue/shared": "^3.0.2",
     "@tailwindcss/postcss": "^4.2.2",
-    "@types/node": "^25.5.0",
-    "autoprefixer": "^10.4.21",
+    "@types/node": "^25.5.2",
+    "autoprefixer": "^10.4.27",
     "cross-env": "^10.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "medium-zoom": "^1.1.0",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.8",
     "prettier": "^3.8.1",
-    "sass": "^1.93.2",
+    "sass": "^1.99.0",
     "tailwindcss": "^4.2.2",
     "vite-plugin-markdown-preview": "^1.1.1",
     "vitepress": "^1.6.4",
     "vitepress-sidebar": "^1.33.1",
-    "vue": "^3.5.22"
+    "vue": "^3.5.32"
   },
   "lint-staged": {
     "*.{js,jsx,tsx,vue,css,scss,less,md,json}": [
       "prettier --write"
     ]
   },
-  "packageManager": "npm@10.5.0",
+  "packageManager": "npm@11.12.1",
   "dependencies": {
     "unplugin-vue-markdown": "^30.0.0",
     "vitepress-plugin-image-preview": "^0.1.1"

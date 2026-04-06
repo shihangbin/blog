@@ -1,42 +1,42 @@
-# 第二章 VMware的使用
+# 第二章 `VMware` 的使用
 
 ## 学习目标
 
-1 熟悉VMware软件的作用!
+`1` 熟悉 `VMware` 软件的作用!
 
-2 可以熟练安装VMware软件
+`2` 可以熟练安装 `VMware` 软件
 
-3 可以熟练使用VMware创建虚拟计算机
+`3` 可以熟练使用 `VMware` 创建虚拟计算机
 
-4 可以熟练为虚拟计算机安装Linux操作系统
+`4` 可以熟练为虚拟计算机安装 `Linux` 操作系统
 
-5 能独立解决安装过程中的常见问题
+`5` 能独立解决安装过程中的常见问题
 
-## 第一节 VMware的作用
+## 第一节 `VMware` 的作用
 
-> VMware软件的作用
+> `VMware` 软件的作用
 
 ![](https://img.xbin.cn/blog/vm1_yFneoH7HVD.png)
 
-*   第一步，在Windows上安装VMware软件
+- 第一步，在 `Windows` 上安装 `VMware` 软件
 
-*   第二步，使用VM软件创建虚拟的计算机
+- 第二步，使用 `VM` 软件创建虚拟的计算机
 
-*   第三步，在虚拟的计算机上安装Linux操作系统
+- 第三步，在虚拟的计算机上安装 `Linux` 操作系统
 
-## 第二节 VMware的安装
+## 第二节 `VMware` 的安装
 
-> 安装前，先检查BIOS中是否开启了虚拟化支持
+> 安装前，先检查 `BIOS` 中是否开启了虚拟化支持
 
-*   打开任务管理器，查看性能，CPU部分，虚拟化处于“已启用”状态
+- 打开任务管理器，查看性能，`CPU` 部分，虚拟化处于“已启用”状态
 
 ![](https://img.xbin.cn/blog/vm01_ds4712mYIF.png)
 
-*   如果没有开启，则需要进入BIOS系统，将 Virtualization Technology 改为Enalble，不同品牌的电脑进入BIOS的方式都不同，可以根据电脑品牌型号搜索对应的进入方式
+- 如果没有开启，则需要进入 `BIOS` 系统，将 `Virtualization Technology` 改为 `Enalble`，不同品牌的电脑进入 `BIOS` 的方式都不同，可以根据电脑品牌型号搜索对应的进入方式
 
 ![](https://img.xbin.cn/blog/vmwarework2_KdxMHe3eV0.png)
 
-> 第一步：下载VMware安装包([https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html](https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html "https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html"))，双击开始安装
+> 第一步：下载 `VMware` 安装包([https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html](https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html 'https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html'))，双击开始安装
 
 ![](https://img.xbin.cn/blog/vm2_ds0WSj0iqI.png)
 
@@ -48,7 +48,7 @@
 
 ![](https://img.xbin.cn/blog/vm6_6_VyL7CoIS.png)
 
-> 第四步：修改安装位置 勾选“添加到系统PATH”
+> 第四步：修改安装位置 勾选“添加到系统 `PATH`”
 
 ![](https://img.xbin.cn/blog/vm3_mXlDgwlXFg.png)
 
@@ -78,7 +78,7 @@
 
 ![](https://img.xbin.cn/blog/3_XgoPSawGP1.png)
 
-## 第三节 VMware 创建虚拟机
+## 第三节 `VMware` 创建虚拟机
 
 > 第一步：选择创建新的虚拟计算机
 
@@ -88,7 +88,7 @@
 
 ![](https://img.xbin.cn/blog/5_0p-x59bDMK.png)
 
-> 第三步： 硬件兼容选择 Workstation \*\*.x
+> 第三步： 硬件兼容选择 `Workstation` \*\*.`x`
 
 ![](https://img.xbin.cn/blog/6_96-sVPFqTT.png)
 
@@ -104,19 +104,19 @@
 
 ![](https://img.xbin.cn/blog/11_dkv7HM6FrC.png)
 
-> 第七步：设置虚拟计算机的CPU 数量，不要高于宿主机的实际
+> 第七步：设置虚拟计算机的 `CPU` 数量，不要高于宿主机的实际
 
 ![](https://img.xbin.cn/blog/2_7M-T6QlYUV.png)
 
-> 第八步：设置虚拟计算机内存，2G即可
+> 第八步：设置虚拟计算机内存，`2G` 即可
 
 ![](https://img.xbin.cn/blog/9_rQ4GQsGXqe.png)
 
-> 第九步：设置虚拟计算机初始网络连接方式，建议使用NAT模式
+> 第九步：设置虚拟计算机初始网络连接方式，建议使用 `NAT` 模式
 
 ![](https://img.xbin.cn/blog/8_RwoBr48h0a.png)
 
-> 第十步：选择I/O控制器类型，默认推荐即可
+> 第十步：选择 `I`/`O` 控制器类型，默认推荐即可
 
 ![](https://img.xbin.cn/blog/12_-o_Mh0LR7Y.png)
 
@@ -144,16 +144,16 @@
 
 ![](https://img.xbin.cn/blog/2_jQoHqUJqEN.png)
 
-## 第四节 VMware安装Linux
+## 第四节 `VMware` 安装 `Linux`
 
-> 第一步：下载Linux的ISO镜像文件，这里选择的版本是Centos7 64位
+> 第一步：下载 `Linux` 的 `ISO` 镜像文件，这里选择的版本是 `Centos7 64` 位
 
-```纯文本
+```shell
 网易镜像：
 http://mirrors.163.com/centos/6/isos/
 http://mirrors.163.com/centos/7/isos/x86_64/
 搜狐镜像：
-http://mirrors.sohu.com/centos/6/isos/ 
+http://mirrors.sohu.com/centos/6/isos/
 http://mirrors.sohu.com/centos/7/isos/x86_64/
 ```
 
@@ -165,7 +165,7 @@ http://mirrors.sohu.com/centos/7/isos/x86_64/
 
 ![](https://img.xbin.cn/blog/1_i771qGMWfi.png)
 
-> 第二步：找到CD、DVD选项>使用IOS 镜像文件>浏览>选择的IOS镜像文件
+> 第二步：找到 `CD`、`DVD` 选项>使用 `IOS` 镜像文件>浏览>选择的 `IOS` 镜像文件
 
 ![](https://img.xbin.cn/blog/3_DNzfLIw7th.png)
 
@@ -173,7 +173,7 @@ http://mirrors.sohu.com/centos/7/isos/x86_64/
 
 ![](https://img.xbin.cn/blog/8_ylE4efLa9d.png)
 
-> 第四步：选择 Install Centos 7
+> 第四步：选择 `Install Centos 7`
 
 ![](https://img.xbin.cn/blog/5_BguN7wK7Ed.png)
 
@@ -187,7 +187,7 @@ http://mirrors.sohu.com/centos/7/isos/x86_64/
 
 ![](https://img.xbin.cn/blog/13_gWGWmqUbRJ.png)
 
-> 第七步：软件选择GNOME，带有图形界面模式的Linux 然后点击完成
+> 第七步：软件选择 `GNOME`，带有图形界面模式的 `Linux` 然后点击完成
 >
 > **当前为了学习安装带图形化界面，后续只需要“最小安装”即可**
 
@@ -205,13 +205,13 @@ http://mirrors.sohu.com/centos/7/isos/x86_64/
 
 ![](https://img.xbin.cn/blog/11_w7DSrlZUl4.png)
 
-> 第十步： 设置网络和主机名，开启以太网，注意主机名和当前主机IP信息
+> 第十步： 设置网络和主机名，开启以太网，注意主机名和当前主机 `IP` 信息
 
 ![](https://img.xbin.cn/blog/17_zqCXRawiN1.png)
 
 ![](https://img.xbin.cn/blog/12_aZ5MUJgtZ-.png)
 
-> 第十一步： KDUMP崩溃存储机制，可以关闭
+> 第十一步： `KDUMP` 崩溃存储机制，可以关闭
 
 ![](https://img.xbin.cn/blog/19_hn7N5j5qle.png)
 
@@ -219,7 +219,7 @@ http://mirrors.sohu.com/centos/7/isos/x86_64/
 
 ![](https://img.xbin.cn/blog/21_nFEGHyfzx7.png)
 
-> 第十三步：设置超级管理员root用户的密码，配置完成，点击重启
+> 第十三步：设置超级管理员 `root` 用户的密码，配置完成，点击重启
 
 ![](https://img.xbin.cn/blog/20_m_9aC_SRzF.png)
 
@@ -255,7 +255,7 @@ http://mirrors.sohu.com/centos/7/isos/x86_64/
 
 ![](https://img.xbin.cn/blog/29_iO9pRTz2gX.png)
 
-> 第二十一步：创建用于第一次登陆系统的普通用户账号，这里绝对不可以使用root作为用户名
+> 第二十一步：创建用于第一次登陆系统的普通用户账号，这里绝对不可以使用 `root` 作为用户名
 
 ![](https://img.xbin.cn/blog/25_7CA9gsZLk_.png)
 
@@ -277,65 +277,60 @@ http://mirrors.sohu.com/centos/7/isos/x86_64/
 
 ![](https://img.xbin.cn/blog/01_o6r5DAKdE_.png)
 
-> 第二十五步：如果需要关机，一定要先将虚拟机关机或者挂起后，再关闭VMware，然后关闭windows
+> 第二十五步：如果需要关机，一定要先将虚拟机关机或者挂起后，再关闭 `VMware`，然后关闭 `windows`
 
 ![](https://img.xbin.cn/blog/02_xE5ZUpgFx1.png)
 
-要想让鼠标从VMware的 虚拟中脱离出来，需要按快捷键 ctrl+alt
+要想让鼠标从 `VMware` 的 虚拟中脱离出来，需要按快捷键 `ctrl`+`alt`
 
-## 第五节 VMware常见问题
+## 第五节 `VMware` 常见问题
 
-### 问题1 
+### 问题 `1`
 
-启动VM报0xc0000005，这是与vindows Hyper-V服务冲突造成的
+启动 `VM` 报 `0xc0000005`，这是与 `vindows Hyper-V` 服务冲突造成的
 
 ![](https://img.xbin.cn/blog/06_IZKWqQBAmN.png)
 
-&#x20;         1 关闭以下服务
+&#x20; `1` 关闭以下服务
 
 ![](https://img.xbin.cn/blog/34_y4OQm9Hm7P.png)
 
-&#x20;         2 以管理员方式运行以下命令
+&#x20; `2` 以管理员方式运行以下命令
 
-```纯文本
+```shell
 bcdedit /set hypervisorlaunchtype off
 ```
 
-&#x20;         3 重启电脑
+&#x20; `3` 重启电脑
 
+### 问题 `2`
 
+启动 `VMware` 蓝屏问题
 
-### 问题2 
-
-启动VMware蓝屏问题
-
-&#x20;         1 打开控制面板，点击卸载程序
+&#x20; `1` 打开控制面板，点击卸载程序
 
 ![](https://img.xbin.cn/blog/l2_HAmhEeDBO8.png)
 
-&#x20;        2 点击启用或者关闭Windows功能
+&#x20; `2` 点击启用或者关闭 `Windows` 功能
 
 ![](https://img.xbin.cn/blog/l1_TRu49JFdqM.png)
 
-&#x20;       3 勾选如下两个选项
+&#x20; `3` 勾选如下两个选项
 
 ![](https://img.xbin.cn/blog/vm02_YppnWpeXN1.png)
 
+### 问题 `3`
 
+- 如果采用问题 `2` 方式，运行一段时间后还是蓝屏，到官网下载最新版本安装
 
-### 问题3
+- 如果还是不行，可以考虑使用其他虚拟化软件，比如 `VirtualBox`
+- 如果换软件还是出现问题，考虑重新安装 `Windows` 操作系统
 
-* 如果采用问题2方式，运行一段时间后还是蓝屏，到官网下载最新版本安装
+### 问题 `4 VMware tools` 安装
 
-* 如果还是不行，可以考虑使用其他虚拟化软件，比如 VirtualBox
-* 如果换软件还是出现问题，考虑重新安装Windows操作系统
-
-### 问题4 VMware tools安装
-
-``` 
+```shell
 # 切换yum源，系统自带下载源已经停止维护，切换成阿里源！！
-sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 
+sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 sudo yum install epel-release
 sudo yum install open-vm-tools open-vm-tools-desktop
 ```
-

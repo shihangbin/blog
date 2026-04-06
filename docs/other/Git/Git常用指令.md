@@ -1,4 +1,4 @@
-# Git 常用指令
+# `Git` 常用指令
 
 ## 一、新建代码库
 
@@ -15,7 +15,7 @@ git clone [url]
 
 ## 二、配置
 
-> Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+> `Git` 的设置文件为.`gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
 
 ```shell
 # 显示当前的Git配置
@@ -301,16 +301,16 @@ git remote add origin xxxxx.git
 
 ## 十一、提交规范
 
-- feat - 新功能 feature
-- fix - 修复 bug
-- docs - 文档注释
-- style - 代码格式(不影响代码运行的变动)
-- refactor - 重构、优化(既不增加新功能，也不是修复bug)
-- perf - 性能优化
-- test - 增加测试
-- chore - 构建过程或辅助工具的变动
-- revert - 回退
-- build - 打包
+- `feat` - 新功能 `feature`
+- `fix` - 修复 `bug`
+- `docs` - 文档注释
+- `style` - 代码格式(不影响代码运行的变动)
+- `refactor` - 重构、优化(既不增加新功能，也不是修复 `bug`)
+- `perf` - 性能优化
+- `test` - 增加测试
+- `chore` - 构建过程或辅助工具的变动
+- `revert` - 回退
+- `build` - 打包
 
 ```sh
 git commit -m 'fix(wx-pay): 解决微信h5支付无法调起的问题(#111)' //这里的111要对应项目上的issue编号

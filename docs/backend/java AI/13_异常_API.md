@@ -1,6 +1,6 @@
 ## 第一章.异常
 
-### 1.异常介绍
+### `1`.异常介绍
 
 ```java
 1.概述:代码出现了不正常的现象
@@ -34,11 +34,11 @@ public class Demo01Exception {
 
 ```
 
-### 2.异常出现的过程
+### `2`.异常出现的过程
 
 <img src="https://img.xbin.cn/blog/20260405175126225.png" alt="image-20251031152655609" style="zoom:80%;" />
 
-### 3.创建异常对象(了解)
+### `3`.创建异常对象(了解)
 
 > 我们学这个破玩意儿,是为了故意制造一个异常,方便我们后续学如何处理异常
 
@@ -73,9 +73,9 @@ public class Demo03Exception {
 
 <img src="https://img.xbin.cn/blog/20260405175126226.png" alt="image-20251031153410906" style="zoom:80%;" />
 
-### 4.异常处理方式(重点)
+### `4`.异常处理方式(重点)
 
-#### 1 异常处理方式一\_throws
+#### `1` 异常处理方式一\`\_throws`
 
 ```java
 1.格式:在参数后面,方法体前面
@@ -109,7 +109,7 @@ public class Demo04Exception {
 
 <img src="https://img.xbin.cn/blog/20260405175126227.png" alt="image-20251031154802973" style="zoom:80%;" />
 
-#### 2 异常处理方式一\_throws多个异常
+#### `2` 异常处理方式一\`\_throws` 多个异常
 
 ```java
 1.格式:throws 异常1,异常2
@@ -142,7 +142,7 @@ public class Demo05Exception {
 }
 ```
 
-#### 3.异常处理方式二\_try...`catch`
+#### `3`.异常处理方式二\`\_try`...`catch`
 
 ```java
 1.格式:
@@ -181,7 +181,7 @@ public class Demo06Exception {
 }
 ```
 
-#### 4.异常处理方式二\_多个`catch`
+#### `4`.异常处理方式二\`\_`多个`catch`
 
 ```java
 1.格式:
@@ -227,17 +227,17 @@ public class Demo06Exception {
 
 > 特点:
 >
-> 如果成功`catch`到了异常,不会影响后续的代码执行
+> 如果成功 `catch` 到了异常,不会影响后续的代码执行
 
-> 1.运行时期异常一般不用处理,因为一旦出现运行时期异常,肯定是代码写的有问题,我们只需要修改代码即可
+> `1`.运行时期异常一般不用处理,因为一旦出现运行时期异常,肯定是代码写的有问题,我们只需要修改代码即可
 >
-> 2.编译时期异常需要处理,如果不处理代码中会有爆红,那么代码不管是否触发异常我们都运行不了
+> `2`.编译时期异常需要处理,如果不处理代码中会有爆红,那么代码不管是否触发异常我们都运行不了
 >
-> 3.怎么处理: alt+回车
+> `3`.怎么处理: `alt`+回车
 >
 > <img src="https://img.xbin.cn/blog/20260405175126228.png" alt="image-20251031162644316" style="zoom:80%;" />
 
-### 5.finally关键字
+### `5.finally` 关键字
 
 ```java
 1.含义:不管异常是否捕获到了,都一定会执行的代码块
@@ -285,9 +285,9 @@ public class Demo08Exception {
 
 > 使用场景:
 >
-> ​ finally中的代码一般都是用作释放资源使用->说白了就是咱们的对象只要创建出来,后续代码是否执行成功我们最后都要将其释放,释放内存空间
+> ​ `finally` 中的代码一般都是用作释放资源使用->说白了就是咱们的对象只要创建出来,后续代码是否执行成功我们最后都要将其释放,释放内存空间
 >
-> ​ 为啥有的对象需要再finally中手动释放呢?堆内存中的对象,一般都是由GC(垃圾回收器)释放,但是有些对象GC是回收不了的,比如:Socket,IO流,数据库连接对象
+> ​ 为啥有的对象需要再 `finally` 中手动释放呢?堆内存中的对象,一般都是由 `GC`(垃圾回收器)释放,但是有些对象 `GC` 是回收不了的,比如:`Socket`,`IO` 流,数据库连接对象
 
 ```java
 public class Demo09Exception {
@@ -312,14 +312,14 @@ public class Demo09Exception {
 }
 ```
 
-### 6.抛异常时注意的事项(扩展)
+### `6`.抛异常时注意的事项(扩展)
 
 ```java
 1.父类方法抛异常了,子类重写之后要不要抛? 可抛可不抛
 2.父类方法没有抛异常,子类重写之后要不要抛? 不要抛
 ```
 
-### 7.try_catch和`throws`的使用时机
+### `7.try_catch` 和 `throws` 的使用时机
 
 ```java
 1.如果处理异常之后,还想让后续的代码正常执行,我们使用try...catch
@@ -328,7 +328,7 @@ public class Demo09Exception {
 
 <img src="https://img.xbin.cn/blog/20260405175126229.png" alt="image-20251031164929875" style="zoom:80%;" />
 
-### 8.打印异常信息的三个方法
+### `8`.打印异常信息的三个方法
 
 ```java
 Throwable中的方法:
@@ -365,9 +365,9 @@ public class Demo10Exception {
 }
 ```
 
-## 第二章.BigInteger
+## 第二章.`BigInteger`
 
-### 1.BigInteger介绍
+### `1.BigInteger` 介绍
 
 ```java
 1.问题描述:将来我们会遇到超大整数,这个整数大到连long型接收不了,我们跟这种超大整数叫做"对象"
@@ -375,7 +375,7 @@ public class Demo10Exception {
   处理超大整数的
 ```
 
-### 2.BigInteger使用
+### `2.BigInteger` 使用
 
 ```java
 1.构造:
@@ -419,16 +419,16 @@ public class Demo10Exception {
 > BigInteger接受的范围 -> 42亿的21亿次方 -> 内存扛不住这么大的数,所以我们认为是无限大的
 > ```
 
-## 第三章.BigDecimal类
+## 第三章.`BigDecimal` 类
 
-### 1.BigDecimal介绍
+### `1.BigDecimal` 介绍
 
 ```java
 1.注意问题:float和double不能直接参与运算的,因为会有精度损失问题
 2.解决:BigDecimal可以解决float和double直接参与运算而出现的精度损失问题
 ```
 
-### 2.BigDecimal使用
+### `2.BigDecimal` 使用
 
 ```java
 1.构造:
@@ -464,7 +464,7 @@ BigDecimal divide(BigDecimal divisor, int scale, int roundingMode)
     }
 ```
 
-### 3.BigDecimal除法过时方法解决
+### `3.BigDecimal` 除法过时方法解决
 
 ```java
 BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode)
@@ -486,9 +486,9 @@ BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode)
     }
 ```
 
-## 第四章.Date日期类
+## 第四章.`Date` 日期类
 
-### 1.Date类的介绍
+### `1.Date` 类的介绍
 
 ```java
 1.概述:代表的是日期类
@@ -499,7 +499,7 @@ BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode)
   d.北京所在经纬度: 东经116.20  北纬39.56 -> 东八区
 ```
 
-### 2.Date类的使用
+### `2.Date` 类的使用
 
 ```java
 Date():表示的当前系统时间
@@ -518,7 +518,7 @@ Date(long time):根据设置的时间创建Date对象,从时间原点算
     }
 ```
 
-### 3.Date类的常用方法
+### `3.Date` 类的常用方法
 
 ```java
 setTime(long time)设置时间,传递毫秒值,从时间原点开始算
@@ -537,9 +537,9 @@ long getTime()获取时间对应的毫秒值
     }
 ```
 
-## 第五章.Calendar日历类
+## 第五章.`Calendar` 日历类
 
-### 1.Calendar介绍
+### `1.Calendar` 介绍
 
 ```java
 1.概述:日历类,它是一个抽象类
@@ -602,9 +602,9 @@ long getTime()获取时间对应的毫秒值
 >  }
 > ```
 
-## 第六章.SimpleDateFormat日期格式化类
+## 第六章.`SimpleDateFormat` 日期格式化类
 
-### 1.SimpleDateFormat介绍
+### `1.SimpleDateFormat` 介绍
 
 ```java
 1.概述:日期格式化类
@@ -620,12 +620,12 @@ long getTime()获取时间对应的毫秒值
 
 | 时间字母表示 | 说明 |
 | ------------ | ---- |
-| y            | 年   |
-| M            | 月   |
-| d            | 日   |
-| H            | 时   |
-| m            | 分   |
-| s            | 秒   |
+| `y`          | 年   |
+| `M`          | 月   |
+| `d`          | 日   |
+| `H`          | 时   |
+| `m`          | 分   |
+| `s`          | 秒   |
 
 > 表示格式的时候,字母不能改变,但是中间的连接符可以改变
 
@@ -646,11 +646,11 @@ long getTime()获取时间对应的毫秒值
     }
 ```
 
-## 第七章.JDK8新日期类
+## 第七章.`JDK8` 新日期类
 
-### 1. LocalDate 本地日期
+### `1`. `LocalDate` 本地日期
 
-#### 1.1.获取LocalDate对象
+#### `1.1`.获取 `LocalDate` 对象
 
 ```java
 1.概述:LocalDate是一个不可变的日期时间对象，表示日期，通常被视为年月日
@@ -670,7 +670,7 @@ long getTime()获取时间对应的毫秒值
     }
 ```
 
-#### 1.2.LocalDateTime对象
+#### `1.2.LocalDateTime` 对象
 
 ```java
 1.概述: LocalDateTime是一个不可变的日期时间对象，代表日期时间，通常被视为年 - 月 - 日 - 时 - 分 - 秒
@@ -690,7 +690,7 @@ long getTime()获取时间对应的毫秒值
     }
 ```
 
-#### 1.3.获取日期字段的方法 : 名字是get开头
+#### `1.3`.获取日期字段的方法 : 名字是 `get` 开头
 
 ```java
 int getYear()->获取年份
@@ -711,7 +711,7 @@ int getDayOfMonth()->获取月中的第几天
     }
 ```
 
-#### 1.4.设置日期字段的方法 : 名字是with开头
+#### `1.4`.设置日期字段的方法 : 名字是 `with` 开头
 
 ```java
 LocalDate withYear(int year):设置年份
@@ -738,7 +738,7 @@ LocalDate withDayOfMonth(int day):设置月中的天数
     }
 ```
 
-#### 1.5.日期字段偏移
+#### `1.5`.日期字段偏移
 
 ```java
 设置日期字段的偏移量,方法名plus开头,向后偏移
@@ -759,9 +759,9 @@ LocalDate withDayOfMonth(int day):设置月中的天数
     }
 ```
 
-### 2.Period和Duration类
+### `2.Period` 和 `Duration` 类
 
-#### 2.1 Period 计算日期之间的偏差
+#### `2.1 Period` 计算日期之间的偏差
 
 ```java
 1.作用:计算年月日时间偏差
@@ -785,7 +785,7 @@ LocalDate withDayOfMonth(int day):设置月中的天数
     }
 ```
 
-#### 2.2 Duration计算时间之间的偏差
+#### `2.2 Duration` 计算时间之间的偏差
 
 ```java
 1.作用:计算精确时间
@@ -814,11 +814,11 @@ LocalDate withDayOfMonth(int day):设置月中的天数
     }
 ```
 
-> 计算年月日:Period
+> 计算年月日:`Period`
 >
-> 计算精确时间偏差:Duration
+> 计算精确时间偏差:`Duration`
 
-### 3.DateTimeFormatter日期格式化类
+### `3.DateTimeFormatter` 日期格式化类
 
 ```java
 1.获取:
@@ -858,7 +858,7 @@ LocalDate withDayOfMonth(int day):设置月中的天数
 
 ## 第八章.包装类
 
-### 1.基本数据类型对应的引用数据类型(包装类)
+### `1`.基本数据类型对应的引用数据类型(包装类)
 
 ```java
 1.概述:基本类型对应的那个类
@@ -867,20 +867,20 @@ LocalDate withDayOfMonth(int day):设置月中的天数
   而且包装类里面有很多的方法可以去操作我们的数据
 ```
 
-| 基本类型 | 包装类    |
-| -------- | --------- |
-| `byte`     | Byte      |
-| `short`    | Short     |
-| `int`      | Integer   |
-| `long`     | Long      |
-| `float`    | Float     |
-| `double`   | Double    |
-| `char`     | Character |
-| `boolean`  | Boolean   |
+| 基本类型  | 包装类      |
+| --------- | ----------- |
+| `byte`    | `Byte`      |
+| `short`   | `Short`     |
+| `int`     | `Integer`   |
+| `long`    | `Long`      |
+| `float`   | `Float`     |
+| `double`  | `Double`    |
+| `char`    | `Character` |
+| `boolean` | `Boolean`   |
 
-### 2.Integer的介绍以及使用
+### `2.Integer` 的介绍以及使用
 
-#### 2.1.Integer基本使用
+#### `2.1.Integer` 基本使用
 
 ```java
 1.概述:Integer是int对应的包装类
@@ -930,7 +930,7 @@ public void test02(){
 }
 ```
 
-#### 2.2.自动拆箱装箱
+#### `2.2`.自动拆箱装箱
 
 ```java
 将来拆箱和装箱大部分时间是自动的
@@ -972,9 +972,9 @@ public void test02(){
 >
 > <img src="https://img.xbin.cn/blog/20260405175126234.png" alt="image-20251104154244865" style="zoom:80%;" />
 
-### 3.基本类型和String之间的转换
+### `3`.基本类型和 `String` 之间的转换
 
-#### 3.1 基本类型往String转
+#### `3.1` 基本类型往 `String` 转
 
 ```java
 1.方式1: 拼接
@@ -996,21 +996,21 @@ public void test02(){
     }
 ```
 
-#### 3.2 String转成基本数据类型
+#### `3.2 String` 转成基本数据类型
 
 ```java
 每一个包装类中都有一个类似的方法:parseXXX()
 ```
 
-| 位置    | 方法                                  | 说明                    |
-| ------- | ------------------------------------- | ----------------------- |
-| Byte    | `static` `byte` parseByte(String s)       | 将字符串转成`byte`类型    |
-| Short   | `static` `short` parseShort(String s)     | 将字符串转成`short`类型   |
-| Integer | `static` `int` parseInt(String s)         | 将字符串转成`int`类型     |
-| Long    | `static` `long` parseLong(String s)       | 将字符串转成`long`类型    |
-| Float   | `static` `float` parseFloat(String s)     | 将字符串转成`float`类型   |
-| Double  | `static` `double` parseDouble(String s)   | 将字符串转成`double`类型  |
-| Boolean | `static` `boolean` parseBoolean(String s) | 将字符串转成`boolean`类型 |
+| 位置      | 方法                                      | 说明                        |
+| --------- | ----------------------------------------- | --------------------------- |
+| `Byte`    | `static byte parseByte`(`String s`)       | 将字符串转成 `byte` 类型    |
+| `Short`   | `static short parseShort`(`String s`)     | 将字符串转成 `short` 类型   |
+| `Integer` | `static int parseInt`(`String s`)         | 将字符串转成 `int` 类型     |
+| `Long`    | `static long parseLong`(`String s`)       | 将字符串转成 `long` 类型    |
+| `Float`   | `static float parseFloat`(`String s`)     | 将字符串转成 `float` 类型   |
+| `Double`  | `static double parseDouble`(`String s`)   | 将字符串转成 `double` 类型  |
+| `Boolean` | `static boolean parseBoolean`(`String s`) | 将字符串转成 `boolean` 类型 |
 
 ```java
     @Test

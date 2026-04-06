@@ -1,4 +1,4 @@
-# HTTP
+# `HTTP`
 
 ## 基本使用
 
@@ -51,7 +51,7 @@ server2.listen(3000, () => {
 // const server3 = new http.Server()
 ```
 
-## request
+## `request`
 
 ```js
 const http = require('http')
@@ -75,7 +75,7 @@ server.listen(8000, () => {
 })
 ```
 
-## 区分不同的 url
+## 区分不同的 `url`
 
 ```js
 const http = require('http')
@@ -99,21 +99,21 @@ server.listen(8000, () => {
 })
 ```
 
-## 区分不同的 method
+## 区分不同的 `method`
 
-在 Restful 规范（设计风格）中，我们对于数据的增删改查应该通过不同的请求方式：
+在 `Restful` 规范（设计风格）中，我们对于数据的增删改查应该通过不同的请求方式：
 
-- GET：查询数据；
-- POST：新建数据；
-- PATCH：更新数据；
-- DELETE：删除数据；
+- `GET`：查询数据；
+- `POST`：新建数据；
+- `PATCH`：更新数据；
+- `DELETE`：删除数据；
 
 所以，我们可以通过判断不同的请求方式进行不同的处理。
 
 - 比如创建一个用户：
-- 请求接口为 /users；
-- 请求方式为 POST 请求；
-- 携带数据 username 和 password；
+- 请求接口为 /`users`；
+- 请求方式为 `POST` 请求；
+- 携带数据 `username` 和 `password`；
 
 ```js
 const http = require('http')
@@ -142,7 +142,7 @@ server.listen(8000, () => {
 })
 ```
 
-## query 参数
+## `query` 参数
 
 ```js
 const http = require('http')
@@ -171,7 +171,7 @@ server.listen(8000, () => {
 })
 ```
 
-## body 参数
+## `body` 参数
 
 ```js
 const http = require('http')
@@ -210,29 +210,29 @@ server.listen(8000, () => {
 })
 ```
 
-## headers 参数
+## `headers` 参数
 
-content-type 是这次请求携带的数据的类型：
+`content-type` 是这次请求携带的数据的类型：
 
-- application/x-www-form-urlencoded：表示数据被编码成以 '&' 分隔的键 - 值对，同时以 '=' 分隔键和值
-- application/json：表示是一个 json 类型；
-- text/plain：表示是文本类型；
-- application/xml：表示是 xml 类型；
-- multipart/form-data：表示是上传文件；
+- `application`/`x-www-form-urlencoded`：表示数据被编码成以 '&' 分隔的键 - 值对，同时以 '=' 分隔键和值
+- `application`/`json`：表示是一个 `json` 类型；
+- `text`/`plain`：表示是文本类型；
+- `application`/`xml`：表示是 `xml` 类型；
+- `multipart`/`form-data`：表示是上传文件；
 
-content-length：文件的大小长度
+`content-length`：文件的大小长度
 
-keep-alive：
+`keep-alive`：
 
-- http 是基于 TCP 协议的，但是通常在进行一次请求和响应结束后会立刻中断；
-- 在 http1.0 中，如果想要继续保持连接：✓ 浏览器需要在请求头中添加 connection: keep-alive；✓ 服务器需要在响应头中添加 connection:keey-alive；✓ 当客户端再次放请求时，就会使用同一个连接，直接一方中断连接；
-- 在 http1.1 中，所有连接默认是 connection: keep-alive 的；✓ 不同的 Web 服务器会有不同的保持 keep-alive 的时间；✓ Node 中默认是 5s 中；
+- `http` 是基于 `TCP` 协议的，但是通常在进行一次请求和响应结束后会立刻中断；
+- 在 `http1.0` 中，如果想要继续保持连接：✓ 浏览器需要在请求头中添加 `connection`: `keep-alive`；✓ 服务器需要在响应头中添加 `connection`:`keey-alive`；✓ 当客户端再次放请求时，就会使用同一个连接，直接一方中断连接；
+- 在 `http1.1` 中，所有连接默认是 `connection`: `keep-alive` 的；✓ 不同的 `Web` 服务器会有不同的保持 `keep-alive` 的时间；✓ `Node` 中默认是 `5s` 中；
 
-accept-encoding：告知服务器，客户端支持的文件压缩格式，比如 js 文件可以使用 gzip 编码，对应 .gz 文件；
+`accept-encoding`：告知服务器，客户端支持的文件压缩格式，比如 `js` 文件可以使用 `gzip` 编码，对应 .`gz` 文件；
 
-accept：告知服务器，客户端可接受文件的格式类型；
+`accept`：告知服务器，客户端可接受文件的格式类型；
 
-user-agent：客户端相关的信息；
+`user-agent`：客户端相关的信息；
 
 ```js
 const http = require('http')
@@ -261,10 +261,10 @@ server.listen(8000, () => {
 
 如果我们希望给客户端响应的结果数据，可以通过两种方式：
 
-- Write 方法：这种方式是直接写出数据，但是并没有关闭流；
-- end 方法：这种方式是写出最后的数据，并且写出后会关闭流；
+- `Write` 方法：这种方式是直接写出数据，但是并没有关闭流；
+- `end` 方法：这种方式是写出最后的数据，并且写出后会关闭流；
 
-如果我们没有调用 end 和 close，客户端将会一直等待结果：
+如果我们没有调用 `end` 和 `close`，客户端将会一直等待结果：
 
 - 所以客户端在发送网络请求时，都会设置超时时间。
 
@@ -290,10 +290,10 @@ server.listen(8000, () => {
 
 ## 响应状态
 
-Http 状态码（Http Status Code）是用来表示 Http 响应状态的数字代码：
+`Http` 状态码（`Http Status Code`）是用来表示 `Http` 响应状态的数字代码：
 
-- Http 状态码非常多，可以根据不同的情况，给客户端返回不同的状态码；
-- MDN 响应码解析地址：https://developer.mozilla.org/zh-CN/docs/web/http/status
+- `Http` 状态码非常多，可以根据不同的情况，给客户端返回不同的状态码；
+- `MDN` 响应码解析地址：https://developer.mozilla.org/zh-CN/docs/web/http/status
 
 ![](https://img.xbin.cn/images/2023/09/15-12-04-f4cb6f.png)
 
@@ -318,12 +318,12 @@ server.listen(8000, () => {
 })
 ```
 
-## 响应 header
+## 响应 `header`
 
 返回头部信息，主要有两种方式：
 
-- res.setHeader：一次写入一个头部信息；
-- res.writeHead：同时写入 header 和 status；
+- `res.setHeader`：一次写入一个头部信息；
+- `res.writeHead`：同时写入 `header` 和 `status`；
 
 ```js
 const http = require('http')
@@ -352,7 +352,7 @@ server.listen(8000, () => {
 })
 ```
 
-## 发送 Axios
+## 发送 `Axios`
 
 ```js
 const axios = require('axios')
@@ -362,7 +362,7 @@ axios.get('http://localhost:8000').then(res => {
 })
 ```
 
-## 发送 http 请求
+## 发送 `http` 请求
 
 ```js
 const http = require('http')

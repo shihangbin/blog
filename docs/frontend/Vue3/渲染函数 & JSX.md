@@ -1,6 +1,6 @@
-# 渲染函数 & JSX
+# 渲染函数 & `JSX`
 
-## h 函数
+## `h` 函数
 
 ```js
 import { h } from 'vue'
@@ -20,7 +20,7 @@ export default {
 
 ![](https://img.xbin.cn/images/2023/08/04-14-09-266eee.png)
 
-## h 函数小案例
+## `h` 函数小案例
 
 ```js
 import { h } from 'vue'
@@ -54,15 +54,15 @@ export default {
 
 ![](https://img.xbin.cn/images/2023/08/04-14-19-d05933.png)
 
-## JSX
+## `JSX`
 
-**1.安装**
+**`1`.安装**
 
 ```sh
 npm i @vitejs/plugin-vue-jsx -D
 ```
 
-**2.安装完后再vite.config.js文件中的plugins字段中添加如下字段**
+**`2`.安装完后再 `vite.config.js` 文件中的 `plugins` 字段中添加如下字段**
 
 ```js
 import jsx from '@vitejs/plugin-vue-jsx'
@@ -74,7 +74,7 @@ export default defineConfig({
 })
 ```
 
-**3.编写jsx**
+**`3`.编写 `jsx`**
 
 ```vue
 <script lang="jsx">
@@ -111,7 +111,7 @@ export default {
 <style lang="scss" scoped></style>
 ```
 
-**3.编写 jsx setup 语法糖**
+**`3`.编写 `jsx setup` 语法糖**
 
 ```vue
 <script lang="jsx" setup>

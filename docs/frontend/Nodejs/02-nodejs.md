@@ -1,42 +1,42 @@
-# Nodejs
+# `Nodejs`
 
-## Nodejs 简介
+## `Nodejs` 简介
 
-Nodejs 是基于 Chrome V8 引擎的 javascript 运行的。
+`Nodejs` 是基于 `Chrome V8` 引擎的 `javascript` 运行的。
 
-- javascript 运行时：JS 代码的运行环境
-- Chrome V8 引擎
-  - 浏览器内核：主要分为“渲染引擎”和 “JS 引擎”
+- `javascript` 运行时：`JS` 代码的运行环境
+- `Chrome V8` 引擎
+  - 浏览器内核：主要分为“渲染引擎”和 “`JS` 引擎”
     - 渲染引擎：负责解析 HTML 和 CSS 代码
     - JS 引擎：赋值解析 JS 代码
-  - V8 引擎是谷歌公司开发的一款 JS 引擎，目前公认的解析 JS 代码最快的引擎
+  - `V8` 引擎是谷歌公司开发的一款 `JS` 引擎，目前公认的解析 `JS` 代码最快的引擎
 
-Nodejs 让 javascript 代码可以运行在服务端
+`Nodejs` 让 `javascript` 代码可以运行在服务端
 
 ## 命令行工具
 
 `cd`：进入某个文件夹
 
-- cd 后面可以跟某个路径（建议直接拖）
-- cd 后面还可以跟文件夹名字（该文件夹必须当前路径的子文件）
+- `cd` 后面可以跟某个路径（建议直接拖）
+- `cd` 后面还可以跟文件夹名字（该文件夹必须当前路径的子文件）
 
 ## 模块化
 
-每个 JS 文件都是独立的模块，模块之间是没有关联的。默认情况下模块之间不能进行数据交换。
+每个 `JS` 文件都是独立的模块，模块之间是没有关联的。默认情况下模块之间不能进行数据交换。
 
-以前“模块化”是后端的一种概念，前端没有模块化，从 ES6 开始前端也引入模块化的概念。
+以前“模块化”是后端的一种概念，前端没有模块化，从 `ES6` 开始前端也引入模块化的概念。
 
 ### 前端模块化
 
-#### 引入 JS
+#### 引入 `JS`
 
-- 在 HTML 引入 JS：需要添加一个`type="module"`属性
+- 在 `HTML` 引入 `JS`：需要添加一个 `type="module"` 属性
 
 ```javascript
 <script src='./index.js' type='module'></script>
 ```
 
-- 在 JS 中引入 JS：一个模块中加载另一个模块`import '相对路径'`
+- 在 `JS` 中引入 `JS`：一个模块中加载另一个模块 `import '相对路径'`
 
 ```javascript
 import './a.js'
@@ -44,7 +44,7 @@ import './a.js'
 
 #### 暴露和引入
 
-1.1 暴露`export default`
+`1.1` 暴露 `export default`
 
 ```javascript
 function foo() {
@@ -53,7 +53,7 @@ function foo() {
 export default { a: 1, foo: foo }
 ```
 
-1.2 引入`import 变量名 from '相对路径'`
+`1.2` 引入 `import 变量名 from '相对路径'`
 
 ```javascript
 import a from './a'
@@ -61,7 +61,7 @@ console.log(a.a)
 a.foo()
 ```
 
-2.1 暴露`export`
+`2.1` 暴露 `export`
 
 ```javascript
 export let a = 1
@@ -70,7 +70,7 @@ export function foo {
 }
 ```
 
-2.2 引入`import { 变量名 } from '相对路径'`
+`2.2` 引入 `import { 变量名 } from '相对路径'`
 
 ```javascript
 import { a } from './a.js'
@@ -80,19 +80,19 @@ import { a as A } './a.js'
 
 ### 后端模块化
 
-#### CommonJS
+#### `CommonJS`
 
-ECMAscript 是一种规范，javascript 是这个规范的实现
+`ECMAscript` 是一种规范，`javascript` 是这个规范的实现
 
-CommonJS 是一种规范，NodeJS 是这个规范的实现
+`CommonJS` 是一种规范，`NodeJS` 是这个规范的实现
 
-- 在 JS 中引入 JS：
+- 在 `JS` 中引入 `JS`：
 
 ```javascript
 require('./a.js')
 ```
 
-- 暴露和引入 JS：
+- 暴露和引入 `JS`：
   - 暴露
 
 ```javascript
@@ -109,15 +109,13 @@ const { a } = require('./a.js')
 
 注意：
 
-1.  当前使用 require 去加载某个模块时，除了第一次加载会运行文件以外（第一次运行完成后会进行缓存），后续的加载都会从缓存中读取文件内容。换句话说同一个文件被 require 多次，只执行一次。
-2.  require 中的 JS 文件后缀可以省略。
-3.  require 中的路径如果有模块名，那就说明引入的是第三方下载的模块或者是 NodeJS 原生自带的模块
+`1`. 当前使用 `require` 去加载某个模块时，除了第一次加载会运行文件以外（第一次运行完成后会进行缓存），后续的加载都会从缓存中读取文件内容。换句话说同一个文件被 `require` 多次，只执行一次。 `2`. `require` 中的 `JS` 文件后缀可以省略。 `3`. `require` 中的路径如果有模块名，那就说明引入的是第三方下载的模块或者是 `NodeJS` 原生自带的模块
 
 ## 内置模块
 
-### fs
+### `fs`
 
-- 读取文件`fs.readFile`异步
+- 读取文件 `fs.readFile` 异步
 
 ```javascript
 // 异步
@@ -130,7 +128,7 @@ fs.readFile('./test.txt', 'utf-8', (err, data) => {
 })
 ```
 
-- 读取文件`fs.readFileSync`同步
+- 读取文件 `fs.readFileSync` 同步
 
 ```javascript
 // 同步
@@ -142,7 +140,7 @@ try {
 }
 ```
 
-- `fs.writeFile`往文件里写入内容 (会覆盖，会自动创建文件（但不会创建文件夹）)
+- `fs.writeFile` 往文件里写入内容 (会覆盖，会自动创建文件（但不会创建文件夹）)
 
 ```javascript
 fs.writeFile('./test.txt', 'hello world', err => {
@@ -154,31 +152,31 @@ fs.writeFile('./test.txt', 'hello world', err => {
 })
 ```
 
-- `fs.appendFile`往文件追加内容
+- `fs.appendFile` 往文件追加内容
 
 ```javascript
 fs.appendFile('./test.txt', '\n这是新加的内容', (err) => {}
 ```
 
-- `fs.copyFile`复制文件
+- `fs.copyFile` 复制文件
 
 ```javascript
 fs.copyFile('./test.txt', './test2.txt', (err) => {}
 ```
 
-- `fs.unlink`文件删除
+- `fs.unlink` 文件删除
 
 ```javascript
 fs.unlink('./test.txt', (err) => {}
 ```
 
-- `fs.rename`文件重命名
+- `fs.rename` 文件重命名
 
 ```js
 fs.rename('./test.txt','test1.txt',(err)=>{}
 ```
 
-- `fs.mkdir`创建文件夹（只能创建一个文件夹）
+- `fs.mkdir` 创建文件夹（只能创建一个文件夹）
 
 ```js
 fs.mkdir('./public', err => {
@@ -190,25 +188,25 @@ fs.mkdir('./public', err => {
 })
 ```
 
-- `fs.rmdir`删除文件夹(只能删除空文件夹)
+- `fs.rmdir` 删除文件夹(只能删除空文件夹)
 
 ```js
 fs.rmdir('./a', (err) => {}
 ```
 
-- `fs.readdir`读取文件夹内容
+- `fs.readdir` 读取文件夹内容
 
 ```js
 fs.readdir('./a', (err, data) => {}
 ```
 
-- `fs.access`判断文件（文件夹是否存在）
+- `fs.access` 判断文件（文件夹是否存在）
 
 ```js
 fs.access('./a/b/c', (err) => {}
 ```
 
-- `fs.stat`查看文件（文件夹状态）:判断是文件还是文件夹
+- `fs.stat` 查看文件（文件夹状态）:判断是文件还是文件夹
 
 ```js
 fs.stat('./a', (err, stats) => {
@@ -222,9 +220,9 @@ fs.stat('./a', (err, stats) => {
 })
 ```
 
-### path
+### `path`
 
-**path 获取**
+**`path` 获取**
 
 - `basename()`：获取指定路径中最后一部分
 
@@ -234,7 +232,7 @@ const myPath = __dirname + '\\a.js'
 console.log(path.basename(myPath))
 ```
 
-- `dirname()`：获取指定路径中除了 basename 以外的其他路径
+- `dirname()`：获取指定路径中除了 `basename` 以外的其他路径
 
 ```js
 console.log(path.dirname(myPath))
@@ -246,7 +244,7 @@ console.log(path.dirname(myPath))
 console.log(path.extname(myPath))
 ```
 
-**path 组合**
+**`path` 组合**
 
 - `join()`：相对路径
 
@@ -260,7 +258,7 @@ console.log(path.join('a', 'b', 'c')) // a/b/c
 console.log(path.resolve('a', 'b', 'c')) // E://xxx/a/b/c
 ```
 
-**path 拆分**
+**`path` 拆分**
 
 - `parse()`：从对象返回路径字符串
 
@@ -275,7 +273,7 @@ console.log(path.parse(myPath))
 } */
 ```
 
-### http
+### `http`
 
 ```js
 const http = require('http')

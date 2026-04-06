@@ -1,39 +1,39 @@
-# stream
+# `stream`
 
-什么是 Stream（小溪、小河，在编程中通常翻译为流）呢？
+什么是 `Stream`（小溪、小河，在编程中通常翻译为流）呢？
 
-- 我们的第一反应应该是`流水，源源不断的流动`；
-- 程序中的流也是`类似的含义`，我们可以想象`当我们从一个文件中读取数据时，文件的二进制（字节）数据会源源不断的被读取到我们程序中`；
-- 而`这个一连串的字节，就是我们程序中的流`；
+- 我们的第一反应应该是 `流水，源源不断的流动`；
+- 程序中的流也是 `类似的含义`，我们可以想象 `当我们从一个文件中读取数据时，文件的二进制（字节）数据会源源不断的被读取到我们程序中`；
+- 而 `这个一连串的字节，就是我们程序中的流`；
 
 所以，我们可以这样理解流：
 
-- 是`连续字节的一种表现形式和抽象概念`；
-- 流应该是`可读的`，也是`可写的`；
+- 是 `连续字节的一种表现形式和抽象概念`；
+- 流应该是 `可读的`，也是 `可写的`；
 
-在之前学习文件的读写时，我们可以直接通过 readFile 或者 writeFile 方式读写文件，为什么还需要流呢？
+在之前学习文件的读写时，我们可以直接通过 `readFile` 或者 `writeFile` 方式读写文件，为什么还需要流呢？
 
-- 直接读`写文件的方式，虽然简单`，但是`无法控制一些细节的操作`；
-- 比如从`什么位置开始读、读到什么位置、一次性读取多少个字节`；
-- 读到`某个位置`后，`暂停读取`，`某个时刻恢复继续读取`等等；
-- 或者这个`文件非常大`，比如`一个视频文件`，`一次性全部读取并不合适`；
+- 直接读 `写文件的方式，虽然简单`，但是 `无法控制一些细节的操作`；
+- 比如从 `什么位置开始读、读到什么位置、一次性读取多少个字节`；
+- 读到 `某个位置` 后，`暂停读取`，`某个时刻恢复继续读取` 等等；
+- 或者这个 `文件非常大`，比如 `一个视频文件`，`一次性全部读取并不合适`；
 
-事实上 Node 中很多对象是基于流实现的：
+事实上 `Node` 中很多对象是基于流实现的：
 
 - `http` 模块的 `Request` 和 `Response` 对象；
 
-官方文档：另外所有的流都是 EventEmitter 的实例。
+官方文档：另外所有的流都是 `EventEmitter` 的实例。
 
-那么在 Node 中都有哪些流呢？
+那么在 `Node` 中都有哪些流呢？
 
-Node.js 中有四种基本流类型：
+`Node.js` 中有四种基本流类型：
 
-- `Writable`：可以向其`写入数据的流`（例如 [`fs.createWriteStream()`](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_createwritestream_path_options)）。
-- `Readable`：可以从中`读取数据的流`（例如 [`fs.createReadStream()`](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_createreadstream_path_options)）。
-- `Duplex`：同时为 Readable 和 Writable（例如 [net.Socket](https://nodejs.org/dist/latest-v15.x/docs/api/net.html#net_class_net_socket)）。
-- `Transform`：Duplex `可以在写入和读取数据时修改或转换数据的流`（例如 [`zlib.createDeflate()`](https://nodejs.org/dist/latest-v15.x/docs/api/zlib.html#zlib_zlib_createdeflate_options)）。
+- `Writable`：可以向其 `写入数据的流`（例如 [`fs.createWriteStream()`](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_createwritestream_path_options)）。
+- `Readable`：可以从中 `读取数据的流`（例如 [`fs.createReadStream()`](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_createreadstream_path_options)）。
+- `Duplex`：同时为 `Readable` 和 `Writable`（例如 [net.Socket](https://nodejs.org/dist/latest-v15.x/docs/api/net.html#net_class_net_socket)）。
+- `Transform`：`Duplex 可以在写入和读取数据时修改或转换数据的流 `（例如 [`zlib.createDeflate()`](https://nodejs.org/dist/latest-v15.x/docs/api/zlib.html#zlib_zlib_createdeflate_options)）。
 
-这里我们通过 fs 的操作，讲解一下 Writable、Readable，另外两个大家可以自行学习一下。
+这里我们通过 `fs` 的操作，讲解一下 `Writable`、`Readable`，另外两个大家可以自行学习一下。
 
 ## 基本使用
 

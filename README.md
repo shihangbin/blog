@@ -1,4 +1,4 @@
-# vitepress-notes
+# blog
 
 基于 VitePress 的学习笔记与导航站模板，适合用于沉淀前端、后端、全栈等分类文档。
 
@@ -10,10 +10,42 @@
 - Tailwind CSS + Sass 样式体系
 - 适配中文站点配置（zh-CN）
 
+## 最近更新
+
+### 1) 依赖升级
+
+已将项目依赖更新到最新可升级版本（以 npm registry 当前版本为准），并完成构建验证。
+
+主要更新项：
+
+- autoprefixer: ^10.4.27
+- postcss: ^8.5.8
+- sass: ^1.99.0
+- vue: ^3.5.32
+- @types/node: ^25.5.2
+- packageManager: npm@11.12.1
+
+### 2) Sass 弃用告警处理
+
+已处理 Dart Sass 的 legacy-js-api 弃用告警，VitePress 配置已切换到 modern-compiler API。
+
+配置位置：
+
+- .vitepress/config.ts
+
+当前构建状态：
+
+- npm run build 通过
+
 ## 环境要求
 
 - Node.js >= 20
-- npm >= 10
+- npm >= 11（建议与 packageManager 保持一致）
+
+推荐环境：
+
+- Node.js 22 LTS
+- npm 11+
 
 ## 快速开始
 
@@ -48,24 +80,63 @@ npm run format
 
 ```text
 .
-├─ .vitepress/
-│  ├─ config.ts              # VitePress 主配置
+├─ .vitepress/                    # VitePress 配置与主题
+│  ├─ config.ts
 │  ├─ configs/
-│  │  ├─ nav.ts              # 顶部导航配置
-│  │  ├─ sidebar.ts          # 侧边栏扫描配置
-│  │  └─ ...
-│  └─ theme/                 # 自定义主题与样式
-├─ docs/                     # 文档内容目录（srcDir）
+│  └─ theme/
+├─ docs/                          # 文档主目录（srcDir）
 │  ├─ index.md
-│  ├─ frontend/
 │  ├─ backend/
-│  ├─ fullstack/
-│  └─ nav/
-├─ public/                   # 静态资源
-├─ patches/                  # patch-package 补丁
+│  ├─ frontend/
+│  ├─ project/
+│  ├─ other/
+│  ├─ nav/
+│  └─ test.md
+├─ public/                        # 静态资源
+├─ patches/                       # 第三方包补丁
+├─ scripts/                       # 文档处理脚本
 ├─ netlify.toml
-└─ vercel.json
+├─ vercel.json
+└─ README.md
 ```
+
+### docs 内容分类
+
+```text
+docs/
+├─ backend/                       # 后端技术文档
+│  ├─ Docker / Nginx / Maven / RabbitMQ / Redis
+│  ├─ Spring / SpringCloud
+│  ├─ MySQL / Linux / 数据库
+│  └─ Java AI（01~19 课件）
+├─ frontend/                      # 前端技术文档
+│  ├─ JavaScript（00~10）
+│  ├─ Nodejs / Nodejs重学
+│  ├─ TypeScript（01~07）
+│  └─ Vue3
+├─ project/                       # 项目实战文档
+│  ├─ 进销存系统（01~06）
+│  ├─ 微信小程序
+│  ├─ vu3+ts后台管理系统
+│  └─ vu3移动端项目
+├─ other/                         # 通用与扩展内容
+│  ├─ 云服务器部署 / npm常用指令
+│  ├─ Git（教程与指令）
+│  ├─ 前端常用英语
+│  └─ 计算机硬件
+├─ nav/                           # 导航页
+│  ├─ data.ts
+│  ├─ index.md
+│  └─ index.scss
+├─ index.md                       # 首页
+└─ test.md                        # 功能测试页
+```
+
+### 约定建议
+
+- 新文档优先放到 docs/backend、docs/frontend、docs/project、docs/other 对应分类。
+- 导航站点数据统一维护在 docs/nav/data.ts。
+- 若新增一级分类目录，请同步更新 .vitepress/configs/nav.ts 与 .vitepress/configs/sidebar.ts。
 
 ## 内容维护指南
 
@@ -101,20 +172,20 @@ docs/frontend/JavaScript/11-事件循环.md
 
 ```yaml
 hero:
-	name: WEB XBIN
-	text: Study Web Notes.
-	tagline: 不忘初心,方得始终!
-	image:
-		src: /logo.png
-		alt: WEB XBIN
-	actions:
-		- text: 前端导航
-			link: /nav/
-			theme: alt
+ name: WEB XBIN
+ text: Study Web Notes.
+ tagline: 不忘初心,方得始终!
+ image:
+  src: /logo.png
+  alt: WEB XBIN
+ actions:
+  - text: 前端导航
+   link: /nav/
+   theme: alt
 features:
-	- icon: 📖
-		title: 前端物语
-		details: 整理前端常用知识点<br />如有异议按你的理解为主，不接受反驳
+ - icon: 📖
+  title: 前端物语
+  details: 整理前端常用知识点<br />如有异议按你的理解为主，不接受反驳
 ```
 
 ### 2) 顶部导航
@@ -242,4 +313,3 @@ git push -u gitee main
 ```bash
 git push -u github main && git push -u gitee main
 ```
-

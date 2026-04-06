@@ -1,6 +1,6 @@
 ## 第一章.枚举
 
-### 1.枚举介绍
+### `1`.枚举介绍
 
 ```java
 1.概述:属于一种引用类型 -> 类 数组 接口 枚举 注解 Record
@@ -60,13 +60,13 @@ public class Test01 {
 
 ```
 
-### 2.枚举的方法\_Enum
+### `2`.枚举的方法\`\_Enum`
 
-| 方法名              | 说明                            |
-| ------------------- | ------------------------------- |
-| String toString()   | 返回枚举值的名字,返回的是字符串 |
-| values()            | 返回所有的枚举值                |
-| valueOf(String str) | 将一个字符串转成枚举类型        |
+| 方法名                  | 说明                            |
+| ----------------------- | ------------------------------- |
+| `String toString`()     | 返回枚举值的名字,返回的是字符串 |
+| `values`()              | 返回所有的枚举值                |
+| `valueOf`(`String str`) | 将一个字符串转成枚举类型        |
 
 ```java
 public enum State {
@@ -123,29 +123,29 @@ public class Test01 {
 
 ```
 
-## 第二章.Record和密封类
+## 第二章.`Record` 和密封类
 
-### 1.Record类
+### `1.Record` 类
 
-Record类在JDK14、15预览特性，在JDK16中转正。
+`Record` 类在 `JDK14`、`15` 预览特性，在 `JDK16` 中转正。
 
-record是一种全新的类型，它本质上是一个 `final`类，同时所有的属性都是 `final`修饰，它会自动编译出get(不是getxxx方法,而是属性名())、hashCode 、比较所有属性值的equals、toString 等方法，减少了代码编写量。使用 Record 可以更方便的创建一个常量类。
+`record` 是一种全新的类型，它本质上是一个 `final` 类，同时所有的属性都是 `final` 修饰，它会自动编译出 `get`(不是 `getxxx` 方法,而是属性名())、`hashCode` 、比较所有属性值的 `equals`、`toString` 等方法，减少了代码编写量。使用 `Record` 可以更方便的创建一个常量类。
 
-**1.注意:**
+**`1`.注意:**
 
-- Record只会有一个全参构造
+- `Record` 只会有一个全参构造
 
-- 重写的equals方法比较所有属性值
+- 重写的 `equals` 方法比较所有属性值
 
-- 可以在Record声明的类中定义静态字段、静态方法或实例方法(非静态成员方法)。
+- 可以在 `Record` 声明的类中定义静态字段、静态方法或实例方法(非静态成员方法)。
 
-- 不能在Record声明的类中定义实例字段(非静态成员变量)；
+- 不能在 `Record` 声明的类中定义实例字段(非静态成员变量)；
 
-- 类不能声明为abstract；
+- 类不能声明为 `abstract`；
 
-- 不能显式的声明父类，默认父类是java.lang.Record类
+- 不能显式的声明父类，默认父类是 `java.lang.Record` 类
 
-- 因为Record类是一个 `final`类，所以也没有子类等。
+- 因为 `Record` 类是一个 `final` 类，所以也没有子类等。
 
   ```java
   public record Person(String name, int age) {
@@ -162,11 +162,11 @@ record是一种全新的类型，它本质上是一个 `final`类，同时所有
   }
   ```
 
-### 2.密封类
+### `2`.密封类
 
-其实很多语言中都有`密封类`的概念，在Java语言中,也早就有`密封类`的思想，就是`final`修饰的类，该类不允许被继承。而从JDK15开始,针对`密封类`进行了升级。
+其实很多语言中都有 `密封类` 的概念，在 `Java` 语言中,也早就有 `密封类` 的思想，就是 `final` 修饰的类，该类不允许被继承。而从 `JDK15` 开始,针对 `密封类` 进行了升级。
 
-Java 15通过密封的类和接口来增强Java编程语言，这是新引入的预览功能并在Java 16中进行了二次预览，并在Java17最终确定下来。这个预览功能用于限制超类的使用，密封的类和接口限制其他可能继承或实现它们的其他类或接口。
+`Java 15` 通过密封的类和接口来增强 `Java` 编程语言，这是新引入的预览功能并在 `Java 16` 中进行了二次预览，并在 `Java17` 最终确定下来。这个预览功能用于限制超类的使用，密封的类和接口限制其他可能继承或实现它们的其他类或接口。
 
 ```java
 【修饰符】 sealed class 密封类 【extends 父类】【implements 父接口】 permits 子类{
@@ -177,10 +177,10 @@ Java 15通过密封的类和接口来增强Java编程语言，这是新引入的
 }
 ```
 
-- 密封类用 sealed 修饰符来描述，
-- 使用 permits 关键字来指定可以继承或实现该类的类型有哪些
-- 一个类继承密封类或实现密封接口，该类必须是sealed、non-sealed、`final`修饰的。
-- sealed修饰的类或接口必须有子类或实现类
+- 密封类用 `sealed` 修饰符来描述，
+- 使用 `permits` 关键字来指定可以继承或实现该类的类型有哪些
+- 一个类继承密封类或实现密封接口，该类必须是 `sealed`、`non-sealed`、`final` 修饰的。
+- `sealed` 修饰的类或接口必须有子类或实现类
 
 ```java
 public sealed class Animal permits Dog,Cat{
@@ -209,7 +209,7 @@ non-sealed class Bird implements Flyable{
 }
 ```
 
-## 第三章.debug的使用
+## 第三章.`debug` 的使用
 
 ```java
 1.概述:debug是一个代码调试工具
@@ -225,9 +225,9 @@ non-sealed class Bird implements Flyable{
 
 <img src="https://img.xbin.cn/blog/20260405175014000.png" alt="image-20260123114550525" style="zoom:80%;" />
 
-## 第四章.Java其他操作\_API文档
+## 第四章.`Java` 其他操作\`\_API` 文档
 
-### 1.API文档
+### `1.API` 文档
 
 ```java
 1.什么是API(Application Programming Interface):应用程序接口 -> 说白了就是类以及类中的属性,方法等成员
@@ -236,7 +236,7 @@ non-sealed class Bird implements Flyable{
 
 <img src="https://img.xbin.cn/blog/20260405175014001.png" alt="1754099812028" style="zoom:80%;" />
 
-## 第五章.Object类
+## 第五章.`Object` 类
 
 ```java
 1.概述:Object是所有类的根类(父类),所有类都会直接或者间接继承Object类
@@ -245,7 +245,7 @@ non-sealed class Bird implements Flyable{
   public class Fu{} -> Fu类的亲爹就是Object
 ```
 
-### 1.toString方法
+### `1.toString` 方法
 
 ```java
 1.Object中的toString方法: 返回该对象的字符串表示
@@ -308,9 +308,9 @@ public class Test01 {
 }
 ```
 
-> 小结:如果输出对象名不想看到地址值,而是想看到对象的内容,就重写toString方法
+> 小结:如果输出对象名不想看到地址值,而是想看到对象的内容,就重写 `toString` 方法
 
-### 2.equals方法
+### `2.equals` 方法
 
 ```java
 1.Object中的equals方法:比较两个对象的地址值是否相等(说白了就是比较两个对象是否一样)
@@ -426,13 +426,13 @@ public class Test02 {
 
 ```
 
-> 小结: 如果比较两个对象不想比较地址值,想比较内容,就重写equals方法
+> 小结: 如果比较两个对象不想比较地址值,想比较内容,就重写 `equals` 方法
 
-## 第六章.Maven
+## 第六章.`Maven`
 
-### 1.为什么使用Maven工具
+### `1`.为什么使用 `Maven` 工具
 
-#### 1.1从构建的角度说明
+#### `1.1` 从构建的角度说明
 
 <img src="https://img.xbin.cn/blog/20260405175014002.png" alt="1753781974881" style="zoom:80%;" />
 
@@ -444,7 +444,7 @@ public class Test02 {
 所以我们使用maven工具构建项目,maven会帮我们编译,然后打成war包并部署到服务器中运行,不然就需要我们自己手动打war包,然后放到tomcat下面运行  -> 也节省了我们的时间
 ```
 
-#### 1.2.从依赖的角度说明
+#### `1.2`.从依赖的角度说明
 
 ```java
 随着我们使用越来越多的框架，或者框架封装程度越来越高，项目中使用的jar包也越来越多。项目中，一个模块里面用到上百个jar包是非常正常的
@@ -457,7 +457,7 @@ public class Test02 {
 
 <img src="https://img.xbin.cn/blog/20260405175014003.png" alt="1753782016742" style="zoom:80%;" />
 
-### 2.Maven的介绍
+### `2.Maven` 的介绍
 
 ```java
 1.概述:
@@ -469,25 +469,25 @@ public class Test02 {
   c.maven对工程分模块构建，提高开发效率。
 ```
 
-### 3.Maven的下载和仓库配置
+### `3.Maven` 的下载和仓库配置
 
 ```java
 仓库:放jar包的地方
 ```
 
-#### 3.1.Maven下载
+#### `3.1.Maven` 下载
 
 ```java
 https://maven.apache.org/docs/history.html
 ```
 
-| 发布时间   | maven版本 | jdk最低版本 |
-| ---------- | --------- | ----------- |
-| 2023-03-08 | 3.8.8     | Java 7      |
+| 发布时间     | `maven` 版本 | `jdk` 最低版本 |
+| ------------ | ------------ | -------------- |
+| `2023-03-08` | `3.8.8`      | `Java 7`       |
 
-> 我们用3.9.11
+> 我们用 `3.9.11`
 
-#### 3.2.Maven安装
+#### `3.2.Maven` 安装
 
 ```java
 1.解压:将apache-maven-3.9.11-bin.zip解压到自己找到的位置
@@ -501,12 +501,12 @@ https://maven.apache.org/docs/history.html
 
 <img src="https://img.xbin.cn/blog/20260405175014005.png" alt="1753834345192" style="zoom:80%;" />
 
-#### 3.3.仓库配置
+#### `3.3`.仓库配置
 
 | 仓库名称 | 作用 |
 | --- | --- |
-| 本地仓库 | 相当于缓存，工程第一次会从远程仓库（互联网）去下载jar 包，将jar包存在本地仓库（在程序员的电脑上）。第二次不需要从远程仓库去下载。先从本地仓库找，如果找不到才会去远程仓库找。 |
-| 中央仓库 | 就是远程仓库，仓库中jar由专业团队（maven团队）统一维护。中央仓库的地址：http://repo1.maven.org/maven2/ |
+| 本地仓库 | 相当于缓存，工程第一次会从远程仓库（互联网）去下载 `jar` 包，将 `jar` 包存在本地仓库（在程序员的电脑上）。第二次不需要从远程仓库去下载。先从本地仓库找，如果找不到才会去远程仓库找。 |
+| 中央仓库 | 就是远程仓库，仓库中 `jar` 由专业团队（`maven` 团队）统一维护。中央仓库的地址：http://repo1.maven.org/maven2/ |
 | 远程仓库 | 在公司内部架设一台私服，其它公司架设一台仓库，对外公开。-> 比如阿里仓库 |
 
 <img src="https://img.xbin.cn/blog/20260405175014006.png" alt="1753834615151" style="zoom:80%;" />
@@ -561,27 +561,27 @@ https://maven.apache.org/docs/history.html
 </profile>
 ```
 
-### 4.idea集成maven
+### `4.idea` 集成 `maven`
 
-> 我们需要将配置好的Maven软件，配置到IDEA开发工具中即可！ 注意：IDEA工具默认自带Maven配置软件，但是因为没有修改配置，建议替换成本地配置好的Maven！
+> 我们需要将配置好的 `Maven` 软件，配置到 `IDEA` 开发工具中即可！ 注意：`IDEA` 工具默认自带 `Maven` 配置软件，但是因为没有修改配置，建议替换成本地配置好的 `Maven`！
 
-#### 4.1.打开maven设置
+#### `4.1`.打开 `maven` 设置
 
 ```java
 File / Settings /  Build /  Build tools / Maven
 ```
 
-#### 4.2.配置本地maven
+#### `4.2`.配置本地 `maven`
 
 <img src="https://img.xbin.cn/blog/20260405175014007.png" alt="1753835606617" style="zoom:80%;" />
 
-### 5.创建maven项目
+### `5`.创建 `maven` 项目
 
 <img src="https://img.xbin.cn/blog/20260405175014008.png" alt="1753836044434" style="zoom:80%;" />
 
 <img src="https://img.xbin.cn/blog/20260405175014009.png" alt="1753841334104" style="zoom:80%;" />
 
-### 6.导入依赖
+### `6`.导入依赖
 
 ```java
 maven依赖仓库网址:
@@ -617,7 +617,7 @@ public class Demo01Hutool {
 }
 ```
 
-## 第七章.lombok
+## 第七章.`lombok`
 
 ```java
 1.概述:是一个第三方工具
@@ -656,51 +656,51 @@ public class Test01 {
 }
 ```
 
-### 1.lombok介绍
+### `1.lombok` 介绍
 
-Lombok通过增加一些“处理程序”，可以让javabean变得简洁、快速。
+`Lombok` 通过增加一些“处理程序”，可以让 `javabean` 变得简洁、快速。
 
-Lombok能以注解形式来简化java代码，提高开发效率。开发中经常需要写的javabean，都需要花时间去添加相应的getter/setter，也许还要去写构造器、equals等方法，而且需要维护。
+`Lombok` 能以注解形式来简化 `java` 代码，提高开发效率。开发中经常需要写的 `javabean`，都需要花时间去添加相应的 `getter`/`setter`，也许还要去写构造器、`equals` 等方法，而且需要维护。
 
-Lombok能通过注解的方式，在编译时自动为属性生成构造器、getter/setter、equals、hashcode、toString方法。出现的神奇就是在源码中没有getter和setter方法，但是在编译生成的字节码文件中有getter和setter方法。这样就省去了手动重建这些代码的麻烦，使代码看起来更简洁些。
+`Lombok` 能通过注解的方式，在编译时自动为属性生成构造器、`getter`/`setter`、`equals`、`hashcode`、`toString` 方法。出现的神奇就是在源码中没有 `getter` 和 `setter` 方法，但是在编译生成的字节码文件中有 `getter` 和 `setter` 方法。这样就省去了手动重建这些代码的麻烦，使代码看起来更简洁些。
 
 <img src="https://img.xbin.cn/blog/20260405175014011.png" alt="1730851674383" style="zoom:80%;" />
 
-### 2.lombok常用注解
+### `2.lombok` 常用注解
 
-#### @Getter和@Setter
+#### @`Getter` 和@`Setter`
 
-- 作用：生成成员变量的get和set方法。
+- 作用：生成成员变量的 `get` 和 `set` 方法。
 - 写在成员变量上，指对当前成员变量有效。
 - 写在类上，对所有成员变量有效。
 - 注意：静态成员变量无效。
 
-#### @ToString
+#### @`ToString`
 
-- 作用：生成toString()方法。
+- 作用：生成 `toString`()方法。
 - 注解只能写在类上。
 
-#### @NoArgsConstructor和@AllArgsConstructor
+#### @`NoArgsConstructor` 和@`AllArgsConstructor`
 
-- @NoArgsConstructor：无参数构造方法。
-- @AllArgsConstructor：满参数构造方法。
+- @`NoArgsConstructor`：无参数构造方法。
+- @`AllArgsConstructor`：满参数构造方法。
 - 注解只能写在类上。
 
-#### @EqualsAndHashCode
+#### @`EqualsAndHashCode`
 
-- 作用：生成hashCode()和equals()方法。
+- 作用：生成 `hashCode`()和 `equals`()方法。
 - 注解只能写在类上。
 
-#### @Data
+#### @`Data`
 
-- 作用：生成get/set，toString，hashCode，equals，无参构造方法
+- 作用：生成 `get`/`set`，`toString`，`hashCode`，`equals`，无参构造方法
 - 注解只能写在类上。
 
 <img src="https://img.xbin.cn/blog/20260405175014012.png" alt="1749284882052" style="zoom:80%;" />
 
 ## 第八章.单元测试
 
-### 1.Junit介绍
+### `1.Junit` 介绍
 
 ```java
 1.概述:是一个单元测试框架,可以代码main方法来测试代码是否能跑通
@@ -715,7 +715,7 @@ Lombok能通过注解的方式，在编译时自动为属性生成构造器、ge
 </dependency>
 ```
 
-### 2.Junit的基本使用(重点)
+### `2.Junit` 的基本使用(重点)
 
 ```java
 1.Junit中的常用注解
@@ -739,7 +739,7 @@ public class Demo01Junit {
 
 <img src="https://img.xbin.cn/blog/20260405175014013.png" alt="image-20260123162556217" style="zoom:80%;" />
 
-### 3.Junit的注意事项
+### `3.Junit` 的注意事项
 
 ```java
 1.@Test修饰的方法不能有参数
@@ -747,7 +747,7 @@ public class Demo01Junit {
 3.@Test修饰的方法不能是静态的
 ```
 
-### 4.Junit相关注解
+### `4.Junit` 相关注解
 
 ```java
 1.@Before:在@Test之前执行,有多少个@Test一起执行@Before修饰的方法就执行几次 -> 可以用于初始化数据
@@ -778,7 +778,7 @@ public class Demo01Junit {
 }
 ```
 
-### 5.@Test以后怎么使用
+### `5`.@`Test` 以后怎么使用
 
 > 将来我们会单独定义一个类(测试类),这个类中所写的方法,都是用于测试其他开发好的功能的
 

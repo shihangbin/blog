@@ -1,4 +1,4 @@
-# 二 BOM
+# 二 `BOM`
 
 - `BOM（Browser Object Model）`： 浏览器对象模型
 - 其实就是操作浏览器的一些能力
@@ -13,7 +13,7 @@
 - `BOM` 的核心就是 `window` 对象
 - `window` 是浏览器内置的一个对象，里面包含着操作浏览器的方法
 
-## 1. 获取浏览器窗口的尺寸
+## `1`. 获取浏览器窗口的尺寸
 
 - ` innerHeight` 和 `innerWidth`
 
@@ -27,7 +27,7 @@
   console.log(windowWidth)
   ```
 
-## 2. 浏览器的弹出层
+## `2`. 浏览器的弹出层
 
 - `alert` 是在浏览器弹出一个提示框
 
@@ -63,16 +63,16 @@
   - 当你点击取消的时候，得到的是 `null`
   - 当你点击确定的时候得到的就是你输入的内容
 
-- `close`和`open`开启和关闭浏览器
-  - `close`关闭当前窗口
-  - `open`打开一个新页面
+- `close` 和 `open` 开启和关闭浏览器
+  - `close` 关闭当前窗口
+  - `open` 打开一个新页面
 
-## 3. 浏览器的地址信息
+## `3`. 浏览器的地址信息
 
 - 在 `window` 中有一个对象叫做 `location`
 - 就是专门用来存储浏览器的地址栏内的信息的
 
-### location.href
+### `location.href`
 
 - `location.href` 这个属性存储的是浏览器地址栏内 `url` 地址的信息
 
@@ -98,7 +98,7 @@ console.log(res)
   // 这个就会跳转页面到后面你给的那个地址
   ```
 
-### location.reload
+### `location.reload`
 
 - `location.reload()` 这个方法会重新加载一遍页面，就相当于刷新是一个道理
 
@@ -108,12 +108,12 @@ console.log(res)
 
   - 注意： **不要写在全局，不然浏览器就会一直处在刷新状态**
 
-## 4. 浏览器的历史记录
+## `4`. 浏览器的历史记录
 
 - `window` 中有一个对象叫做 `history`
 - 是专门用来存储历史记录信息的
 
-### history.back
+### `history.back`
 
 - `history.back` 是用来会退历史记录的，就是回到前一个页面，就相当于浏览器上的 ⬅️ 按钮
 
@@ -123,7 +123,7 @@ console.log(res)
 
   - 前提是你要有上一条记录，不然就是一直在这个页面，也不会回退
 
-### history.forword
+### `history.forword`
 
 - `history.forword` 是去到下一个历史记录里面，也就是去到下一个页面，就相当于浏览器上的 ➡️ 按钮
 
@@ -133,7 +133,7 @@ console.log(res)
 
   - 前提是你要之前有过回退操作，不然的话你现在就是最后一个页面，没有下一个
 
-### history.go
+### `history.go`
 
 - `history.go` 正数就相当于浏览器上的 ➡️ 按钮，负数就相当于浏览器上的 ⬅️ 按钮
 
@@ -143,7 +143,7 @@ console.log(res)
 
   - 前提是你要之前有过回退操作，不然的话你现在就是最后一个页面，没有下一个
 
-## 5. 浏览器的 onload 事件
+## `5`. 浏览器的 `onload` 事件
 
 - 这个不在是对象了，而是一个事件
 
@@ -155,7 +155,7 @@ console.log(res)
   }
   ```
 
-### 5-1 在 html 页面中把 js 写在 head 里面
+### `5-1` 在 `html` 页面中把 `js` 写在 `head` 里面
 
 ```html
 <html>
@@ -178,7 +178,7 @@ console.log(res)
 </html>
 ```
 
-### 5-2 在 html 页面中把 js 写在 body 最后面
+### `5-2` 在 `html` 页面中把 `js` 写在 `body` 最后面
 
 ```html
 <html>
@@ -201,7 +201,7 @@ console.log(res)
 </html>
 ```
 
-## 6. 浏览器的 onscroll 事件
+## `6`. 浏览器的 `onscroll` 事件
 
 - 这个 `onscroll` 事件是当浏览器的滚动条滚动的时候触发
 
@@ -215,7 +215,7 @@ console.log(res)
 
   - 注意：**前提是页面的高度要超过浏览器的可是窗口才可以**
 
-## 7. 浏览器滚动的距离
+## `7`. 浏览器滚动的距离
 
 - 浏览器内的内容即然可以滚动，那么我们就可以获取到浏览器滚动的距离
 - 思考一个问题？
@@ -226,7 +226,7 @@ console.log(res)
 - 所以，这个已经不能单纯的算是浏览器的内容了，而是我们页面的内容
 - 所以不是在用 `window` 对象了，而是使用 `document` 对象
 
-### scrollTop
+### `scrollTop`
 
 - 获取的是页面向上滚动的距离
 
@@ -252,7 +252,7 @@ console.log(res)
     - Safari
       - 两个都不用，使用一个单独的方法 `window.pageYOffset `
 
-### scrollLeft
+### `scrollLeft`
 
 - 获取页面向左滚动的距离
 
@@ -270,9 +270,9 @@ console.log(res)
 
   - 两个之间的区别和之前的 `scrollTop` 一样
 
-## 8. 本地存储
+## `8`. 本地存储
 
-### 8-1 localStorage
+### `8-1 localStorage`
 
 ```js
 //增
@@ -285,7 +285,7 @@ localStorage.removeItem('name')
 localStorage.clear()
 ```
 
-### 8-2 sessionStorage
+### `8-2 sessionStorage`
 
 ```js
 //增

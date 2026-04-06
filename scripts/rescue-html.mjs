@@ -41,3 +41,6 @@ for (const file of files) {
 }
 
 console.log(`完成！修复了 ${changed} 个文件中的损坏 HTML 标签。`)
+// 修复 Markdown 文件中被误伤的 HTML 标签
+// 使用方法:
+//   node rescue-html.mjs

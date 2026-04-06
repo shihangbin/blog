@@ -21,10 +21,26 @@ export const nav: DefaultTheme.Config['nav'] = [
     text: '后端',
     items: [
       { text: '总览', link: '/backend/' },
-      { text: 'Java AI', link: '/backend/java AI/01_环境变量_变量_常量.md' },
+      { text: 'Java AI', link: '/backend/java AI/01_环境变量_变量_常量' },
       {
         text: 'MySQL',
-        link: '/backend/MySQL/01.数据库基础.md',
+        link: '/backend/MySQL/01.数据库基础',
+      },
+      {
+        text: '服务器与部署',
+        link: '/backend/服务器与部署/Nginx',
+      },
+      {
+        text: '消息队列',
+        link: '/backend/消息队列/RabbitMQ',
+      },
+      {
+        text: '缓存与中间件',
+        link: '/backend/缓存与中间件/Redis',
+      },
+      {
+        text: '构建与依赖',
+        link: '/backend/构建与依赖/Maven依赖管理项目构建工具',
       },
     ],
   },

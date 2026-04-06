@@ -1,19 +1,19 @@
-# fs 模块
+# `fs` 模块
 
-## 读取 api
+## 读取 `api`
 
 https://nodejs.org/docs/latest-v16.x/api/fs.html
 
-## flag
+## `flag`
 
-flag 的值有很多：https://nodejs.org/dist/latest-v14.x/docs/api/fs.html#fs_file_system_flags
+`flag` 的值有很多：https://nodejs.org/dist/latest-v14.x/docs/api/fs.html#fs_file_system_flags
 
-- w 打开文件写入，默认值；
-- w+打开文件进行读写（可读可写），如果不存在则创建文件；
-- r 打开文件读取，读取时的默认值；
-- r+ 打开文件进行读写，如果不存在那么抛出异常；
-- a 打开要写入的文件，将流放在文件末尾。如果不存在则创建文件；
-- a+打开文件以进行读写（可读可写），将流放在文件末尾。如果不存在则创建文件
+- `w` 打开文件写入，默认值；
+- `w`+打开文件进行读写（可读可写），如果不存在则创建文件；
+- `r` 打开文件读取，读取时的默认值；
+- `r`+ 打开文件进行读写，如果不存在那么抛出异常；
+- `a` 打开要写入的文件，将流放在文件末尾。如果不存在则创建文件；
+- `a`+打开文件以进行读写（可读可写），将流放在文件末尾。如果不存在则创建文件
 
 ## 同步读取
 
@@ -36,7 +36,7 @@ fs.readFile('./aaa.txt', { encoding: 'utf-8' }, (err, data) => {
 })
 ```
 
-## 异步读取: Promise
+## 异步读取: `Promise`
 
 ```js
 fs.promises
@@ -73,7 +73,7 @@ fs.open('./bbb.txt', (err, fd) => {
 })
 ```
 
-## 写入 api
+## 写入 `api`
 
 ```js
 const fs = require('fs')

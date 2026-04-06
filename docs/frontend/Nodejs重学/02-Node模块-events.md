@@ -1,4 +1,4 @@
-# events
+# `events`
 
 ## 基本使用
 
