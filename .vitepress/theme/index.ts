@@ -1,6 +1,7 @@
 import { h, watch } from 'vue'
 import { useData, EnhanceAppContext } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
+// import DefaultTheme from 'vitepress/theme'
+import DefaultTheme from 'vitepress/theme-without-fonts'
 
 // 已切换到 vitepress-plugin-image-preview，保留旧实现仅作备用。
 // import { createMediumZoomProvider } from './composables/useMediumZoom'
@@ -26,11 +27,61 @@ export default {
 
     return h(MLayout, props)
   },
+
+  // 👇 预加载本地字体，消除官方警告
+  transformHead({ assets }: { assets: string[] }) {
+    const fonts: any[] = []
+
+    // 匹配 CascadiaCode 字体（兼容 ttf/woff2）
+    const cascadiaFont = assets.find(file =>
+      /Cascadia-Code-Regular\.[\w-]+\.(ttf|woff2?)$/i.test(file)
+    )
+    if (cascadiaFont) {
+      fonts.push([
+        'link',
+        {
+          rel: 'preload',
+          href: cascadiaFont,
+          as: 'font',
+          type: cascadiaFont.endsWith('.woff2')
+            ? 'font/woff2'
+            : cascadiaFont.endsWith('.woff')
+              ? 'font/woff'
+              : 'font/ttf',
+          crossorigin: '',
+        },
+      ])
+    }
+
+    // 匹配 LXGW WenKai 字体（兼容 ttf/woff2）
+    const lxgwwenkaiFont = assets.find(file =>
+      /LXGWWenKai-Regular\.[\w-]+\.(ttf|woff2?)$/i.test(file)
+    )
+    if (lxgwwenkaiFont) {
+      fonts.push([
+        'link',
+        {
+          rel: 'preload',
+          href: lxgwwenkaiFont,
+          as: 'font',
+          type: lxgwwenkaiFont.endsWith('.woff2')
+            ? 'font/woff2'
+            : lxgwwenkaiFont.endsWith('.woff')
+              ? 'font/woff'
+              : 'font/ttf',
+          crossorigin: '',
+        },
+      ])
+    }
+
+    return fonts
+  },
+
   enhanceApp({ app, router }: EnhanceAppContext) {
     // 已切换到 vitepress-plugin-image-preview，停用 medium-zoom 旧方案。
     // createMediumZoomProvider(app, router)
 
-    app.provide('DEV', process.env.NODE_ENV === 'development')
+    app.provide('DEV', import.meta.env.DEV)
 
     app.component('MNavLinks', MNavLinks)
 
@@ -51,7 +102,11 @@ export default {
 if (typeof window !== 'undefined') {
   // detect browser, add to class for conditional styling
   const browser = navigator.userAgent.toLowerCase()
-  if (browser.includes('chrome')) {
+
+  // 先判 edge，再判 chrome，避免误判
+  if (browser.includes('edg/')) {
+    document.documentElement.classList.add('browser-edge')
+  } else if (browser.includes('chrome')) {
     document.documentElement.classList.add('browser-chrome')
   } else if (browser.includes('firefox')) {
     document.documentElement.classList.add('browser-firefox')
@@ -67,13 +122,13 @@ function updateHomePageStyle(value: boolean) {
 
     homePageStyle = document.createElement('style')
     homePageStyle.innerHTML = `
-    :root {
-      animation: rainbow 12s linear infinite;
-    }`
-    document.body.appendChild(homePageStyle)
+      :root {
+        animation: rainbow 12s linear infinite;
+      }`
+    // 用 head 更稳，不依赖 body 是否已可用
+    document.head.appendChild(homePageStyle)
   } else {
     if (!homePageStyle) return
-
     homePageStyle.remove()
     homePageStyle = undefined
   }

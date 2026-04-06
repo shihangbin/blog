@@ -101,3 +101,23 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+/* 行内代码 hover：高亮发光 + 阴影 + 下划线 */
+.vp-doc code:not(pre code) {
+  color: var(--vp-code-color);
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+/* 行内代码 hover：高亮发光 + 阴影 + 下划线 */
+.vp-doc code:not(pre code):hover {
+  border-bottom: 2px solid var(--vp-code-color);
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+.vp-doc img,
+.vp-doc video {
+  border-radius: 1vw;
+  max-width: 100%;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 7px 4px;
+}

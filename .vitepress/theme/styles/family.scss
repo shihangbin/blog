@@ -1,0 +1,49 @@
+/* .vitepress/theme/style.css */
+
+/* 本地字体定义 */
+
+@font-face {
+  font-family: 'AlibabaHealthFont2.0CN-45R';
+  src: url('./fonts/AlibabaHealthFont2.0CN-45R.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AlibabaHealthFont2.0CN-85B';
+  src: url('./fonts/AlibabaHealthFont2.0CN-85B.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 全局字体（最优雅组合） */
+:root {
+  /* 正文：标题粗体 + 正文清晰 + 兜底 */
+  --vp-font-family-base: 'AlibabaHealthFont2.0CN-45R', sans-serif;
+
+  /* 代码：Cascadia Code */
+  --vp-font-family-mono: 'AlibabaHealthFont2.0CN-85B', monospace;
+}
+
+/* 全局强制覆盖 */
+body,
+.vp-doc,
+.vp-sidebar,
+.vp-nav,
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+  font-family: var(--vp-font-family-base) !important;
+}
+
+/* 代码块字体 */
+.vp-doc pre,
+.vp-doc code,
+.vp-doc kbd,
+.vp-doc samp {
+  font-family: var(--vp-font-family-mono) !important;
+}

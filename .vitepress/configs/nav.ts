@@ -21,10 +21,10 @@ export const nav: DefaultTheme.Config['nav'] = [
     text: '后端',
     items: [
       { text: '总览', link: '/backend/' },
-      { text: 'Java AI', link: '/backend/java%20AI/01-Java-的概述' },
+      { text: 'Java AI', link: '/backend/java AI/01_环境变量_变量_常量.md' },
       {
         text: 'MySQL',
-        link: '/backend/MySQL/01-MySQL介绍和安装',
+        link: '/backend/MySQL/01.数据库基础.md',
       },
     ],
   },
