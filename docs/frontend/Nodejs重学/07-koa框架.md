@@ -4,7 +4,7 @@
 
 > Koa 官方的介绍：
 
-- koa：next generation web framework for node.js；
+- koa：next generation web framework `for` node.js；
 - koa：node.js 的下一代 web 框架；
 
   > 事实上，koa 是 express 同一个团队开发的一个新的 Web 框架：
@@ -157,7 +157,7 @@ npm install koa-static
 - Buffer ：Buffer 数据
 - Stream ：流数据
 - Object|| Array：对象或者数组
-- null ：不输出任何内容
+- `null` ：不输出任何内容
 - 如果 response.status 尚未设置，Koa 会自动将状态设置为 200 或 204。
 
 > 请求状态：status

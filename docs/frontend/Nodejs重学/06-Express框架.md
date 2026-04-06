@@ -527,7 +527,7 @@ end 方法
 
 json 方法
 
-- json 方法中可以传入很多的类型：object、array、string、boolean、number、null 等，它们会被转换成 json 格式返回；
+- json 方法中可以传入很多的类型：object、array、string、`boolean`、number、`null` 等，它们会被转换成 json 格式返回；
 
 status 方法
 

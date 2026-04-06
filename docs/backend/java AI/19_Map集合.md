@@ -355,7 +355,7 @@ public class Person {
 >
 > 不同点:HashMap线程不安全,Hashtable线程安全
 >
-> ​ HashMap可以存储null键null值;Hashtable不能
+> ​ HashMap可以存储`null`键`null`值;Hashtable不能
 
 ### 2.Vector集合
 
@@ -787,7 +787,7 @@ public class Person {
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | **Cursor** | Anysphere | Claude 5 Sonnet、GPT-4o、DeepSeek-V3（可自定义） | - **项目级代码理解**（@Codebase） - **Composer 多文件编辑** - **智能预测 & 自动修复** | 全栈开发、复杂项目重构、企业级应用 | **$20/月**（Pro 版） |
 | **Windsurf** | Codeium | Cascade（自研）、Claude 5、GPT-4o | - **Agent 模式**（多步任务执行） - **上下文固定（Context Pinning）** - **新手友好 UI** | 中小型项目、团队协作、快速迭代开发 | **$15/月**（Pro 版） |
-| **Bolt.new** | StackBlitz | 自研模型（未公开） | - **浏览器内全栈开发** - **对话式 AI 编程** - **云端协作** | Web 开发、快速原型验证 | **$20/月**（Pro 版） |
+| **Bolt.`new`** | StackBlitz | 自研模型（未公开） | - **浏览器内全栈开发** - **对话式 AI 编程** - **云端协作** | Web 开发、快速原型验证 | **$20/月**（Pro 版） |
 | **Copilot++** | GitHub（微软） | GPT-4 Turbo、Claude 5（可选） | - **GitHub 深度集成** - **CI/CD 自动化** - **企业级安全** | GitHub 生态、企业 DevOps 流程 | **$10/月**（个人版） |
 | **Continue** | Continue 团队（国际开源社区） | 支持 **Llama 3、DeepSeek、Ollama**（本地部署） | - **完全离线运行** - **隐私优先** - **可微调本地模型** | 金融/军工等高安全需求开发 | **免费**（需本地算力） |
 | **Trae** | 字节跳动 | 豆包1.5-pro、DeepSeek R1/V3、GPT-4o（国际版） | - **Builder 模式**（自然语言生成项目） - **中文优化** - **腾讯/阿里云集成** | 国内开发者、全栈 AI 开发 | **免费**（国内版） |

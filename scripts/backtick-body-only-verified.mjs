@@ -2,13 +2,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-/**
- * 用法:
- *   node scripts/backtick-body-only-verified.mjs --dry-run
- *   node scripts/backtick-body-only-verified.mjs
- *   node scripts/backtick-body-only-verified.mjs --dir=docs --ext=.md,.mdx --verify
- */
-
 const args = process.argv.slice(2)
 const getArg = (name, fallback = '') => {
   const hit = args.find(a => a.startsWith(`--${name}=`))
@@ -24,7 +17,6 @@ const DRY_RUN = args.includes('--dry-run')
 const VERIFY = args.includes('--verify')
 
 const keywords = [
-  // 可按需增删
   'class',
   'public',
   'private',
@@ -65,11 +57,10 @@ const keywords = [
 ]
 
 const kw = Array.from(new Set(keywords)).sort((a, b) => b.length - a.length)
-const kwRe = new RegExp(`\\b(${kw.map(escapeRegExp).join('|')})\\b`, 'g')
-
-function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-}
+const kwRe = new RegExp(
+  `\\b(${kw.map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`,
+  'g'
+)
 
 function walk(dir) {
   const out = []
@@ -82,20 +73,18 @@ function walk(dir) {
 }
 
 function parseFenceMarker(line) {
-  // 允许最多3个空格缩进（CommonMark）
-  const m = line.match(/^( {0,3})(`{3,}|~{3,})(.*)$/)
+  const m = line.match(/^([ \t]*)(`{3,}|~{3,})/)
   if (!m) return null
-  return { indent: m[1].length, ch: m[2][0], len: m[2].length }
+  return { ch: m[2][0], len: m[2].length }
 }
 
 function isFenceClose(line, st) {
-  // 关闭围栏：同类型字符，长度 >= 开始长度，允许前导 <= 3 空格，后面只允许空白
-  const re = new RegExp(`^( {0,3})(${st.ch}{${st.len},})\\s*$`)
+  const re = new RegExp(`^[ \\t]*${st.ch}{${st.len},}\\s*$`)
   return re.test(line)
 }
 
 function splitByFences(content) {
-  const lines = content.split('\n')
+  const lines = content.replace(/\r\n/g, '\n').split('\n')
   const parts = []
   let buf = []
   let inFence = false
@@ -131,35 +120,41 @@ function splitByFences(content) {
   return parts
 }
 
-function protectInlineCode(line) {
-  const bag = []
-  const text = line.replace(/`[^`\n]*`/g, m => {
-    const token = `@@IC_${bag.length}@@`
-    bag.push(m)
-    return token
-  })
-  return {
-    text,
-    restore: s => s.replace(/@@IC_(\d+)@@/g, (_, i) => bag[Number(i)]),
-  }
-}
-
-function isIndentedCodeLine(line) {
-  // 缩进代码块：4空格或tab
-  return /^( {4,}|\t)/.test(line)
-}
-
 function transformNormalPart(text) {
-  const lines = text.split('\n')
-  const out = lines.map(line => {
-    if (!line.trim()) return line
-    if (isIndentedCodeLine(line)) return line
+  const bag = []
+  const prot = m => {
+    bag.push(m)
+    return `@@PROT_${bag.length - 1}@@`
+  }
 
-    const { text: p, restore } = protectInlineCode(line)
-    const replaced = p.replace(kwRe, m => `\`${m}\``)
-    return restore(replaced)
-  })
-  return out.join('\n')
+  let t = text
+
+  // 1. 保护 Script 和 Style 块（VitePress 特有）
+  t = t.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, prot)
+
+  // 2. 保护 HTML/Vue 标签（支持跨多行的标签，彻底解决 Element is missing end tag）
+  t = t.replace(/<[^>]+>/g, prot)
+
+  // 3. 保护行内代码
+  t = t.replace(/`[^`]*`/g, prot)
+
+  // 4. 保护 Markdown 链接和图片
+  t = t.replace(/!?\[[^\]]*\]\([^)]+\)/g, prot)
+
+  // 5. 保护缩进代码块（以 4 个空格或 Tab 开头的行）
+  t = t.replace(/^( {4,}|\t).*$/gm, prot)
+
+  // === 只有真正干净的正文文本，才会执行关键字替换 ===
+  t = t.replace(kwRe, m => `\`${m}\``)
+
+  // 还原所有被保护的内容
+  let prev = ''
+  while (t !== prev) {
+    prev = t
+    t = t.replace(/@@PROT_(\d+)@@/g, (_, i) => bag[Number(i)])
+  }
+
+  return t
 }
 
 function extractFenceBodies(content) {
@@ -168,35 +163,33 @@ function extractFenceBodies(content) {
     .map(p => p.text)
 }
 
-function transformFile(raw) {
-  const parts = splitByFences(raw)
-  return parts.map(p => (p.type === 'fence' ? p.text : transformNormalPart(p.text))).join('\n')
-}
-
 function main() {
   const abs = path.resolve(process.cwd(), ROOT_DIR)
-  if (!fs.existsSync(abs)) {
-    console.error(`[ERR] dir not found: ${abs}`)
-    process.exit(1)
-  }
-
   const files = walk(abs)
   let changed = 0
+  let totalFencesFound = 0
 
   for (const file of files) {
     const raw = fs.readFileSync(file, 'utf8')
-    const next = transformFile(raw)
+    const parts = splitByFences(raw)
+
+    // 多行全局处理，不拆分 \n，防止跨行组件断裂
+    const next = parts
+      .map(p => (p.type === 'fence' ? p.text : transformNormalPart(p.text)))
+      .join('\n')
 
     if (VERIFY) {
       const beforeFences = extractFenceBodies(raw)
       const afterFences = extractFenceBodies(next)
+      totalFencesFound += beforeFences.length
+
       if (beforeFences.length !== afterFences.length) {
-        console.error(`[VERIFY FAIL] fence count changed: ${file}`)
+        console.error(`\n[VERIFY FAIL] 发现代码块数量变动: ${file}`)
         process.exit(2)
       }
       for (let i = 0; i < beforeFences.length; i++) {
         if (beforeFences[i] !== afterFences[i]) {
-          console.error(`[VERIFY FAIL] fence content changed: ${file} (fence #${i + 1})`)
+          console.error(`\n[VERIFY FAIL] 代码块内容被污染: ${file}`)
           process.exit(2)
         }
       }
@@ -209,7 +202,7 @@ function main() {
     }
   }
 
-  console.log(`Done. ${DRY_RUN ? '[dry-run] ' : ''}changed: ${changed}/${files.length}`)
+  console.log(`\nDone. 保护了 ${totalFencesFound} 个代码块。 changed: ${changed}/${files.length}`)
 }
 
 main()

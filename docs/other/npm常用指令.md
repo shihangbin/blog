@@ -6,9 +6,9 @@
 | --- | :-: |
 | npm -v | 查看npm安装的版本 |
 | npm help | 查看帮助 |
-| npm help json | 查看package.json文件内容格式 |
-| npm init | 初始化，引导你创建一个package.json文件 |
-| npm install | 安装package.json中的中的模块（目录中存在package.json，将安package.json配置号的版本模块） |
+| npm help json | 查看`package`.json文件内容格式 |
+| npm init | 初始化，引导你创建一个`package`.json文件 |
+| npm install | 安装`package`.json中的中的模块（目录中存在`package`.json，将安`package`.json配置号的版本模块） |
 | npm install -g | 更新本机npm的版本 |
 | npm install moduleName | 安装模块（install可简写为i）仅在当前目录安装 |
 | npm install moduleName -g | 全局安装（可在所有目录下使用） |

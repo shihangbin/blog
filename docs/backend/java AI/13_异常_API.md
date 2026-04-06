@@ -142,7 +142,7 @@ public class Demo05Exception {
 }
 ```
 
-#### 3.异常处理方式二\_try...catch
+#### 3.异常处理方式二\_try...`catch`
 
 ```java
 1.格式:
@@ -181,7 +181,7 @@ public class Demo06Exception {
 }
 ```
 
-#### 4.异常处理方式二\_多个catch
+#### 4.异常处理方式二\_多个`catch`
 
 ```java
 1.格式:
@@ -227,7 +227,7 @@ public class Demo06Exception {
 
 > 特点:
 >
-> 如果成功catch到了异常,不会影响后续的代码执行
+> 如果成功`catch`到了异常,不会影响后续的代码执行
 
 > 1.运行时期异常一般不用处理,因为一旦出现运行时期异常,肯定是代码写的有问题,我们只需要修改代码即可
 >
@@ -319,7 +319,7 @@ public class Demo09Exception {
 2.父类方法没有抛异常,子类重写之后要不要抛? 不要抛
 ```
 
-### 7.try_catch和throws的使用时机
+### 7.try_catch和`throws`的使用时机
 
 ```java
 1.如果处理异常之后,还想让后续的代码正常执行,我们使用try...catch
@@ -869,14 +869,14 @@ LocalDate withDayOfMonth(int day):设置月中的天数
 
 | 基本类型 | 包装类    |
 | -------- | --------- |
-| byte     | Byte      |
-| short    | Short     |
-| int      | Integer   |
-| long     | Long      |
-| float    | Float     |
-| double   | Double    |
-| char     | Character |
-| boolean  | Boolean   |
+| `byte`     | Byte      |
+| `short`    | Short     |
+| `int`      | Integer   |
+| `long`     | Long      |
+| `float`    | Float     |
+| `double`   | Double    |
+| `char`     | Character |
+| `boolean`  | Boolean   |
 
 ### 2.Integer的介绍以及使用
 
@@ -1004,13 +1004,13 @@ public void test02(){
 
 | 位置    | 方法                                  | 说明                    |
 | ------- | ------------------------------------- | ----------------------- |
-| Byte    | static byte parseByte(String s)       | 将字符串转成byte类型    |
-| Short   | static short parseShort(String s)     | 将字符串转成short类型   |
-| Integer | static int parseInt(String s)         | 将字符串转成int类型     |
-| Long    | static long parseLong(String s)       | 将字符串转成long类型    |
-| Float   | static float parseFloat(String s)     | 将字符串转成float类型   |
-| Double  | static double parseDouble(String s)   | 将字符串转成double类型  |
-| Boolean | static boolean parseBoolean(String s) | 将字符串转成boolean类型 |
+| Byte    | `static` `byte` parseByte(String s)       | 将字符串转成`byte`类型    |
+| Short   | `static` `short` parseShort(String s)     | 将字符串转成`short`类型   |
+| Integer | `static` `int` parseInt(String s)         | 将字符串转成`int`类型     |
+| Long    | `static` `long` parseLong(String s)       | 将字符串转成`long`类型    |
+| Float   | `static` `float` parseFloat(String s)     | 将字符串转成`float`类型   |
+| Double  | `static` `double` parseDouble(String s)   | 将字符串转成`double`类型  |
+| Boolean | `static` `boolean` parseBoolean(String s) | 将字符串转成`boolean`类型 |
 
 ```java
     @Test

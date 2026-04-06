@@ -170,9 +170,9 @@ public class MyThread extends Thread{
 
 > 问题:
 >
-> 为啥run方法中有编译时期异常只能try,不能throws?
+> 为啥run方法中有编译时期异常只能`try`,不能`throws`?
 >
-> 原因: Thread类中的run没有抛异常,所以我们重写之后就不能抛,只能try
+> 原因: Thread类中的run没有抛异常,所以我们重写之后就不能抛,只能`try`
 
 ### 4.第二种方式\_实现Runnable接口
 
